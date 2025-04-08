@@ -72,7 +72,7 @@ export const CustomButton: React.FC<ButtonProps> = ({
 
   const { backgroundColor, textColor, borderColor } = colorStyles[color];
 
-  const dynamicStyle = {
+  const dynamicStyle: ViewStyle = {
     width: "100%",
     height: buttonHeight,
     backgroundColor,
