@@ -9,8 +9,9 @@ i18n.use(initReactI18next).init({
     en: { translation: en },
     ar: { translation: ar },
   },
-  lng: Localization.locale.startsWith("ar") ? "ar" : "en", // Set default language based on device settings
-  fallbackLng: "en",
+  // lng: Localization.locale.startsWith("ar") ? "ar" : "en", // Set default language based on device settings
+  lng: "ar", // Set default language based on device settings
+  fallbackLng: "ar",
   interpolation: {
     escapeValue: false,
   },
