@@ -105,14 +105,14 @@ export const CustomLink: React.FC<CustomLinkProps> = ({
     <View
       style={{ width: `${buttonWidth}%`, alignItems: "center", margin: 10 }}
     >
-      {label && <CustomText type="label">{label}</CustomText>}
+      {label && <CustomText type="label" text={label} />}
       <NativeLink href={href} style={styles.link}>
         <TouchableOpacity
           style={[styles.button, dynamicStyle, style]}
           accessible
           accessibilityLabel={title || label || "Link"}
         >
-          <CustomText style={{ color: textColor }}>{title}</CustomText>
+          <CustomText text={title} style={{ color: textColor }} />
         </TouchableOpacity>
       </NativeLink>
     </View>
