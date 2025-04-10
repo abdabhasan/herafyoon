@@ -1,7 +1,9 @@
 import { Colors } from "@/constants/Colors";
-import { Text, type TextProps, StyleSheet } from "react-native";
+import { useTranslation } from "react-i18next";
+import { Text, type TextProps, StyleSheet, I18nManager } from "react-native";
 
 export type CustomTextProps = TextProps & {
+  text: string;
   type?:
     | "default"
     | "title"
@@ -13,10 +15,14 @@ export type CustomTextProps = TextProps & {
 
 export function CustomText({
   style,
-
+  text,
   type = "default",
   ...rest
 }: CustomTextProps) {
+  I18nManager.forceRTL(true);
+
+  const { t } = useTranslation();
+
   return (
     <Text
       style={[
@@ -29,7 +35,9 @@ export function CustomText({
         style,
       ]}
       {...rest}
-    />
+    >
+      {t(text) || " "}
+    </Text>
   );
 }
 
