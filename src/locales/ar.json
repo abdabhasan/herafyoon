@@ -1,4 +1,12 @@
 {
-  "welcome": "مرحبًا",
-  "select_language": "اختر لغة"
+  "welcome": "اهلا وسهلا",
+  "select_language": "اختر لغة",
+  "profile_tab": {
+    "do_u_wanna_be_pract": "هل تريد الإنضام معنا كحرفي ؟",
+    "do_u_wanna_be_normal_user": "هل تريد الإنضام كمستخدم عادي ؟",
+    "do_u_have_an_account": "هل تملك حساب ؟",
+    "create_pract_account": "أنشئ حساب حرفي",
+    "create_normal_account": "أنشئ حساب عادي",
+    "signin": "تسجيل الدخول"
+  }
 }

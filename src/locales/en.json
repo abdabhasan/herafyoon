@@ -1,4 +1,12 @@
 {
   "welcome": "Welcome",
-  "select_language": "Select a language"
+  "select_language": "Select a language",
+  "profile_tab": {
+    "do_u_wanna_be_pract": "Do you want to be Practitioner ?",
+    "do_u_wanna_be_normal_user": "Do you want to be normal user ?",
+    "do_u_have_an_account": "Do you have an Account ?",
+    "create_pract_account": "Create Practitioner Account",
+    "create_normal_account": "Create normal Account",
+    "signin": "Sign In"
+  }
 }
