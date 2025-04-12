@@ -84,12 +84,12 @@ export const CustomButton: React.FC<ButtonProps> = ({
     <View
       style={{ width: `${buttonWidth}%`, alignItems: "center", margin: 10 }}
     >
-      {label ? <CustomText type="label">{label}</CustomText> : null}
+      {label ? <CustomText type="label" text={label} /> : null}
       <TouchableOpacity
         onPress={onPress}
         style={[styles.button, dynamicStyle, style]}
       >
-        <CustomText style={[{ color: textColor }]}>{title}</CustomText>
+        <CustomText style={[{ color: textColor }]} text={title} />
       </TouchableOpacity>
     </View>
   );
