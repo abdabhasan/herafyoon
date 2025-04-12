@@ -8,7 +8,7 @@ export default function NotFoundScreen() {
     <>
       <Stack.Screen options={{ title: "Oops!" }} />
       <View style={styles.container}>
-        <CustomText type="title" text="this_page_doesnt_exists"></CustomText>
+        <CustomText type="title" text="this_page_doesnt_exists" />
         <CustomLink href="/" title="إذهب للصفحة الرئيسية" width="xl" />
       </View>
     </>
