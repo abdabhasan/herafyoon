@@ -3,6 +3,7 @@ import { CustomText } from "@/components/CustomText";
 import { View, StyleSheet } from "react-native";
 import WelcomeSVG from "@/assets/illustrations/construction-worker-bro.svg";
 import ProfilePageBtnContainer from "@/components/containers/ProfilePageBtnsContainer";
+import LanguageSelectBtn from "@/components/Btns/LanguageSelectBtn";
 
 type Props = {};
 
@@ -10,6 +11,7 @@ const ProfilePageContainer = (props: Props) => {
   return (
     <>
       <View style={styles.container}>
+        <LanguageSelectBtn />
         <WelcomeSVG style={styles.logo} />
         <CustomText type="title" text="welcome" />
         <ProfilePageBtnContainer />
