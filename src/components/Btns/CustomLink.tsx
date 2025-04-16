@@ -23,7 +23,7 @@ type CustomLinkProps = {
   width?: WidthOption;
   height?: HeightOption;
   color?: ColorOption;
-  style?: StyleProp<ViewStyle>;
+  style?: StyleProp<TextStyle>;
 };
 
 type NativeLinkProps = {
@@ -81,7 +81,7 @@ export const CustomLink: React.FC<CustomLinkProps> = ({
 
   const { backgroundColor, textColor, borderColor } = colorStyles[color];
 
-  const dynamicStyle: ViewStyle = {
+  const dynamicStyle: TextStyle = {
     height: buttonHeight,
     backgroundColor,
     borderColor,
@@ -105,10 +105,8 @@ export const CustomLink: React.FC<CustomLinkProps> = ({
     <View
       style={{ width: `${buttonWidth}%`, alignItems: "center", margin: 10 }}
     >
-      {label && <CustomText type="label" text={label} />}
-      <NativeLink href={href} style={styles.link}>
+      <NativeLink href={href} style={[styles.link, dynamicStyle, style]}>
         <TouchableOpacity
-          style={[styles.button, dynamicStyle, style]}
           accessible
           accessibilityLabel={title || label || "Link"}
         >
@@ -120,13 +118,10 @@ export const CustomLink: React.FC<CustomLinkProps> = ({
 };
 
 const styles = StyleSheet.create({
-  button: {
-    justifyContent: "center",
-    alignItems: "center",
+  link: {
     borderWidth: 1,
     width: "100%",
-  },
-  link: {
-    width: "100%",
+    alignItems: "center",
+    justifyContent: "center",
   },
 });
