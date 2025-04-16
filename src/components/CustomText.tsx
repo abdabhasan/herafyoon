@@ -1,6 +1,6 @@
 import { Colors } from "@/constants/Colors";
 import { useTranslation } from "react-i18next";
-import { Text, type TextProps, StyleSheet, I18nManager } from "react-native";
+import { Text, type TextProps, StyleSheet } from "react-native";
 
 export type CustomTextProps = TextProps & {
   text: string;
@@ -19,8 +19,6 @@ export function CustomText({
   type = "default",
   ...rest
 }: CustomTextProps) {
-  I18nManager.forceRTL(true);
-
   const { t } = useTranslation();
 
   return (
@@ -69,7 +67,6 @@ const styles = StyleSheet.create({
     color: "#d0fae5",
   },
   label: {
-    alignSelf: "flex-end",
     fontSize: 12,
     fontWeight: "bold",
     color: "#444",

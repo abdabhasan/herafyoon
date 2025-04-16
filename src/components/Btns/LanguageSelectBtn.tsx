@@ -1,0 +1,38 @@
+import React from "react";
+import { CustomButton } from "./CustomBtn";
+import { useTranslation } from "react-i18next";
+import { StyleSheet, View } from "react-native";
+
+const LanguageSelectBtn = () => {
+  const { i18n } = useTranslation();
+  const theOtherLanguage = i18n.language === "en" ? "ar" : "en";
+
+  const toggleLanguage = () => {
+    i18n.changeLanguage(theOtherLanguage);
+  };
+
+  return (
+    <View style={styles.container}>
+      <CustomButton
+        title={theOtherLanguage}
+        onPress={toggleLanguage}
+        height="tiny"
+        style={styles.button}
+      />
+    </View>
+  );
+};
+
+const styles = StyleSheet.create({
+  container: {
+    flexGrow: 1,
+    alignContent: "center",
+    justifyContent: "center",
+    alignSelf: "flex-start",
+  },
+  button: {
+    width: 60,
+  },
+});
+
+export default LanguageSelectBtn;

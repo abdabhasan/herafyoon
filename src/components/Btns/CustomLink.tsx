@@ -4,13 +4,13 @@ import {
   TouchableOpacity,
   StyleSheet,
   StyleProp,
-  ViewStyle,
   View,
   Platform,
   TextStyle,
 } from "react-native";
 import { CustomText } from "../CustomText";
 import { Href, Link } from "expo-router";
+import { useTranslation } from "react-i18next";
 
 type WidthOption = "sm" | "m" | "l" | "xl";
 type HeightOption = "normal" | "tiny";
@@ -79,6 +79,9 @@ export const CustomLink: React.FC<CustomLinkProps> = ({
   const buttonWidth = widthMap[width];
   const buttonHeight = heightMap[height];
 
+  const { i18n } = useTranslation();
+  const isRTL = i18n.language === "ar";
+
   const { backgroundColor, textColor, borderColor } = colorStyles[color];
 
   const dynamicStyle: TextStyle = {
@@ -105,6 +108,15 @@ export const CustomLink: React.FC<CustomLinkProps> = ({
     <View
       style={{ width: `${buttonWidth}%`, alignItems: "center", margin: 10 }}
     >
+      {label && (
+        <CustomText
+          type="label"
+          text={label}
+          style={{
+            alignSelf: isRTL ? "flex-end" : "flex-start",
+          }}
+        />
+      )}
       <NativeLink href={href} style={[styles.link, dynamicStyle, style]}>
         <TouchableOpacity
           accessible
