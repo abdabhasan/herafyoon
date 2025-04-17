@@ -5,16 +5,16 @@ import { StyleSheet, View } from "react-native";
 
 const LanguageSelectBtn = () => {
   const { i18n } = useTranslation();
-  const theOtherLanguage = i18n.language === "en" ? "ar" : "en";
 
   const toggleLanguage = () => {
+    const theOtherLanguage = i18n.language === "en" ? "ar" : "en";
     i18n.changeLanguage(theOtherLanguage);
   };
 
   return (
     <View style={styles.container}>
       <CustomButton
-        title={theOtherLanguage}
+        title="language"
         onPress={toggleLanguage}
         height="tiny"
         style={styles.button}
