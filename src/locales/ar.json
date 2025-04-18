@@ -1,8 +1,10 @@
 {
   "welcome": "اهلا وسهلا",
-  "select_language": "اختر لغة",
   "this_page_doesnt_exists": "هذه الصفحة غير متوفرة",
   "language": "English",
+  "signin": "تسجيل الدخول",
+  "signup": "أنشئ حساب",
+
   "profile_tab": {
     "do_u_wanna_be_pract": "هل تريد الإنضام معنا كحرفي ؟",
     "do_u_wanna_be_normal_user": "هل تريد الإنضام كمستخدم عادي ؟",
@@ -10,5 +12,18 @@
     "create_pract_account": "أنشئ حساب حرفي",
     "create_normal_account": "أنشئ حساب عادي",
     "signin": "تسجيل الدخول"
+  },
+  "signup_page": {
+    "title": "أنشئ حساب حرفي",
+    "form": {
+      "first_name": "الاسم الاول",
+      "last_name": "اسم العائلة",
+      "email": "البريد الالكتروني",
+      "phone": "رقم الهاتف",
+      "password": "كلمة المرور",
+      "country": "الدولة",
+      "city": "المدينة",
+      "neighbourhood": "الحي / المنطقة"
+    }
   }
 }
