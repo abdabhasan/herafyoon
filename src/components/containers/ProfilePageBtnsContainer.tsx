@@ -7,7 +7,7 @@ const ProfilePageBtnsContainer = (props: Props) => {
   return (
     <>
       <CustomLink
-        href="/"
+        href="/user/practitioner/signup"
         width="xl"
         color="secondary"
         label="profile_tab.do_u_wanna_be_pract"
