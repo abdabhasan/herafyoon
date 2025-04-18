@@ -10,7 +10,8 @@ export type CustomTextProps = TextProps & {
     | "defaultSemiBold"
     | "subtitle"
     | "link"
-    | "label";
+    | "label"
+    | "error";
 };
 
 export function CustomText({
@@ -30,6 +31,7 @@ export function CustomText({
         type === "subtitle" ? styles.subtitle : undefined,
         type === "link" ? styles.link : undefined,
         type === "label" ? styles.label : undefined,
+        type === "error" ? styles.error : undefined,
         style,
       ]}
       {...rest}
@@ -72,5 +74,9 @@ const styles = StyleSheet.create({
     color: "#444",
     marginBottom: 6,
     marginLeft: 4,
+  },
+  error: {
+    color: "red",
+    marginTop: 5,
   },
 });
