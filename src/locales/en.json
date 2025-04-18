@@ -1,7 +1,9 @@
 {
   "welcome": "Welcome",
-  "select_language": "Select a language",
+  "this_page_doesnt_exists": "This Page Does not Exists",
   "language": "العربية",
+  "signin": "Sign In",
+  "signup": "Sign Up",
   "profile_tab": {
     "do_u_wanna_be_pract": "Do you want to be Practitioner ?",
     "do_u_wanna_be_normal_user": "Do you want to be normal user ?",
@@ -9,5 +11,18 @@
     "create_pract_account": "Create Practitioner Account",
     "create_normal_account": "Create normal Account",
     "signin": "Sign In"
+  },
+  "signup_page": {
+    "title": "Create Practitioner Account",
+    "form": {
+      "first_name": "First Name",
+      "last_name": "Last Name",
+      "email": "Email Address",
+      "phone": "Phone Number",
+      "password": "Password",
+      "country": "Country",
+      "city": "City",
+      "neighbourhood": "Neighbourhood"
+    }
   }
 }
