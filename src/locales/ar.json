@@ -4,7 +4,11 @@
   "language": "English",
   "signin": "تسجيل الدخول",
   "signup": "أنشئ حساب",
-
+  "tabs": {
+    "profile": "الملف الشخصي",
+    "search": "البحث",
+    "home": "الرئيسية"
+  },
   "profile_tab": {
     "do_u_wanna_be_pract": "هل تريد الإنضام معنا كحرفي ؟",
     "do_u_wanna_be_normal_user": "هل تريد الإنضام كمستخدم عادي ؟",

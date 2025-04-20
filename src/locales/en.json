@@ -4,6 +4,11 @@
   "language": "العربية",
   "signin": "Sign In",
   "signup": "Sign Up",
+  "tabs": {
+    "profile": "profile",
+    "search": "search",
+    "home": "home"
+  },
   "profile_tab": {
     "do_u_wanna_be_pract": "Do you want to be Practitioner ?",
     "do_u_wanna_be_normal_user": "Do you want to be normal user ?",

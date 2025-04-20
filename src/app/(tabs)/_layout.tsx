@@ -6,8 +6,11 @@ import { HapticTab } from "@/components/HapticTab";
 import { IconSymbol } from "@/components/ui/IconSymbol";
 import TabBarBackground from "@/components/ui/TabBarBackground";
 import { Colors } from "@/constants/Colors";
+import { useTranslation } from "react-i18next";
 
 export default function TabLayout() {
+  const { t } = useTranslation();
+
   return (
     <Tabs
       screenOptions={{
@@ -27,7 +30,7 @@ export default function TabLayout() {
       <Tabs.Screen
         name="profile"
         options={{
-          title: "الملف الشخصي",
+          title: t("tabs.profile"),
           tabBarIcon: ({ color }) => (
             <IconSymbol size={28} name="person.fill" color={color} />
           ),
@@ -36,7 +39,7 @@ export default function TabLayout() {
       <Tabs.Screen
         name="search"
         options={{
-          title: "البحث",
+          title: t("tabs.search"),
           tabBarIcon: ({ color }) => (
             <IconSymbol size={28} name="magnifyingglass" color={color} />
           ),
@@ -45,7 +48,7 @@ export default function TabLayout() {
       <Tabs.Screen
         name="index"
         options={{
-          title: "الصفحة الرئيسية",
+          title: t("tabs.home"),
           tabBarIcon: ({ color }) => (
             <IconSymbol size={28} name="house.fill" color={color} />
           ),
