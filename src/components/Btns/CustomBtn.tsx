@@ -81,9 +81,7 @@ export const CustomButton: React.FC<ButtonProps> = ({
   };
 
   return (
-    <View
-      style={{ width: `${buttonWidth}%`, alignItems: "center", margin: 10 }}
-    >
+    <View style={[styles.container, { width: `${buttonWidth}%` }]}>
       {label ? <CustomText type="label" text={label} /> : null}
       <TouchableOpacity
         onPress={onPress}
@@ -96,6 +94,12 @@ export const CustomButton: React.FC<ButtonProps> = ({
 };
 
 const styles = StyleSheet.create({
+  container: {
+    alignSelf: "center",
+    alignItems: "center",
+    margin: 10,
+  },
+
   button: {
     justifyContent: "center",
     alignItems: "center",
