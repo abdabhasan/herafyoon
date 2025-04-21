@@ -84,6 +84,6 @@ const styles = StyleSheet.create({
   },
   error: {
     color: "red",
-    marginTop: 5,
+    marginVertical: 5,
   },
 });
