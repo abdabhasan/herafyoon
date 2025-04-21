@@ -14,7 +14,7 @@ const ProfilePageBtnsContainer = (props: Props) => {
         title="profile_tab.create_pract_account"
       />
       <CustomLink
-        href="/"
+        href="/user/normal/signup"
         width="xl"
         label="profile_tab.do_u_wanna_be_normal_user"
         title="profile_tab.create_normal_account"
