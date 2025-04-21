@@ -6,6 +6,7 @@ export type CustomTextProps = TextProps & {
   text: string;
   type?:
     | "default"
+    | "defaultDark"
     | "title"
     | "defaultSemiBold"
     | "subtitle"
@@ -26,6 +27,7 @@ export function CustomText({
     <Text
       style={[
         type === "default" ? styles.default : undefined,
+        type === "defaultDark" ? styles.defaultDark : undefined,
         type === "title" ? styles.title : undefined,
         type === "defaultSemiBold" ? styles.defaultSemiBold : undefined,
         type === "subtitle" ? styles.subtitle : undefined,
@@ -46,6 +48,11 @@ const styles = StyleSheet.create({
     fontSize: 16,
     lineHeight: 24,
     color: Colors.white,
+  },
+  defaultDark: {
+    fontSize: 16,
+    lineHeight: 24,
+    color: Colors.black,
   },
   defaultSemiBold: {
     fontSize: 16,
