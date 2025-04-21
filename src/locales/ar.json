@@ -4,6 +4,8 @@
   "language": "English",
   "signin": "تسجيل الدخول",
   "signup": "أنشئ حساب",
+  "select": "اختيار",
+  "close": "اغلاق",
   "tabs": {
     "profile": "الملف الشخصي",
     "search": "البحث",
@@ -19,6 +21,8 @@
   },
   "signup_page": {
     "title": "أنشئ حساب حرفي",
+    "success": "تم ارسال طلبك بنجاح !",
+    "will_be_reviewed": "سيتم مراجعة الطلب في اقرب وقت",
     "form": {
       "first_name": "الاسم الاول",
       "last_name": "اسم العائلة",
@@ -27,7 +31,54 @@
       "password": "كلمة المرور",
       "country": "الدولة",
       "city": "المدينة",
-      "neighbourhood": "الحي / المنطقة"
+      "neighbourhood": "الحي / المنطقة",
+      "done": "تم",
+      "select_option": "اختيار",
+      "workType": "العمل"
     }
+  },
+  "signup_normal_user_page": {
+    "title": "أنشئ حساب مستخدم عادي"
+  },
+  "validation": {
+    "first_name": "يجب أن يكون الاسم الاول اكثر من 3 حروف",
+    "last_name": "يجب أن يكون اسم العائلة اكثر من 3 حروف",
+    "email": "بريد الكتروني غير صالح",
+    "password": "يجب أن تكون كلمة السر اكثر من 6 حروف",
+    "country": "يجب أن تكون الدولة اكثر من 3 حروف",
+    "city": "يجب أن تكون المدينة اكثر من 3 حروف",
+    "neighbourhood": "يجب أن تكون المنطقة اكثر من 3 حروف",
+    "work_type": "يجب أن يكون نوع العمل اكثر من 3 حروف",
+    "phone": {
+      "min": "الرقم يجب أن يكون 5 أرقام على الأقل",
+      "max": "الرقم يجب أن يكون أقل من 15",
+      "invalid": "رقم غير صالح"
+    }
+  },
+  "country_items": {
+    "jordan": "الاردن",
+    "palestine": "فلسطين"
+  },
+  "work_type_options": {
+    "joiner": "نجار",
+    "blacksmith": "حداد",
+    "painter": "عامل طلاء",
+    "tile_worker": "عامل بلاط",
+    "heavy_truck_driver": "سائق شاحنة"
+  },
+  "country_picker_options": {
+    "jordan": "الاردن",
+    "palestine": "فلسطين"
+  },
+  "city_picker_options": {
+    "amman": "عمان",
+    "zarqa": "الزرقاء",
+    "irbid": "اربد"
+  },
+  "neighbourhood_picker_options": {
+    "dabouq": "دابوق",
+    "tla_ali": "تلاع العلي",
+    "jabal_husain": "جبل الحسين",
+    "khalda": "خلدا"
   }
 }
