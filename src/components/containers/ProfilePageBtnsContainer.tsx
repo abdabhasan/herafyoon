@@ -20,7 +20,7 @@ const ProfilePageBtnsContainer = (props: Props) => {
         title="profile_tab.create_normal_account"
       />
       <CustomLink
-        href="/"
+        href="/user/signin"
         width="xl"
         label="profile_tab.do_u_have_an_account"
         title="profile_tab.signin"
