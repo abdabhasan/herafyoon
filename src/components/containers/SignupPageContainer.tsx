@@ -22,7 +22,7 @@ const styles = StyleSheet.create({
   container: {
     padding: 16,
     alignItems: "center",
-    marginBottom: 150,
+    marginBottom: 250,
     marginTop: 50,
   },
 });

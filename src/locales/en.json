@@ -4,6 +4,8 @@
   "language": "العربية",
   "signin": "Sign In",
   "signup": "Sign Up",
+  "select": "Select...",
+  "close": "Close",
   "tabs": {
     "profile": "profile",
     "search": "search",
@@ -19,6 +21,8 @@
   },
   "signup_page": {
     "title": "Create Practitioner Account",
+    "success": "Sign Up Successful!",
+    "will_be_reviewed": "We will review your request as soon as possible!",
     "form": {
       "first_name": "First Name",
       "last_name": "Last Name",
@@ -27,7 +31,55 @@
       "password": "Password",
       "country": "Country",
       "city": "City",
-      "neighbourhood": "Neighbourhood"
+      "neighbourhood": "Neighbourhood",
+      "done": "Done ",
+      "select_option": "Select",
+      "workType": "Work Type"
     }
+  },
+  "signup_normal_user_page": {
+    "title": "Sign Up for Normal User"
+  },
+  "validation": {
+    "first_name": "First name must be must be at least 3 characters",
+    "last_name": "Lasat name must be must be at least 3 characters",
+    "email": "Invalid email address",
+    "password": "Password must be at least 6 characters",
+    "country": "Country must be must be at least 3 characters",
+    "city": "City must be must be at least 3 characters",
+    "neighbourhood": "Neighbourhood must be must be at least 3 characters",
+    "work_type": "Work Type must be must be at least 3 characters",
+    "phone": {
+      "min": "Phone number must be at least 5 digits",
+      "max": "Phone number cannot exceed 15 digits",
+      "invalid": "Invalid phone number format"
+    }
+  },
+  "country_items": {
+    "jordan": "Jordan",
+    "palestine": "Palestine"
+  },
+  "work_type_options": {
+    "joiner": "Joiner",
+    "blacksmith": "Blacksmith",
+    "painter": "Painter",
+    "tile_worker": "Tile Worker",
+    "heavy_truck_driver": "Heavy Truck Driver"
+  },
+
+  "country_picker_options": {
+    "jordan": "Jordan",
+    "palestine": "Palestine"
+  },
+  "city_picker_options": {
+    "amman": "Amman",
+    "zarqa": "Zarqa",
+    "irbid": "Irbid"
+  },
+  "neighbourhood_picker_options": {
+    "dabouq": "Dabouq",
+    "tla_ali": "Tla Al-Ali",
+    "jabal_husain": "Jabal Al-Husain",
+    "khalda": "Khalda"
   }
 }
