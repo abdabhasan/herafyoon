@@ -66,19 +66,63 @@
     "tile_worker": "عامل بلاط",
     "heavy_truck_driver": "سائق شاحنة"
   },
+
   "country_picker_options": {
     "jordan": "الاردن",
     "palestine": "فلسطين"
   },
-  "city_picker_options": {
-    "amman": "عمان",
-    "zarqa": "الزرقاء",
-    "irbid": "اربد"
+
+  "jordan_city_picker_options": {
+    "amman": "عمّان",
+    "zarqa": "الزرقاء"
   },
-  "neighbourhood_picker_options": {
+
+  "amman_neighbourhood_picker_options": {
+    "abdoun": "عبدون",
+    "jabal_amman": "جبل عمّان",
+    "jabal_al_weibdeh": "جبل اللويبدة",
+    "ras_al_ain": "رأس العين",
+    "khalda": "خلدا",
     "dabouq": "دابوق",
-    "tla_ali": "تلاع العلي",
-    "jabal_husain": "جبل الحسين",
-    "khalda": "خلدا"
+    "shmeisani": "الشميساني",
+    "sweileh": "صويلح",
+    "marj_al_hamam": "مرج الحمام",
+    "al_yasmin": "الياسمين",
+    "al_jubayhah": "الجبيهة",
+    "al_quwaysimah": "القويسمة",
+    "al_yarmouk": "اليرموك",
+    "basman": "بسمان",
+    "markah": "ماركا",
+    "zahran": "زهران",
+    "badr": "بدر",
+    "tariq": "طارق",
+    "uhud": "أُحد",
+    "shafa_badran": "شفا بدران",
+    "naour": "ناعور",
+    "al_madina": "المدينة"
+  },
+  "zarqa_neighbourhood_picker_options": {
+    "city_center": "وسط المدينة",
+    "althawra_al_arabiya": "الثورة العربية",
+    "ewajan": "الويجان",
+    "zawahreh": "الزواهرة",
+    "new_zarqa": "الزرقاء الجديدة",
+    "sports_complex": "مجمع رياضي",
+    "zarqa_city_gardens": "حدائق مدينة الزرقاء"
+  },
+  "palestine_city_picker_options": {
+    "ramallah": "رام الله"
+  },
+  "ramallah_neighbouhood_picker_options": {
+    "al_masyoun": "المصيون",
+    "al_tireh": "الطيرة",
+    "um_al_sharayet": "أم الشرايط",
+    "al_bireh": "البيرة",
+    "beitunia": "بيتونيا",
+    "al_jinan": "الجنائن",
+    "al_balou": "البلوع",
+    "dahiat_al_barid": "ضاحية البريد",
+    "al_irsal": "الإرسال",
+    "ein_misbah": "عين مصباح"
   }
 }
