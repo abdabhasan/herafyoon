@@ -71,15 +71,57 @@
     "jordan": "Jordan",
     "palestine": "Palestine"
   },
-  "city_picker_options": {
+  "jordan_city_picker_options": {
     "amman": "Amman",
-    "zarqa": "Zarqa",
-    "irbid": "Irbid"
+    "zarqa": "Zarqa"
   },
-  "neighbourhood_picker_options": {
+
+  "amman_neighbourhood_picker_options": {
+    "abdoun": "Abdoun",
+    "jabal_amman": "Jabal Amman",
+    "jabal_al_weibdeh": "Jabal Al-Weibdeh",
+    "ras_al_ain": "Ras Al-Ain",
+    "khalda": "Khalda",
     "dabouq": "Dabouq",
-    "tla_ali": "Tla Al-Ali",
-    "jabal_husain": "Jabal Al-Husain",
-    "khalda": "Khalda"
+    "shmeisani": "Shmeisani",
+    "sweileh": "Sweileh",
+    "marj_al_hamam": "Marj Al-Hamam",
+    "al_yasmin": "Al-Yasmin",
+    "al_jubayhah": "Al-Jubayhah",
+    "al_quwaysimah": "Al-Quwaysimah",
+    "al_yarmouk": "Al-Yarmouk",
+    "basman": "Basman",
+    "markah": "Markah",
+    "zahran": "Zahran",
+    "badr": "Badr",
+    "tariq": "Tariq",
+    "uhud": "Uhud",
+    "shafa_badran": "Shafa Badran",
+    "naour": "Naour",
+    "al_madina": "Al-Madina"
+  },
+  "zarqa_neighbourhood_picker_options": {
+    "city_center": "City Center",
+    "althawra_al_arabiya": "Althawra Al-Arabiya",
+    "ewajan": "Ewajan",
+    "zawahreh": "Zawahreh",
+    "new_zarqa": "New Zarqa",
+    "sports_complex": "Sports Complex",
+    "zarqa_city_gardens": "Zarqa City Gardens"
+  },
+  "palestine_city_picker_options": {
+    "ramallah": "Ramallah"
+  },
+  "ramallah_neighbouhood_picker_options": {
+    "al_masyoun": "Al-Masyoun",
+    "al_tireh": "Al-Tireh",
+    "um_al_sharayet": "Um Al-Sharayet",
+    "al_bireh": "Al-Bireh",
+    "beitunia": "Beitunia",
+    "al_jinan": "Al-Jinan",
+    "al_balou": "Al-Balou’",
+    "dahiat_al_barid": "Dahiat Al-Barid",
+    "al_irsal": "Al-Irsal",
+    "ein_misbah": "Ein Misbah"
   }
 }
