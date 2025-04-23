@@ -33,9 +33,12 @@ const CustomPhoneNumberInput: React.FC<CustomPhoneNumberInputProps> = ({
   const [selectedCountry, setSelectedCountry] = useState(
     countriesDialCodes[0]?.key || ""
   );
-
-  const { i18n } = useTranslation();
+  const { t, i18n } = useTranslation();
   const isRTL = i18n.language === "ar";
+
+  const sortedCountriesDialCodes = countriesDialCodes.sort((a, b) =>
+    t(a.name).localeCompare(t(b.name))
+  );
 
   const handleSelectCountry = (countryKey: string, phoneNumber: string) => {
     setSelectedCountry(countryKey);
@@ -77,7 +80,7 @@ const CustomPhoneNumberInput: React.FC<CustomPhoneNumberInputProps> = ({
                 <View style={styles.modalBackground}>
                   <View style={styles.modalContainer}>
                     <FlatList
-                      data={countriesDialCodes}
+                      data={sortedCountriesDialCodes}
                       keyExtractor={(item) => item.key}
                       renderItem={({ item }) => (
                         <TouchableOpacity

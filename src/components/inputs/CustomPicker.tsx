@@ -31,7 +31,7 @@ const CustomPicker: FC<PickerProps> = ({
   rules,
   error,
 }) => {
-  const { i18n } = useTranslation();
+  const { t, i18n } = useTranslation();
   const isRTL = i18n.language === "ar";
 
   const [isModalVisible, setModalVisible] = useState(false);
@@ -53,6 +53,8 @@ const CustomPicker: FC<PickerProps> = ({
       <CustomText text={item.label} type="defaultDark" />
     </TouchableOpacity>
   );
+
+  elements = elements.sort((a, b) => t(a.label).localeCompare(t(b.label)));
 
   return (
     <View style={styles.container}>
