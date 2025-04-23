@@ -21,6 +21,7 @@ interface PickerProps {
   placeholder?: string;
   rules?: object;
   error: string | null | undefined;
+  disabled?: boolean;
 }
 
 const CustomPicker: FC<PickerProps> = ({
@@ -30,6 +31,7 @@ const CustomPicker: FC<PickerProps> = ({
   label,
   rules,
   error,
+  disabled = false,
 }) => {
   const { t, i18n } = useTranslation();
   const isRTL = i18n.language === "ar";
@@ -44,7 +46,13 @@ const CustomPicker: FC<PickerProps> = ({
     value: string
   ) => (
     <TouchableOpacity
-      style={[styles.item, value === item.value && styles.selectedItem]}
+      style={[
+        styles.item,
+        value === item.value && styles.selectedItem,
+        {
+          flexDirection: isRTL ? "row-reverse" : "row",
+        },
+      ]}
       onPress={() => {
         onChange(item.value);
         toggleModal();
@@ -70,6 +78,7 @@ const CustomPicker: FC<PickerProps> = ({
         control={control}
         name={name}
         rules={rules}
+        disabled={disabled}
         render={({ field: { value, onChange } }) => (
           <>
             <TouchableOpacity
@@ -103,6 +112,7 @@ const CustomPicker: FC<PickerProps> = ({
                       renderItem({ item }, onChange, value)
                     }
                     keyExtractor={(item) => item.value}
+                    style={styles.list}
                   />
                   <CustomButton
                     title="close"
@@ -157,6 +167,9 @@ const styles = StyleSheet.create({
     borderRadius: 8,
     padding: 20,
     maxHeight: "70%",
+  },
+  list: {
+    width: "100%",
   },
   item: {
     padding: 10,
