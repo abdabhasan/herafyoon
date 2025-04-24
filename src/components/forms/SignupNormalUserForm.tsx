@@ -1,7 +1,6 @@
 import React from "react";
 import { View, StyleSheet } from "react-native";
 import { useForm } from "react-hook-form";
-import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { CustomButton } from "@/components/Btns/CustomBtn";
 import {
@@ -13,25 +12,10 @@ import CustomPhoneNumberInput from "../inputs/CustomPhoneNumberInput";
 import { Colors } from "@/constants/Colors";
 import Toast from "react-native-toast-message";
 import { useTranslation } from "react-i18next";
-
-const signupSchema = z.object({
-  firstName: z.string().min(3, { message: "validation.first_name" }),
-  lastName: z.string().min(3, { message: "validation.last_name" }),
-  email: z.string().email({ message: "validation.email" }),
-  password: z.string().min(6, { message: "validation.password" }),
-  country: z.string().min(3, { message: "validation.country" }),
-  city: z.string().min(3, { message: "validation.city" }),
-  neighbourhood: z.string().min(3, { message: "validation.neighbourhood" }),
-  phoneNumber: z
-    .string()
-    .min(5, { message: "validation.phone.min" })
-    .max(15, { message: "validation.phone.max" })
-    .regex(/^[+]?[0-9\s\-()]+$/, {
-      message: "validation.phone.invalid",
-    }),
-});
-
-export type SignupNormalUserFormData = z.infer<typeof signupSchema>;
+import {
+  SignupNormalUserFormData,
+  signupNormalUserSchema,
+} from "@/schemas/authSchemas";
 
 export default function SignupNormalUserForm() {
   const {
@@ -40,7 +24,7 @@ export default function SignupNormalUserForm() {
     formState: { errors },
     reset,
   } = useForm<SignupNormalUserFormData>({
-    resolver: zodResolver(signupSchema),
+    resolver: zodResolver(signupNormalUserSchema),
     defaultValues: {
       firstName: "",
       lastName: "",
