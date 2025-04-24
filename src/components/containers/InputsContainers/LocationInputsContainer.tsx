@@ -1,12 +1,10 @@
 import React, { useMemo } from "react";
-import { Control, FieldErrors, useWatch } from "react-hook-form";
-import { SignupFormData } from "@/components/forms/SignupForm";
+import { FieldErrors, useWatch } from "react-hook-form";
 import { locationOptions } from "@/constants/locationPickersOptions";
 import CustomPicker from "@/components/inputs/CustomPicker";
-import { SignupNormalUserFormData } from "@/components/forms/SignupNormalUserForm";
 
 type Props = {
-  control: Control<SignupFormData | SignupNormalUserFormData, any> | undefined;
+  control: any;
   errors?:
     | FieldErrors<{
         country: string;
