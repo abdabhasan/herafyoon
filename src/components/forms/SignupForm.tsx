@@ -1,7 +1,6 @@
 import React from "react";
 import { View, StyleSheet } from "react-native";
 import { useForm } from "react-hook-form";
-import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { CustomButton } from "@/components/Btns/CustomBtn";
 import {
@@ -15,26 +14,7 @@ import { Colors } from "@/constants/Colors";
 import Toast from "react-native-toast-message";
 import { useTranslation } from "react-i18next";
 import workTypePickerOptions from "@/constants/workTypePickerOptions";
-
-const signupSchema = z.object({
-  firstName: z.string().min(3, { message: "validation.first_name" }),
-  lastName: z.string().min(3, { message: "validation.last_name" }),
-  email: z.string().email({ message: "validation.email" }),
-  password: z.string().min(6, { message: "validation.password" }),
-  country: z.string().min(3, { message: "validation.country" }),
-  city: z.string().min(3, { message: "validation.city" }),
-  neighbourhood: z.string().min(3, { message: "validation.neighbourhood" }),
-  workType: z.string().min(3, { message: "validation.work_type" }),
-  phoneNumber: z
-    .string()
-    .min(5, { message: "validation.phone.min" })
-    .max(15, { message: "validation.phone.max" })
-    .regex(/^[+]?[0-9\s\-()]+$/, {
-      message: "validation.phone.invalid",
-    }),
-});
-
-export type SignupFormData = z.infer<typeof signupSchema>;
+import { SignupPractFormData, signupPractSchema } from "@/schemas/authSchemas";
 
 export default function SignupForm() {
   const {
@@ -42,8 +22,8 @@ export default function SignupForm() {
     handleSubmit,
     formState: { errors },
     reset,
-  } = useForm<SignupFormData>({
-    resolver: zodResolver(signupSchema),
+  } = useForm<SignupPractFormData>({
+    resolver: zodResolver(signupPractSchema),
     defaultValues: {
       firstName: "",
       lastName: "",
@@ -58,7 +38,7 @@ export default function SignupForm() {
   });
   const { t } = useTranslation();
 
-  const onSubmit = (data: SignupFormData) => {
+  const onSubmit = (data: SignupPractFormData) => {
     console.log("Form Data:", data);
 
     setTimeout(() => {
