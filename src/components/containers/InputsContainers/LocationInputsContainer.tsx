@@ -3,9 +3,10 @@ import { Control, FieldErrors, useWatch } from "react-hook-form";
 import { SignupFormData } from "@/components/forms/SignupForm";
 import { locationOptions } from "@/constants/locationPickersOptions";
 import CustomPicker from "@/components/inputs/CustomPicker";
+import { SignupNormalUserFormData } from "@/components/forms/SignupNormalUserForm";
 
 type Props = {
-  control: Control<SignupFormData, any, SignupFormData> | undefined;
+  control: Control<SignupFormData | SignupNormalUserFormData, any> | undefined;
   errors?:
     | FieldErrors<{
         country: string;

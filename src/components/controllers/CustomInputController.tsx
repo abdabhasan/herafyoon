@@ -3,9 +3,10 @@ import { Control, Controller } from "react-hook-form";
 import CustomInput from "@/components/inputs/CustomInput";
 import { CustomText } from "../CustomText";
 import { SignupFormData } from "@/components/forms/SignupForm";
+import { SignupNormalUserFormData } from "../forms/SignupNormalUserForm";
 
 type CustomInputControllerProps = {
-  control: Control<SignupFormData, any, SignupFormData> | undefined;
+  control: Control<SignupFormData | SignupNormalUserFormData, any> | undefined;
   name: "firstName" | "lastName" | "email" | "password";
   label: string;
   type?: "email-address" | "default" | "numeric" | "phone-pad";

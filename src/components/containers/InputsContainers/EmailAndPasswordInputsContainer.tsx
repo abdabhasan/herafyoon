@@ -3,9 +3,10 @@ import CustomInputController from "@/components/controllers/CustomInputControlle
 import { returnErrorMessage } from "@/helpers/returnInputErrorMessageHelper";
 import { Control, FieldErrors } from "react-hook-form";
 import { SignupFormData } from "@/components/forms/SignupForm";
+import { SignupNormalUserFormData } from "@/components/forms/SignupNormalUserForm";
 
 type Props = {
-  control: Control<SignupFormData, any, SignupFormData> | undefined;
+  control: Control<SignupFormData | SignupNormalUserFormData, any> | undefined;
   errors?:
     | FieldErrors<{
         email: string;
