@@ -40,3 +40,6 @@ app-example
 
 # services 
 src/services
+
+# firebase config
+src/firebase
