@@ -21,6 +21,7 @@ import {
   sendVerificationEmail,
   removeUser,
 } from "@/firebase/authService";
+import { saveUserDataToFirestore } from "@/firebase/firestoreService";
 
 export default function SignupForm() {
   const {
@@ -79,8 +80,6 @@ export default function SignupForm() {
   };
 
   const onVerifyEmail = async () => {
-    const db = getFirestore();
-
     setLoading(true);
     try {
       if (!userCredential) {
@@ -96,18 +95,7 @@ export default function SignupForm() {
         }
 
         // Save user data to Firestore
-        const userRef = doc(db, "users", userCredential.user.uid);
-        await setDoc(userRef, {
-          firstName: submittedData.firstName,
-          lastName: submittedData.lastName,
-          email: userCredential.user.email,
-          phoneNumber: submittedData.phoneNumber,
-          country: submittedData.country,
-          city: submittedData.city,
-          neighbourhood: submittedData.neighbourhood,
-          workType: submittedData.workType,
-          createdAt: serverTimestamp(),
-        });
+        await saveUserDataToFirestore(userCredential.user.uid, submittedData);
 
         Toast.show({
           type: "success",
