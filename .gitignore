@@ -43,4 +43,4 @@ app-example
 src/services
 
 # firebase config
-src/firebase
+src/firebase/config.*
