@@ -10,7 +10,6 @@ import {
 } from "@/components/containers/InputsContainers";
 import CustomPhoneNumberInput from "../inputs/CustomPhoneNumberInput";
 import CustomPicker from "../inputs/CustomPicker";
-import { Colors } from "@/constants/Colors";
 import Toast from "react-native-toast-message";
 import { useTranslation } from "react-i18next";
 import workTypePickerOptions from "@/constants/workTypePickerOptions";
@@ -21,7 +20,7 @@ import {
   deleteUser,
 } from "firebase/auth";
 import { LoadingSpinner } from "@/components/LoadingSpinner";
-import { auth, firestore } from "@/firebase/config";
+import { auth } from "@/firebase/config";
 import { useRouter } from "expo-router";
 import { getFirestore, doc, setDoc, serverTimestamp } from "firebase/firestore";
 
