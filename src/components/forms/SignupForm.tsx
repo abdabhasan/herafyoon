@@ -167,6 +167,7 @@ export default function SignupForm() {
             title="signup"
             width="m"
             onPress={handleSubmit(onSubmit)}
+            disabled={loading}
           />
         </>
       ) : (
@@ -175,6 +176,7 @@ export default function SignupForm() {
           onPress={onVerifyEmail}
           width="xl"
           style={{ height: 50, paddingHorizontal: 5, marginTop: "25%" }}
+          disabled={loading}
         />
       )}
       <Toast />

@@ -21,6 +21,7 @@ type ButtonProps = {
   color?: ColorOption;
   onPress?: () => void;
   style?: StyleProp<ViewStyle>;
+  disabled?: boolean;
 };
 
 const widthMap: Record<WidthOption, number> = {
@@ -66,6 +67,7 @@ export const CustomButton: React.FC<ButtonProps> = ({
   color = "primary",
   onPress,
   style,
+  disabled = false,
 }) => {
   const buttonWidth = widthMap[width];
   const buttonHeight = heightMap[height];
@@ -85,7 +87,13 @@ export const CustomButton: React.FC<ButtonProps> = ({
       {label ? <CustomText type="label" text={label} /> : null}
       <TouchableOpacity
         onPress={onPress}
-        style={[styles.button, dynamicStyle, style]}
+        disabled={disabled}
+        style={[
+          styles.button,
+          dynamicStyle,
+          style,
+          disabled && styles.disabledButton,
+        ]}
       >
         <CustomText style={[{ color: textColor }]} text={title} />
       </TouchableOpacity>
@@ -104,5 +112,8 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
     borderWidth: 1,
+  },
+  disabledButton: {
+    opacity: 0.5,
   },
 });
