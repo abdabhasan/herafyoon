@@ -21,8 +21,9 @@ import {
   deleteUser,
 } from "firebase/auth";
 import { LoadingSpinner } from "@/components/LoadingSpinner";
-import { auth } from "@/firebase/config";
+import { auth, firestore } from "@/firebase/config";
 import { useRouter } from "expo-router";
+import { getFirestore, doc, setDoc, serverTimestamp } from "firebase/firestore";
 
 export default function SignupForm() {
   const {
@@ -39,6 +40,8 @@ export default function SignupForm() {
   const [emailSent, setEmailSent] = useState(false);
   const [userCredential, setUserCredential] = useState<any>(null);
   const [loading, setLoading] = useState(false);
+  const [submittedData, setSubmittedData] =
+    useState<SignupPractFormData | null>(null);
 
   const onSubmit = async (data: SignupPractFormData) => {
     setLoading(true);
@@ -53,6 +56,7 @@ export default function SignupForm() {
       );
 
       setUserCredential(credential); // Store user credential temporarily
+      setSubmittedData(data); // Save form data for later
 
       // Send verification email
       await sendEmailVerification(credential.user);
@@ -82,6 +86,8 @@ export default function SignupForm() {
   };
 
   const onVerifyEmail = async () => {
+    const db = getFirestore();
+
     setLoading(true);
     try {
       if (!userCredential) {
@@ -92,14 +98,29 @@ export default function SignupForm() {
       await userCredential.user.reload();
 
       if (userCredential.user.emailVerified) {
+        if (!submittedData) {
+          throw new Error("No form data available to save.");
+        }
+
+        // Save user data to Firestore
+        const userRef = doc(db, "users", userCredential.user.uid);
+        await setDoc(userRef, {
+          firstName: submittedData.firstName,
+          lastName: submittedData.lastName,
+          email: userCredential.user.email,
+          phoneNumber: submittedData.phoneNumber,
+          country: submittedData.country,
+          city: submittedData.city,
+          neighbourhood: submittedData.neighbourhood,
+          workType: submittedData.workType,
+          createdAt: serverTimestamp(),
+        });
+
         Toast.show({
           type: "success",
           text1: t("signup_page.verification_successfull"),
           text2: t("signup_page.your_account_now_active"),
         });
-
-        // Save user data to database if required here
-        // Example: await saveUserToDatabase(userCredential.user.uid);
 
         setTimeout(() => {
           router.push("/");
@@ -107,6 +128,7 @@ export default function SignupForm() {
         reset();
         setEmailSent(false);
         setUserCredential(null);
+        setSubmittedData(null);
       } else {
         throw new Error("Email not verified. Please check your inbox.");
       }
@@ -121,7 +143,6 @@ export default function SignupForm() {
       setLoading(false);
     }
   };
-
   return (
     <View style={styles.container}>
       {!emailSent ? (
