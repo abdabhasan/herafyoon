@@ -14,15 +14,13 @@ import Toast from "react-native-toast-message";
 import { useTranslation } from "react-i18next";
 import workTypePickerOptions from "@/constants/workTypePickerOptions";
 import { SignupPractFormData, signupPractSchema } from "@/schemas/authSchemas";
-import {
-  createUserWithEmailAndPassword,
-  sendEmailVerification,
-  deleteUser,
-} from "firebase/auth";
 import { LoadingSpinner } from "@/components/LoadingSpinner";
-import { auth } from "@/firebase/config";
 import { useRouter } from "expo-router";
-import { getFirestore, doc, setDoc, serverTimestamp } from "firebase/firestore";
+import {
+  signupUser,
+  sendVerificationEmail,
+  removeUser,
+} from "@/firebase/authService";
 
 export default function SignupForm() {
   const {
@@ -48,17 +46,13 @@ export default function SignupForm() {
       const { email, password } = data;
 
       // Create user in Firebase Auth
-      const credential = await createUserWithEmailAndPassword(
-        auth,
-        email,
-        password
-      );
+      const credential = await signupUser(email, password);
 
       setUserCredential(credential); // Store user credential temporarily
       setSubmittedData(data); // Save form data for later
 
       // Send verification email
-      await sendEmailVerification(credential.user);
+      await sendVerificationEmail(credential.user);
 
       setEmailSent(true);
       Toast.show({
@@ -77,7 +71,7 @@ export default function SignupForm() {
 
       // Clean up partially created user on error
       if (userCredential) {
-        await deleteUser(userCredential.user);
+        await removeUser(userCredential.user);
       }
     } finally {
       setLoading(false);
