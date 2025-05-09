@@ -11,6 +11,10 @@ const firebaseConfig = {
     measurementId: process.env.FIREBASE_MEASURMENT_ID,
 };
 
+const rollbarConfig = {
+    accessToken: process.env.ROLLBAR_ACCESS_TOKEN
+}
+
 export default ({ config }: { config: ExpoConfig }) => ({
     ...config,
     name: "herafyoon",
@@ -58,7 +62,8 @@ export default ({ config }: { config: ExpoConfig }) => ({
         "policy": "appVersion"
     },
     extra: {
-        ...firebaseConfig, // Spread all Firebase config variables
+        firebaseConfig,
+        rollbarConfig,
         eas: {
             "projectId": "aa1078d0-d3e2-4545-bd68-ce7bfbf2209a"
         }

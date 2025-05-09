@@ -22,6 +22,7 @@ import {
   removeUser,
 } from "@/firebase/authService";
 import { saveUserDataToFirestore } from "@/firebase/firestoreService";
+import rollbar from "@/utils/rollbar";
 
 export default function SignupForm() {
   const {
@@ -40,6 +41,8 @@ export default function SignupForm() {
   const [loading, setLoading] = useState(false);
   const [submittedData, setSubmittedData] =
     useState<SignupPractFormData | null>(null);
+
+  rollbar.log("testing signup form rollbar");
 
   const onSubmit = async (data: SignupPractFormData) => {
     setLoading(true);
