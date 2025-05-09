@@ -15,6 +15,7 @@ export default ({ config }: { config: ExpoConfig }) => ({
     ...config,
     name: "herafyoon",
     slug: "herafyoon",
+    owner: "iouashgjwlet1245",
     version: "1.0.0",
     orientation: "portrait",
     icon: "./assets/images/icon.png",
@@ -50,7 +51,17 @@ export default ({ config }: { config: ExpoConfig }) => ({
     experiments: {
         typedRoutes: true,
     },
+    updates: {
+        "url": "https://u.expo.dev/aa1078d0-d3e2-4545-bd68-ce7bfbf2209a"
+    },
+    runtimeVersion: {
+        "policy": "appVersion"
+    },
     extra: {
         ...firebaseConfig, // Spread all Firebase config variables
+        eas: {
+            "projectId": "aa1078d0-d3e2-4545-bd68-ce7bfbf2209a"
+        }
+
     },
 });
