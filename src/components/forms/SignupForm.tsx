@@ -42,8 +42,6 @@ export default function SignupForm() {
   const [submittedData, setSubmittedData] =
     useState<SignupPractFormData | null>(null);
 
-  rollbar.log("testing signup form rollbar");
-
   const onSubmit = async (data: SignupPractFormData) => {
     setLoading(true);
     try {
@@ -65,6 +63,8 @@ export default function SignupForm() {
         text2: t("signup_page.check_your_inbox"),
       });
     } catch (error: any) {
+      rollbar.log(error);
+
       console.error("Error during signup:", error);
 
       Toast.show({
@@ -117,6 +117,8 @@ export default function SignupForm() {
         throw new Error("Email not verified. Please check your inbox.");
       }
     } catch (error: any) {
+      rollbar.log(error);
+
       console.error("Error during email verification:", error);
       Toast.show({
         type: "error",
