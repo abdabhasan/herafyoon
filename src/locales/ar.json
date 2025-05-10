@@ -133,5 +133,14 @@
     "dahiat_al_barid": "ضاحية البريد",
     "al_irsal": "الإرسال",
     "ein_misbah": "عين مصباح"
-  }
+  },
+  "cards": {
+    "pract_card": {
+      "work_type": "المهنة",
+      "country": "الدولة",
+      "city": "المدينة",
+      "neighbourhood": "الحي / المنطقة",
+      "phone": "رقم الهاتف"
+    }
+  },
 }
