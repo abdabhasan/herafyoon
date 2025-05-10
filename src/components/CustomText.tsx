@@ -10,9 +10,11 @@ export type CustomTextProps = TextProps & {
     | "title"
     | "defaultSemiBold"
     | "subtitle"
+    | "primarySubtitle"
     | "link"
     | "label"
-    | "error";
+    | "error"
+    | "details";
 };
 
 export function CustomText({
@@ -31,9 +33,11 @@ export function CustomText({
         type === "title" ? styles.title : undefined,
         type === "defaultSemiBold" ? styles.defaultSemiBold : undefined,
         type === "subtitle" ? styles.subtitle : undefined,
+        type === "primarySubtitle" ? styles.primarySubtitle : undefined,
         type === "link" ? styles.link : undefined,
         type === "label" ? styles.label : undefined,
         type === "error" ? styles.error : undefined,
+        type === "details" ? styles.details : undefined,
         style,
       ]}
       {...rest}
@@ -70,6 +74,12 @@ const styles = StyleSheet.create({
     fontSize: 20,
     fontWeight: "bold",
   },
+  primarySubtitle: {
+    fontSize: 18,
+    fontWeight: "bold",
+    color: Colors.primary.p500,
+    textTransform: "capitalize",
+  },
   link: {
     lineHeight: 30,
     fontSize: 16,
@@ -85,5 +95,10 @@ const styles = StyleSheet.create({
   error: {
     color: "red",
     marginVertical: 5,
+  },
+  details: {
+    fontSize: 14,
+    color: Colors.black,
+    marginTop: 4,
   },
 });
