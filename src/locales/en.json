@@ -132,5 +132,14 @@
     "dahiat_al_barid": "Dahiat Al-Barid",
     "al_irsal": "Al-Irsal",
     "ein_misbah": "Ein Misbah"
-  }
+  },
+  "cards": {
+    "pract_card": {
+      "work_type": "Work Type",
+      "country": "Country",
+      "city": "City",
+      "neighbourhood": "Neighbourhood",
+      "phone": "Phone Number"
+    }
+  },
 }
