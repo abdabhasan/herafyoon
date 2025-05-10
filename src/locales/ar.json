@@ -143,4 +143,61 @@
       "phone": "رقم الهاتف"
     }
   },
+
+  "Joiner": "نجار",
+  "Blacksmith": "حداد",
+  "Painter": "عامل طلاء",
+  "Tile Worker": "عامل بلاط",
+  "Heavy Truck Driver": "سائق شاحنة",
+
+  "Jordan": "الاردن",
+
+  "Amman": "عمّان",
+
+  "Abdoun": "عبدون",
+  "Jabal Amman": "جبل عمّان",
+  "Jabal Al-Weibdeh": "جبل اللويبدة",
+  "Ras Al-Ain": "رأس العين",
+  "Khalda": "خلدا",
+  "Dabouq": "دابوق",
+  "Shmeisani": "الشميساني",
+  "Sweileh": "صويلح",
+  "Marj Al-Hamam": "مرج الحمام",
+  "Al-Yasmin": "الياسمين",
+  "Al-Jubayhah": "الجبيهة",
+  "Al-Quwaysimah": "القويسمة",
+  "Al-Yarmouk": "اليرموك",
+  "Basman": "بسمان",
+  "Markah": "ماركا",
+  "Zahran": "زهران",
+  "Badr": "بدر",
+  "Tariq": "طارق",
+  "Uhud": "أُحد",
+  "Shafa Badran": "شفا بدران",
+  "Naour": "ناعور",
+  "Al-Madina": "المدينة",
+
+  "Zarqa": "الزرقاء",
+  "City Center": "وسط المدينة",
+  "Althawra Al-Arabiya": "الثورة العربية",
+  "Ewajan": "الويجان",
+  "Zawahreh": "الزواهرة",
+  "New Zarqa": "الزرقاء الجديدة",
+  "Sports Complex": "مجمع رياضي",
+  "Zarqa City Gardens": "حدائق مدينة الزرقاء",
+
+  "Palestine": "فلسطين",
+
+  "Ramallah": "رام الله",
+
+  "Al-Masyoun": "المصيون",
+  "Al-Tireh": "الطيرة",
+  "Um Al-Sharayet": "أم الشرايط",
+  "Al-Bireh": "البيرة",
+  "Beitunia": "بيتونيا",
+  "Al-Jinan": "الجنائن",
+  "Al-Balou’": "البلوع",
+  "Dahiat Al-Barid": "ضاحية البريد",
+  "Al-Irsal": "الإرسال",
+  "Ein Misbah": "عين مصباح"
 }
