@@ -4,6 +4,7 @@ import { CustomText } from "@/components/CustomText";
 import { LoadingSpinner } from "@/components/LoadingSpinner";
 import { useAuth } from "@/hooks/useAuth";
 import SigningOptionsPageContainer from "@/components/containers/PagesContainers/SigningOptionsPageContainer";
+import ProfileInfoPageContainer from "@/components/containers/PagesContainers/ProfileInfoPageContainer";
 import LanguageSelectBtn from "@/components/Btns/LanguageSelectBtn";
 
 type Props = {};
@@ -43,6 +44,7 @@ const ProfilePageContainer = (props: Props) => {
     <ScrollView contentContainerStyle={styles.scrollViewContent}>
       <LanguageSelectBtn />
 
+      <ProfileInfoPageContainer />
     </ScrollView>
   );
 };
