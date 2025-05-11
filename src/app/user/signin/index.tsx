@@ -1,6 +1,6 @@
 import React from "react";
 import { ScrollView, StyleSheet } from "react-native";
-import SigninPageContainer from "@/components/containers/SigninPageContainer";
+import SigninPageContainer from "@/components/containers/PagesContainers/SigninPageContainer";
 
 export default function Index() {
   return (

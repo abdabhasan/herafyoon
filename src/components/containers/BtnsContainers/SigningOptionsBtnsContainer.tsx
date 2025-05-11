@@ -3,7 +3,7 @@ import { CustomLink } from "@/components/Btns/CustomLink";
 
 type Props = {};
 
-const ProfilePageBtnsContainer = (props: Props) => {
+const SigningOptionsBtnsContainer = (props: Props) => {
   return (
     <>
       <CustomLink
@@ -30,4 +30,4 @@ const ProfilePageBtnsContainer = (props: Props) => {
   );
 };
 
-export default ProfilePageBtnsContainer;
+export default SigningOptionsBtnsContainer;

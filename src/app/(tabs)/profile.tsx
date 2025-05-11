@@ -1,6 +1,6 @@
 import React from "react";
 import { StyleSheet, ScrollView } from "react-native";
-import ProfilePageContainer from "@/components/containers/ProfilePageContainer";
+import ProfilePageContainer from "@/components/containers/PagesContainers/ProfilePageContainer";
 import { CustomText } from "@/components/CustomText";
 import { LoadingSpinner } from "@/components/LoadingSpinner";
 import { useAuth } from "@/hooks/useAuth";

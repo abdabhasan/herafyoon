@@ -1,6 +1,6 @@
 import React from "react";
 import { CustomText } from "@/components/CustomText";
-import PractCardsContainer from "@/components/containers/PractCardsContainer";
+import PractCardsContainer from "@/components/containers/CardsContainers/PractCardsContainer";
 
 export default function Index() {
   return (
