@@ -20,6 +20,7 @@ import {
   signupUser,
   sendVerificationEmail,
   removeUser,
+  loginUser,
 } from "@/firebase/authService";
 import { saveUserDataToFirestore } from "@/firebase/firestoreService";
 import rollbar from "@/utils/rollbar";
@@ -97,6 +98,12 @@ export default function SignupForm() {
           throw new Error("No form data available to save.");
         }
 
+        // Sign in user after email verification
+        const loggedInUser = await loginUser(
+          submittedData.email,
+          submittedData.password
+        );
+
         // Save user data to Firestore
         await saveUserDataToFirestore(userCredential.user.uid, submittedData);
 
@@ -129,6 +136,7 @@ export default function SignupForm() {
       setLoading(false);
     }
   };
+
   return (
     <View style={styles.container}>
       {!emailSent ? (
