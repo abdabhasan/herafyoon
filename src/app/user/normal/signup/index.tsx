@@ -1,11 +1,11 @@
 import React from "react";
 import { StyleSheet, ScrollView } from "react-native";
-import SingupNormalUserContainer from "@/components/containers/SingupNormalUserContainer";
+import SingupNormalUserPageContainer from "@/components/containers/PagesContainers/SingupNormalUserPageContainer";
 
 export default function Index() {
   return (
     <ScrollView contentContainerStyle={styles.scrollViewContent}>
-      <SingupNormalUserContainer />
+      <SingupNormalUserPageContainer />
     </ScrollView>
   );
 }

@@ -5,7 +5,7 @@ import SignupNormalUserForm from "@/components/forms/SignupNormalUserForm";
 
 type Props = {};
 
-const SingupNormalUserContainer = (props: Props) => {
+const SingupNormalUserPageContainer = (props: Props) => {
   return (
     <>
       <View style={styles.container}>
@@ -16,7 +16,7 @@ const SingupNormalUserContainer = (props: Props) => {
   );
 };
 
-export default SingupNormalUserContainer;
+export default SingupNormalUserPageContainer;
 
 const styles = StyleSheet.create({
   container: {
