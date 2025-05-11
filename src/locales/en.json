@@ -139,8 +139,14 @@
       "country": "Country",
       "city": "City",
       "neighbourhood": "Neighbourhood",
-      "phone": "Phone Number"
+      "phone": "Phone Number",
+      "email": "Email"
     }
+  },
+
+  "profile_info_page": {
+    "edit": "Edit",
+    "logout": "Log Out"
   },
 
   "Joiner": "Joiner",
