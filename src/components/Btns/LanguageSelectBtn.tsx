@@ -25,10 +25,11 @@ const LanguageSelectBtn = () => {
 
 const styles = StyleSheet.create({
   container: {
-    flexGrow: 1,
     alignContent: "center",
     justifyContent: "center",
     alignSelf: "flex-start",
+
+    marginTop: 20,
   },
   button: {
     width: 60,

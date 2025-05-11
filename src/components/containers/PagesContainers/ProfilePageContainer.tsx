@@ -4,6 +4,7 @@ import { CustomText } from "@/components/CustomText";
 import { LoadingSpinner } from "@/components/LoadingSpinner";
 import { useAuth } from "@/hooks/useAuth";
 import SigningOptionsPageContainer from "@/components/containers/PagesContainers/SigningOptionsPageContainer";
+import LanguageSelectBtn from "@/components/Btns/LanguageSelectBtn";
 
 type Props = {};
 
@@ -19,6 +20,8 @@ const ProfilePageContainer = (props: Props) => {
   if (!user) {
     return (
       <ScrollView contentContainerStyle={styles.scrollViewContent}>
+        <LanguageSelectBtn />
+
         <SigningOptionsPageContainer />
       </ScrollView>
     );
@@ -38,8 +41,8 @@ const ProfilePageContainer = (props: Props) => {
 
   return (
     <ScrollView contentContainerStyle={styles.scrollViewContent}>
-      {/* TO DO */}
-      <CustomText text="your profile ) : (: " type="title" />
+      <LanguageSelectBtn />
+
     </ScrollView>
   );
 };
