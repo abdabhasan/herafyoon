@@ -1,36 +1,55 @@
 import React from "react";
+import { StyleSheet, ScrollView } from "react-native";
 import { CustomText } from "@/components/CustomText";
-import { View, StyleSheet } from "react-native";
-import WelcomeSVG from "@/assets/illustrations/construction-worker-bro.svg";
-import SigningOptionsBtnsContainer from "@/components/containers/BtnsContainers/SigningOptionsBtnsContainer";
-import LanguageSelectBtn from "@/components/Btns/LanguageSelectBtn";
+import { LoadingSpinner } from "@/components/LoadingSpinner";
+import { useAuth } from "@/hooks/useAuth";
+import SigningOptionsPageContainer from "@/components/containers/PagesContainers/SigningOptionsPageContainer";
 
 type Props = {};
 
 const ProfilePageContainer = (props: Props) => {
+  const { user, loading } = useAuth();
+
+  console.log("user", user);
+
+  if (loading) {
+    return <LoadingSpinner />;
+  }
+
+  if (!user) {
+    return (
+      <ScrollView contentContainerStyle={styles.scrollViewContent}>
+        <SigningOptionsPageContainer />
+      </ScrollView>
+    );
+  }
+
+  // TO DO
+  if (user && !user.emailVerified) {
+    return (
+      <ScrollView contentContainerStyle={styles.scrollViewContent}>
+        <CustomText
+          text="Please verify your email before accessing the profile."
+          type="title"
+        />
+      </ScrollView>
+    );
+  }
+
   return (
-    <>
-      <View style={styles.container}>
-        <LanguageSelectBtn />
-        <WelcomeSVG style={styles.logo} />
-        <CustomText type="title" text="welcome" />
-        <SigningOptionsBtnsContainer />
-      </View>
-    </>
+    <ScrollView contentContainerStyle={styles.scrollViewContent}>
+      {/* TO DO */}
+      <CustomText text="your profile ) : (: " type="title" />
+    </ScrollView>
   );
 };
 
 export default ProfilePageContainer;
 
 const styles = StyleSheet.create({
-  container: {
-    padding: 16,
-    alignItems: "center",
-    marginBottom: 150,
-  },
-  logo: {
-    width: 200,
-    height: 200,
-    marginVertical: 20,
+  scrollViewContent: {
+    flex: 1,
+
+    marginBottom: 50,
   },
 });
