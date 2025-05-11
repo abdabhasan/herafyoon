@@ -1,4 +1,4 @@
-import { createUserWithEmailAndPassword, sendEmailVerification, deleteUser } from "firebase/auth";
+import { createUserWithEmailAndPassword, sendEmailVerification, deleteUser, signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "@/firebase/config";
 
 
@@ -12,4 +12,8 @@ export const sendVerificationEmail = async (user: any) => {
 
 export const removeUser = async (user: any) => {
     return await deleteUser(user);
+};
+
+export const loginUser = async (email: string, password: string) => {
+    return await signInWithEmailAndPassword(auth, email, password);
 };
