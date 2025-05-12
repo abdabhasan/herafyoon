@@ -1,31 +1,24 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { View, FlatList, StyleSheet } from "react-native";
 import PractCard from "@/components/cards/PractCard";
-import { fetchPracts } from "@/firebase/firestoreService";
 import { LoadingSpinner } from "@/components/LoadingSpinner";
 import { CustomText } from "@/components/CustomText";
+import { useFirestore } from "@/hooks/useFirestore";
 
 const PractCardsContainer: React.FC = () => {
-  const [users, setUsers] = useState<any[]>([]);
-  const [loading, setLoading] = useState<boolean>(true);
-
-  useEffect(() => {
-    const loadUsers = async () => {
-      try {
-        const data = await fetchPracts();
-        setUsers(data);
-      } catch (error) {
-        console.error("Error fetching users:", error);
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    loadUsers();
-  }, []);
+  const { data: users, loading, error } = useFirestore();
 
   if (loading) {
     return <LoadingSpinner />;
+  }
+
+  if (error) {
+    return (
+      <CustomText
+        text="Error loading data. Please try again."
+        type="defaultDark"
+      />
+    );
   }
 
   return (
