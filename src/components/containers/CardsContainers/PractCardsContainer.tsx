@@ -1,5 +1,5 @@
 import React from "react";
-import { View, FlatList, StyleSheet } from "react-native";
+import { View, StyleSheet } from "react-native";
 import PractCard from "@/components/cards/PractCard";
 import { LoadingSpinner } from "@/components/LoadingSpinner";
 import { CustomText } from "@/components/CustomText";
@@ -24,21 +24,18 @@ const PractCardsContainer: React.FC = () => {
   return (
     <View style={styles.container}>
       {users.length > 0 ? (
-        <FlatList
-          data={users}
-          keyExtractor={(item) => item.id}
-          renderItem={({ item }) => (
-            <PractCard
-              firstName={item.firstName}
-              lastName={item.lastName}
-              workType={item.workType}
-              country={item.country}
-              city={item.city}
-              neighbourhood={item.neighbourhood}
-              phoneNumber={item.phoneNumber}
-            />
-          )}
-        />
+        users.map((user) => (
+          <PractCard
+            key={user.id}
+            firstName={user.firstName}
+            lastName={user.lastName}
+            workType={user.workType}
+            country={user.country}
+            city={user.city}
+            neighbourhood={user.neighbourhood}
+            phoneNumber={user.phoneNumber}
+          />
+        ))
       ) : (
         <CustomText text="No users available." type="defaultDark" />
       )}
@@ -50,6 +47,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     width: "100%",
+    padding: 16,
   },
 });
 
