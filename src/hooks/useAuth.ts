@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { auth, firestore } from "@/firebase/config";
 import { doc, getDoc } from "firebase/firestore";
+import { logoutUser } from "@/firebase/authService";
 
 export const useAuth = () => {
     const [user, setUser] = useState<any>(null);
@@ -13,7 +14,6 @@ export const useAuth = () => {
 
             if (currentUser) {
                 try {
-                    // Fetch user data from Firestore
                     const userDocRef = doc(firestore, "users", currentUser.uid);
                     const userDoc = await getDoc(userDocRef);
 
@@ -35,5 +35,17 @@ export const useAuth = () => {
         return unsubscribe;
     }, []);
 
-    return { user, userInfo, loading };
+    const logout = async () => {
+        setLoading(true)
+        try {
+            await logoutUser();
+        } catch (error) {
+            console.error("Error during logout:", error);
+        } finally {
+
+            setLoading(false)
+        }
+    };
+
+    return { user, userInfo, loading, logout };
 };
