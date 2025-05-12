@@ -150,6 +150,11 @@
     "logout": "تسجيل الخروج"
   },
 
+  "home_page": {
+    "welcome": "اهلا وسهلا بك",
+    "featured_list": "عملاؤنا المميزون"
+  },
+
   "Joiner": "نجار",
   "Blacksmith": "حداد",
   "Painter": "عامل طلاء",
