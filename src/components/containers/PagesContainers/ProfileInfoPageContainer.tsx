@@ -15,13 +15,22 @@ const ProfileInfoPageContainer = (props: Props) => {
   const { i18n } = useTranslation();
   const isRTL = i18n.language === "ar";
 
-  const { loading, userInfo } = useAuth();
+  const { loading, userInfo, logout } = useAuth();
 
   if (loading) {
     return <LoadingSpinner />;
   }
 
   const { firstName, lastName } = userInfo;
+
+  const handleLogout = async () => {
+    try {
+      await logout();
+      console.log("Successfully logged out");
+    } catch (error) {
+      console.error("Logout failed:", error);
+    }
+  };
 
   return (
     <View style={styles.container}>
@@ -53,7 +62,11 @@ const ProfileInfoPageContainer = (props: Props) => {
         />
         <ProfileInfoCardsContainer info={userInfo} />
 
-        <CustomButton title="profile_info_page.logout" width="xl" />
+        <CustomButton
+          title="profile_info_page.logout"
+          width="xl"
+          onPress={handleLogout}
+        />
       </View>
     </View>
   );
