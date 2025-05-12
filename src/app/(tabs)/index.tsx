@@ -1,12 +1,17 @@
 import React from "react";
-import { CustomText } from "@/components/CustomText";
-import PractCardsContainer from "@/components/containers/CardsContainers/PractCardsContainer";
+import { StyleSheet, ScrollView } from "react-native";
+import HomePageContainer from "@/components/containers/PagesContainers/HomePageContainer";
 
 export default function Index() {
   return (
-    <>
-      <CustomText text="welcome to the home page" type="title" />
-      <PractCardsContainer />
-    </>
+    <ScrollView contentContainerStyle={styles.scrollViewContent}>
+      <HomePageContainer />
+    </ScrollView>
   );
 }
+
+const styles = StyleSheet.create({
+  scrollViewContent: {
+    flexGrow: 1,
+  },
+});

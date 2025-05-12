@@ -148,6 +148,10 @@
     "edit": "Edit",
     "logout": "Log Out"
   },
+  "home_page": {
+    "welcome": "Welcome !",
+    "featured_list": "Featured List"
+  },
 
   "Joiner": "Joiner",
   "Blacksmith": "Blacksmith",
