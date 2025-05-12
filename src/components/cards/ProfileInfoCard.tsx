@@ -15,7 +15,7 @@ const ProfileInfoCard: React.FC<ProfileInfoCardProps> = ({ name, value }) => {
   const isRTL = i18n.language === "ar";
 
   return (
-    <div>
+    <>
       <View
         style={[
           styles.infoContainer,
@@ -26,7 +26,7 @@ const ProfileInfoCard: React.FC<ProfileInfoCardProps> = ({ name, value }) => {
         <CustomText text={" : "} type="details" style={styles.infoLabel} />
         <CustomText text={value} type="details" />
       </View>
-    </div>
+    </>
   );
 };
 
