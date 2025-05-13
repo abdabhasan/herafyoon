@@ -9,7 +9,7 @@ type CustomInputControllerProps = {
   label: string;
   type?: "email-address" | "default" | "numeric" | "phone-pad";
   secureTextEntry?: boolean;
-  error?: string | undefined;
+  error?: string | undefined | null;
 };
 
 const CustomInputController: React.FC<CustomInputControllerProps> = ({
