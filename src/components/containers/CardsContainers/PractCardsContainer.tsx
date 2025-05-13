@@ -6,13 +6,14 @@ import { CustomText } from "@/components/CustomText";
 import { useFirestore } from "@/hooks/useFirestore";
 
 const PractCardsContainer: React.FC = () => {
-  const { practitioners, loading, error } = useFirestore();
+  const { practitioners, loadingPractitioners, errorPractitioners } =
+    useFirestore();
 
-  if (loading) {
+  if (loadingPractitioners) {
     return <LoadingSpinner />;
   }
 
-  if (error) {
+  if (errorPractitioners) {
     return (
       <CustomText
         text="Error loading data. Please try again."
