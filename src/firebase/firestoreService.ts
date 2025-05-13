@@ -21,6 +21,7 @@ export const savePractitionerDataToFirestore = async (
             neighbourhood: formData.neighbourhood,
             workType: formData.workType,
             createdAt: serverTimestamp(),
+            featured: false
         });
     } catch (error: any) {
         console.error("Error saving practitioner data to Firestore:", error);
