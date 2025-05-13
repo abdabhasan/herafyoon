@@ -1,16 +1,16 @@
 import { useEffect, useState } from "react";
-import { fetchPracts } from "@/firebase/firestoreService";
+import { fetchAllPractitioners } from "@/firebase/firestoreService";
 
 export const useFirestore = () => {
-    const [data, setData] = useState<any[]>([]);
+    const [practitioners, setPractitioners] = useState<any[]>([]);
     const [loading, setLoading] = useState<boolean>(true);
     const [error, setError] = useState<Error | null>(null);
 
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const result = await fetchPracts();
-                setData(result);
+                const result = await fetchAllPractitioners();
+                setPractitioners(result);
             } catch (err) {
                 setError(err as Error);
                 console.error("Error fetching data:", err);
@@ -22,5 +22,5 @@ export const useFirestore = () => {
         fetchData();
     }, []);
 
-    return { data, loading, error };
+    return { practitioners, loading, error };
 };
