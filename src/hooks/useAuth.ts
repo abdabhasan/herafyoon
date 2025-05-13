@@ -14,7 +14,7 @@ export const useAuth = () => {
 
             if (currentUser) {
                 try {
-                    const userDocRef = doc(firestore, "users", currentUser.uid);
+                    const userDocRef = doc(firestore, "practitioners", currentUser.uid);
                     const userDoc = await getDoc(userDocRef);
 
                     if (userDoc.exists()) {
