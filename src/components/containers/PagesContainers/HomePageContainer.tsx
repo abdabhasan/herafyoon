@@ -1,17 +1,17 @@
 import React from "react";
 import WelcomeSVG from "@/assets/illustrations/home-page-welcome.svg";
 import { CustomText } from "@/components/CustomText";
-import PractCardsContainer from "@/components/containers/CardsContainers/PractCardsContainer";
 import { StyleSheet, View } from "react-native";
 import { useFirestore } from "@/hooks/useFirestore";
 import { LoadingSpinner } from "@/components/LoadingSpinner";
+import FeaturedPractCardsContainer from "@/components/containers/CardsContainers/FeaturedPractCardsContainer";
 
 type Props = {};
 
 const HomePageContainer = (props: Props) => {
-  const { loading } = useFirestore();
+  const { loadingFeaturedPractitioners } = useFirestore();
 
-  if (loading) {
+  if (loadingFeaturedPractitioners) {
     return <LoadingSpinner />;
   }
 
@@ -29,7 +29,7 @@ const HomePageContainer = (props: Props) => {
         type="subtitle"
         style={styles.subtitle}
       />
-      <PractCardsContainer />
+      <FeaturedPractCardsContainer />
     </View>
   );
 };
