@@ -22,7 +22,7 @@ import {
   removeUser,
   loginUser,
 } from "@/firebase/authService";
-import { saveUserDataToFirestore } from "@/firebase/firestoreService";
+import { savePractitionerDataToFirestore } from "@/firebase/firestoreService";
 import rollbar from "@/utils/rollbar";
 
 export default function SignupForm() {
@@ -105,7 +105,10 @@ export default function SignupForm() {
         );
 
         // Save user data to Firestore
-        await saveUserDataToFirestore(userCredential.user.uid, submittedData);
+        await savePractitionerDataToFirestore(
+          userCredential.user.uid,
+          submittedData
+        );
 
         Toast.show({
           type: "success",

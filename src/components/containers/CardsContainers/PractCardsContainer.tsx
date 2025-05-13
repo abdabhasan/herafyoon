@@ -6,7 +6,7 @@ import { CustomText } from "@/components/CustomText";
 import { useFirestore } from "@/hooks/useFirestore";
 
 const PractCardsContainer: React.FC = () => {
-  const { data: users, loading, error } = useFirestore();
+  const { practitioners, loading, error } = useFirestore();
 
   if (loading) {
     return <LoadingSpinner />;
@@ -23,21 +23,21 @@ const PractCardsContainer: React.FC = () => {
 
   return (
     <View style={styles.container}>
-      {users.length > 0 ? (
-        users.map((user) => (
+      {practitioners.length > 0 ? (
+        practitioners.map((pract) => (
           <PractCard
-            key={user.id}
-            firstName={user.firstName}
-            lastName={user.lastName}
-            workType={user.workType}
-            country={user.country}
-            city={user.city}
-            neighbourhood={user.neighbourhood}
-            phoneNumber={user.phoneNumber}
+            key={pract.id}
+            firstName={pract.firstName}
+            lastName={pract.lastName}
+            workType={pract.workType}
+            country={pract.country}
+            city={pract.city}
+            neighbourhood={pract.neighbourhood}
+            phoneNumber={pract.phoneNumber}
           />
         ))
       ) : (
-        <CustomText text="No users available." type="defaultDark" />
+        <CustomText text="No Practitioners available." type="defaultDark" />
       )}
     </View>
   );
