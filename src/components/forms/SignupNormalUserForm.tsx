@@ -8,7 +8,7 @@ import {
   EmailAndPasswordFieldsContainer,
   LocationInputsContainer,
 } from "@/components/containers/InputsContainers";
-import CustomPhoneNumberInput from "../inputs/CustomPhoneNumberInput";
+import CustomInputController from "@/components/controllers/CustomInputController";
 import { Colors } from "@/constants/Colors";
 import Toast from "react-native-toast-message";
 import { useTranslation } from "react-i18next";
@@ -58,7 +58,7 @@ export default function SignupNormalUserForm() {
       <EmailAndPasswordFieldsContainer control={control} errors={errors} />
       <LocationInputsContainer control={control} errors={errors} />
 
-      <CustomPhoneNumberInput
+      <CustomInputController
         name="phoneNumber"
         control={control}
         label="signup_page.form.phone"
