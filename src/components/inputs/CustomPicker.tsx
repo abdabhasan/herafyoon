@@ -97,7 +97,13 @@ const CustomPicker: FC<PickerProps> = ({
               <MaterialIcons name="arrow-drop-down" size={16} color="#000" />
             </TouchableOpacity>
 
-            {error && <CustomText type="error" text={error} />}
+            {error && (
+              <CustomText
+                type="error"
+                text={error}
+                style={{ textAlign: "center" }}
+              />
+            )}
 
             <Modal
               visible={isModalVisible}
