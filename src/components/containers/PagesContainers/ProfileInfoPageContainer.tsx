@@ -64,8 +64,9 @@ const ProfileInfoPageContainer = (props: Props) => {
 
         <CustomButton
           title="profile_info_page.logout"
-          width="xl"
+          width="full"
           onPress={handleLogout}
+          style={styles.logoutBtn}
         />
       </View>
     </View>
@@ -102,4 +103,7 @@ const styles = StyleSheet.create({
     textDecorationLine: "underline",
   },
   infoContainer: {},
+  logoutBtn: {
+    marginTop: 15,
+  },
 });
