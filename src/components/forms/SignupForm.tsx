@@ -8,7 +8,7 @@ import {
   EmailAndPasswordFieldsContainer,
   LocationInputsContainer,
 } from "@/components/containers/InputsContainers";
-import CustomPhoneNumberInput from "../inputs/CustomPhoneNumberInput";
+import CustomInputController from "@/components/controllers/CustomInputController";
 import CustomPicker from "../inputs/CustomPicker";
 import Toast from "react-native-toast-message";
 import { useTranslation } from "react-i18next";
@@ -151,7 +151,7 @@ export default function SignupForm() {
             elements={workTypePickerOptions}
             error={errors.workType ? errors.workType.message : null}
           />
-          <CustomPhoneNumberInput
+          <CustomInputController
             name="phoneNumber"
             control={control}
             label="signup_page.form.phone"

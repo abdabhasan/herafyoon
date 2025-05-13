@@ -5,11 +5,11 @@ import { CustomText } from "../CustomText";
 
 type CustomInputControllerProps = {
   control: any;
-  name: "firstName" | "lastName" | "email" | "password";
+  name: "firstName" | "lastName" | "email" | "password" | "phoneNumber";
   label: string;
   type?: "email-address" | "default" | "numeric" | "phone-pad";
   secureTextEntry?: boolean;
-  error?: string | undefined;
+  error?: string | undefined | null;
 };
 
 const CustomInputController: React.FC<CustomInputControllerProps> = ({
