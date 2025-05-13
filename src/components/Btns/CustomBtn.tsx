@@ -9,7 +9,7 @@ import {
 } from "react-native";
 import { CustomText } from "../CustomText";
 
-type WidthOption = "sm" | "m" | "l" | "xl";
+type WidthOption = "sm" | "m" | "l" | "xl" | "full";
 type HeightOption = "normal" | "tiny";
 type ColorOption = "primary" | "secondary" | "light" | "dark";
 
@@ -29,6 +29,7 @@ const widthMap: Record<WidthOption, number> = {
   m: 50,
   l: 70,
   xl: 90,
+  full: 100,
 };
 
 const heightMap: Record<HeightOption, number> = {
