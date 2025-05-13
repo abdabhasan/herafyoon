@@ -1,4 +1,4 @@
-import { getFirestore, doc, setDoc, serverTimestamp, collection, getDocs } from "firebase/firestore";
+import { getFirestore, doc, setDoc, serverTimestamp, collection, getDocs, query, where } from "firebase/firestore";
 import { SignupPractFormData } from "@/schemas/authSchemas";
 import { firestore as db } from "@/firebase/config";
 
@@ -46,4 +46,31 @@ export const fetchAllPractitioners = async () => {
         practs.push({ id: doc.id, ...doc.data() } as any);
     });
     return practs;
+};
+
+
+export const fetchFeaturedPractitioners = async () => {
+    const featuredPracts: Array<{
+        id: string;
+        firstName: string;
+        lastName: string;
+        workType: string;
+        country: string;
+        city: string;
+        neighbourhood: string;
+        phoneNumber: string;
+    }> = [];
+
+    try {
+        const practsQuery = query(collection(db, "practitioners"), where("featured", "==", true));
+        const querySnapshot = await getDocs(practsQuery);
+        querySnapshot.forEach((doc) => {
+            featuredPracts.push({ id: doc.id, ...doc.data() } as any);
+        });
+    } catch (error: any) {
+        console.error("Error fetching featured practitioners:", error);
+        throw new Error("Failed to fetch featured practitioners. Please try again later.");
+    }
+
+    return featuredPracts;
 };
