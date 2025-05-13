@@ -8,13 +8,16 @@ const baseSignupSchema = z.object({
   country: z.string().min(3, { message: "validation.country" }),
   city: z.string().min(3, { message: "validation.city" }),
   neighbourhood: z.string().min(3, { message: "validation.neighbourhood" }),
-  phoneNumber: z
-    .string()
-    .min(5, { message: "validation.phone.min" })
-    .max(15, { message: "validation.phone.max" })
-    .regex(/^[+]?[0-9\s\-()]+$/, {
-      message: "validation.phone.invalid",
-    }),
+  phoneNumber:
+    z.string()
+      .transform((val) => val.replace(/[^0-9]/g, "")) // Remove non-numeric characters
+      .refine((val) =>
+        /^(07\d{8})$/.test(val) || // Jordanian numbers starting with 07
+        /^(05\d{8})$/.test(val),   // Palestinian numbers starting with 05
+        {
+          message: "validation.phone.invalid",
+        }
+      )
 });
 
 export const signupPractSchema = baseSignupSchema.extend({
