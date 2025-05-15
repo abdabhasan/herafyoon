@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { fetchAllPractitioners, fetchFeaturedPractitioners } from "@/firebase/firestoreService";
+import { fetchAllPractitioners, fetchFeaturedPractitioners, fetchFilteredPractitioners } from "@/firebase/firestoreService";
 
 export const useFirestore = () => {
     const [practitioners, setPractitioners] = useState<any[]>([]);
@@ -8,6 +8,12 @@ export const useFirestore = () => {
     const [loadingFeaturedPractitioners, setLoadingFeaturedPractitioners] = useState<boolean>(true);
     const [errorPractitioners, setErrorPractitioners] = useState<Error | null>(null);
     const [errorFeaturedPractitioners, setErrorFeaturedPractitioners] = useState<Error | null>(null);
+
+    const [filteredPractitioners, setFilteredPractitioners] = useState<any[]>([]);
+    const [loadingFilteredPractitioners, setLoadingFilteredPractitioners] = useState<boolean>(false);
+    const [errorFilteredPractitioners, setErrorFilteredPractitioners] = useState<Error | null>(null);
+
+
 
     // Fetch all practitioners
     useEffect(() => {
@@ -45,6 +51,28 @@ export const useFirestore = () => {
         fetchFeatured();
     }, []);
 
+
+
+
+    const fetchPractitionersByFilters = async (
+        country?: string,
+        city?: string,
+        neighbourhood?: string,
+        workType?: string
+    ) => {
+        setLoadingFilteredPractitioners(true);
+        try {
+            const result = await fetchFilteredPractitioners(country, city, neighbourhood, workType);
+            setFilteredPractitioners(result);
+        } catch (error) {
+            setErrorFilteredPractitioners(error as Error);
+            console.error("Error fetching filtered practitioners:", error);
+        } finally {
+            setLoadingFilteredPractitioners(false);
+        }
+    };
+
+
     return {
         practitioners,
         featuredPractitioners,
@@ -52,5 +80,9 @@ export const useFirestore = () => {
         loadingFeaturedPractitioners,
         errorPractitioners,
         errorFeaturedPractitioners,
+        filteredPractitioners,
+        loadingFilteredPractitioners,
+        errorFilteredPractitioners,
+        fetchPractitionersByFilters,
     };
 };
