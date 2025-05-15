@@ -74,3 +74,34 @@ export const fetchFeaturedPractitioners = async () => {
 
     return featuredPracts;
 };
+
+
+
+export const fetchFilteredPractitioners = async (
+    country?: string,
+    city?: string,
+    neighbourhood?: string,
+    workType?: string
+) => {
+    const practitioners: Array<any> = [];
+    const filters: any[] = [];
+
+    if (country) filters.push(where("country", "==", country));
+    if (city) filters.push(where("city", "==", city));
+    if (neighbourhood) filters.push(where("neighbourhood", "==", neighbourhood));
+    if (workType) filters.push(where("workType", "==", workType));
+
+    const q = query(collection(db, "practitioners"), ...filters);
+
+    try {
+        const querySnapshot = await getDocs(q);
+        querySnapshot.forEach((doc) => {
+            practitioners.push({ id: doc.id, ...doc.data() });
+        });
+    } catch (error) {
+        console.error("Error fetching filtered practitioners:", error);
+        throw new Error("Failed to fetch filtered practitioners.");
+    }
+
+    return practitioners;
+};
