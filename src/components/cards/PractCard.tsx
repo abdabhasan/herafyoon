@@ -8,7 +8,7 @@ interface PractCardProps {
   firstName: string;
   lastName: string;
   workType: string;
-  country: string;
+  country?: string;
   city: string;
   neighbourhood: string;
   phoneNumber: string;
@@ -37,24 +37,10 @@ const PractCard: React.FC<PractCardProps> = ({
         ]}
       >
         <CustomText text={firstName + " " + lastName} type="primarySubtitle" />
+        <CustomText text={workType} type="defaultSemiBold" />
         <View style={{ flexDirection: isRTL ? "row-reverse" : "row" }}>
-          <CustomText text={"cards.pract_card.work_type"} type="details" />
-          <CustomText text={" : "} type="details" />
-          <CustomText text={workType} type="details" />
-        </View>
-        <View style={{ flexDirection: isRTL ? "row-reverse" : "row" }}>
-          <CustomText text={"cards.pract_card.country"} type="details" />
-          <CustomText text={" : "} type="details" />
-          <CustomText text={country} type="details" />
-        </View>
-        <View style={{ flexDirection: isRTL ? "row-reverse" : "row" }}>
-          <CustomText text={"cards.pract_card.city"} type="details" />
-          <CustomText text={" : "} type="details" />
           <CustomText text={city} type="details" />
-        </View>
-        <View style={{ flexDirection: isRTL ? "row-reverse" : "row" }}>
-          <CustomText text={"cards.pract_card.neighbourhood"} type="details" />
-          <CustomText text={" : "} type="details" />
+          <CustomText text={", "} type="details" />
           <CustomText text={neighbourhood} type="details" />
         </View>
         <View style={{ flexDirection: isRTL ? "row-reverse" : "row" }}>

@@ -139,7 +139,7 @@
       "country": "Country",
       "city": "City",
       "neighbourhood": "Neighbourhood",
-      "phone": "Phone Number",
+      "phone": "Phone",
       "email": "Email"
     }
   },
