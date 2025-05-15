@@ -154,6 +154,16 @@
     "welcome": "اهلا وسهلا بك",
     "featured_list": "عملاؤنا المميزون"
   },
+  "progress_bar": {
+    "steps": {
+      "email_sent": "تم ارسال بريد التحقق",
+      "email_verified": "تم توثيق الحساب",
+      "signup_completed": "تم انشاء الحساب"
+    },
+    "check_your_inbox": "من فضلك اضغط على الرابط الذي تم ارساله الى بريدك الالكتروني",
+    "next_step": "التالي",
+    "completed": "اكتمل !"
+  },
 
   "Joiner": "نجار",
   "Blacksmith": "حداد",

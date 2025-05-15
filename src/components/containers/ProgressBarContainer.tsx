@@ -4,6 +4,7 @@ import { ProgressSteps, ProgressStep } from "react-native-progress-steps";
 import { CustomButton } from "@/components/Btns/CustomBtn";
 import { Colors } from "@/constants/Colors";
 import { CustomText } from "../CustomText";
+import { useTranslation } from "react-i18next";
 
 interface ProgressBarContainerProps {
   currentStep: "emailSent" | "emailVerified" | "completed";
@@ -22,6 +23,7 @@ export const ProgressBarContainer: React.FC<ProgressBarContainerProps> = ({
     completed: 2,
   };
 
+  const { t } = useTranslation();
   const currentStepNumber = stepIndex[currentStep];
 
   return (
@@ -34,24 +36,27 @@ export const ProgressBarContainer: React.FC<ProgressBarContainerProps> = ({
         completedStepIconColor={Colors.primary.p500}
         isComplete={currentStep === "completed"}
       >
-        <ProgressStep label="Email Sent" removeBtnRow />
-        <ProgressStep label="Email Verified" removeBtnRow>
-          <CustomText
-            text="please click the link we sent to your email"
-            type="details"
-          />
+        <ProgressStep label={t("progress_bar.steps.email_sent")} removeBtnRow />
+        <ProgressStep
+          label={t("progress_bar.steps.email_verified")}
+          removeBtnRow
+        >
+          <CustomText text={"progress_bar.check_your_inbox"} type="details" />
         </ProgressStep>
-        <ProgressStep label="Signup Completed" removeBtnRow />
+        <ProgressStep
+          label={t("progress_bar.steps.signup_completed")}
+          removeBtnRow
+        />
       </ProgressSteps>
       {currentStep === "completed" ? (
         <CustomButton
-          title="Completed !"
+          title="progress_bar.completed"
           disabled={true}
           style={styles.verifyButton}
         />
       ) : (
         <CustomButton
-          title="Next step"
+          title="progress_bar.next_step"
           onPress={onVerifyEmail}
           disabled={loading}
           style={styles.verifyButton}
@@ -68,5 +73,6 @@ const styles = StyleSheet.create({
   },
   verifyButton: {
     marginTop: 10,
+    width: 100,
   },
 });

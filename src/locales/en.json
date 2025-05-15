@@ -152,6 +152,16 @@
     "welcome": "Welcome !",
     "featured_list": "Featured List"
   },
+  "progress_bar": {
+    "steps": {
+      "email_sent": "Email Sent",
+      "email_verified": "Email Verified",
+      "signup_completed": "Signup Completed"
+    },
+    "check_your_inbox": "Please click the link we sent to your email",
+    "next_step": "Next step",
+    "completed": "Completed !"
+  },
 
   "Joiner": "Joiner",
   "Blacksmith": "Blacksmith",
