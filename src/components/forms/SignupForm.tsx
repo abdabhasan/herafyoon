@@ -15,6 +15,7 @@ import { useTranslation } from "react-i18next";
 import workTypePickerOptions from "@/constants/workTypePickerOptions";
 import { SignupPractFormData, signupPractSchema } from "@/schemas/authSchemas";
 import { LoadingSpinner } from "@/components/LoadingSpinner";
+import { ProgressBarContainer } from "@/components/containers/ProgressBarContainer";
 import { useRouter } from "expo-router";
 import {
   signupUser,
@@ -38,6 +39,9 @@ export default function SignupForm() {
   const router = useRouter();
   const { t } = useTranslation();
   const [emailSent, setEmailSent] = useState(false);
+  const [currentStep, setCurrentStep] = useState<
+    "emailSent" | "emailVerified" | "completed"
+  >("emailVerified");
   const [userCredential, setUserCredential] = useState<any>(null);
   const [loading, setLoading] = useState(false);
   const [submittedData, setSubmittedData] =
@@ -94,6 +98,8 @@ export default function SignupForm() {
       await userCredential.user.reload();
 
       if (userCredential.user.emailVerified) {
+        setCurrentStep("emailVerified");
+
         if (!submittedData) {
           throw new Error("No form data available to save.");
         }
@@ -109,6 +115,7 @@ export default function SignupForm() {
           userCredential.user.uid,
           submittedData
         );
+        setCurrentStep("completed");
 
         Toast.show({
           type: "success",
@@ -118,9 +125,9 @@ export default function SignupForm() {
 
         setTimeout(() => {
           router.push("/");
+          setEmailSent(false);
         }, 1500);
         reset();
-        setEmailSent(false);
         setUserCredential(null);
         setSubmittedData(null);
       } else {
@@ -169,13 +176,13 @@ export default function SignupForm() {
           />
         </>
       ) : (
-        <CustomButton
-          title="signup_page.verify_email_btn"
-          onPress={onVerifyEmail}
-          width="xl"
-          style={{ height: 50, paddingHorizontal: 5, marginTop: "25%" }}
-          disabled={loading}
-        />
+        <>
+          <ProgressBarContainer
+            currentStep={currentStep}
+            onVerifyEmail={onVerifyEmail}
+            loading={loading}
+          />
+        </>
       )}
       <Toast />
       {loading && <LoadingSpinner />}
