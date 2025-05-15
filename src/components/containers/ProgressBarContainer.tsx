@@ -37,11 +37,14 @@ export const ProgressBarContainer: React.FC<ProgressBarContainerProps> = ({
         isComplete={currentStep === "completed"}
       >
         <ProgressStep label={t("progress_bar.steps.email_sent")} removeBtnRow />
-        <ProgressStep label="progress_bar.steps.email_verified" removeBtnRow>
-          <CustomText text="progress_bar.check_your_inbox" type="details" />
+        <ProgressStep
+          label={t("progress_bar.steps.email_verified")}
+          removeBtnRow
+        >
+          <CustomText text={"progress_bar.check_your_inbox"} type="details" />
         </ProgressStep>
         <ProgressStep
-          label="progress_bar.steps.signup_completed"
+          label={t("progress_bar.steps.signup_completed")}
           removeBtnRow
         />
       </ProgressSteps>
@@ -70,5 +73,6 @@ const styles = StyleSheet.create({
   },
   verifyButton: {
     marginTop: 10,
+    width: 100,
   },
 });
