@@ -4,7 +4,7 @@ import { useFirestore } from "@/hooks/useFirestore";
 import { CustomButton } from "@/components/Btns/CustomBtn";
 import workTypePickerOptions from "@/constants/workTypePickerOptions";
 import { CustomText } from "@/components/CustomText";
-import { useForm } from "react-hook-form";
+import { useForm, useWatch } from "react-hook-form";
 import { LocationInputsContainer } from "../InputsContainers";
 import CustomPicker from "@/components/inputs/CustomPicker";
 import { LoadingSpinner } from "@/components/LoadingSpinner";
@@ -33,6 +33,11 @@ const SearchPageContainer = () => {
 
   const { i18n } = useTranslation();
   const isRTL = i18n.language === "ar";
+
+  const country = useWatch({
+    control,
+    name: "country",
+  });
 
   const onSubmit = (data: any) => {
     const { country, city, neighbourhood, workType } = data;
@@ -74,6 +79,24 @@ const SearchPageContainer = () => {
 
       {loadingFilteredPractitioners && <LoadingSpinner />}
 
+      {country === "" && filteredPractitioners.length === 0 && (
+        <CustomText
+          text="search_page.select_filters"
+          type="defaultDark"
+          style={{
+            alignSelf: isRTL ? "flex-end" : "flex-start",
+          }}
+        />
+      )}
+      {country !== "" && filteredPractitioners.length === 0 && (
+        <CustomText
+          text="search_page.no_founded_practs"
+          type="defaultDark"
+          style={{
+            alignSelf: isRTL ? "flex-end" : "flex-start",
+          }}
+        />
+      )}
       {filteredPractitioners.length > 0 && (
         <View style={styles.listContainer}>
           <CustomText

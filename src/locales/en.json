@@ -165,7 +165,9 @@
   "search_page": {
     "filters": "Filters :",
     "results": "Results :",
-    "search": "Search"
+    "search": "Search",
+    "no_founded_practs": "No results founded, please try another filters...",
+    "select_filters": "Start searching by setting your filters !"
   },
 
   "Joiner": "Joiner",
