@@ -162,6 +162,11 @@
     "next_step": "Next step",
     "completed": "Completed !"
   },
+  "search_page": {
+    "filters": "Filters :",
+    "results": "Results :",
+    "search": "Search"
+  },
 
   "Joiner": "Joiner",
   "Blacksmith": "Blacksmith",
