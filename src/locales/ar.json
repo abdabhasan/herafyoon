@@ -164,6 +164,11 @@
     "next_step": "التالي",
     "completed": "اكتمل !"
   },
+  "search_page": {
+    "filters": "تصفية النتائج :",
+    "results": "نتائج البحث :",
+    "search": "بحث"
+  },
 
   "Joiner": "نجار",
   "Blacksmith": "حداد",

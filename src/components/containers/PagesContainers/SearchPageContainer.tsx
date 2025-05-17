@@ -9,6 +9,7 @@ import { LocationInputsContainer } from "../InputsContainers";
 import CustomPicker from "@/components/inputs/CustomPicker";
 import { LoadingSpinner } from "@/components/LoadingSpinner";
 import PractCard from "@/components/cards/PractCard";
+import { useTranslation } from "react-i18next";
 
 const SearchPageContainer = () => {
   const {
@@ -30,6 +31,9 @@ const SearchPageContainer = () => {
     loadingFilteredPractitioners,
   } = useFirestore();
 
+  const { i18n } = useTranslation();
+  const isRTL = i18n.language === "ar";
+
   const onSubmit = (data: any) => {
     const { country, city, neighbourhood, workType } = data;
     fetchPractitionersByFilters(country, city, neighbourhood, workType);
@@ -43,9 +47,14 @@ const SearchPageContainer = () => {
     <View style={styles.container}>
       <>
         <CustomText
-          text="filters :"
+          text="search_page.filters"
           type="primarySubtitle"
-          style={{ alignSelf: "flex-start", marginStart: 16, marginBottom: 20 }}
+          style={[
+            styles.filtersText,
+            {
+              alignSelf: isRTL ? "flex-end" : "flex-start",
+            },
+          ]}
         />
 
         <LocationInputsContainer control={control} errors={errors} />
@@ -58,7 +67,7 @@ const SearchPageContainer = () => {
         />
       </>
       <CustomButton
-        title="Search"
+        title="search_page.search"
         onPress={handleSubmit(onSubmit)}
         width="xl"
       />
@@ -68,12 +77,10 @@ const SearchPageContainer = () => {
       {filteredPractitioners.length > 0 && (
         <View style={styles.listContainer}>
           <CustomText
-            text="results :"
+            text="search_page.results"
             type="primarySubtitle"
             style={{
-              alignSelf: "flex-start",
-              // marginStart: 16,
-              // marginVertical: 20,
+              alignSelf: isRTL ? "flex-end" : "flex-start",
             }}
           />
           <FlatList
@@ -105,6 +112,10 @@ const styles = StyleSheet.create({
     width: "100%",
     padding: 16,
     marginVertical: 8,
+  },
+  filtersText: {
+    marginStart: 16,
+    marginBottom: 20,
   },
 });
 
