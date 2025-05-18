@@ -105,3 +105,15 @@ export const fetchFilteredPractitioners = async (
 
     return practitioners;
 };
+
+
+export const updatePractitionerData = async (updatedPractId: string, updatedData: any) => {
+    if (!updatedPractId) {
+        throw new Error("Practitioner ID is required to update data");
+    }
+    const practDocRef = doc(db, "practitioners", updatedPractId);
+    await updateDoc(practDocRef, updatedData);
+};
+
+
+
