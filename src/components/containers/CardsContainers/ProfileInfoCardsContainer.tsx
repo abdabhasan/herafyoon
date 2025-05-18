@@ -1,11 +1,12 @@
 import ProfileInfoCard from "@/components/cards/ProfileInfoCard";
+import { CustomText } from "@/components/CustomText";
 import React from "react";
 
 type Props = {
   info: any;
 };
 
-const ProfileInfoCardsContainer = ({ info }) => {
+const ProfileInfoCardsContainer: React.FC<Props> = ({ info }) => {
   return (
     <>
       <ProfileInfoCard
@@ -23,6 +24,7 @@ const ProfileInfoCardsContainer = ({ info }) => {
         value={info?.phoneNumber}
       />
       <ProfileInfoCard name="cards.pract_card.email" value={info?.email} />
+      {!info && <CustomText text="no info available" type="error" />}
     </>
   );
 };
