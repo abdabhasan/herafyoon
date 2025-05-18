@@ -146,7 +146,9 @@
 
   "profile_info_page": {
     "edit": "Edit",
-    "logout": "Log Out"
+    "logout": "Log Out",
+    "save": "Save",
+    "cancel": "Cancel"
   },
   "home_page": {
     "welcome": "Welcome !",

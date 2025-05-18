@@ -147,7 +147,9 @@
 
   "profile_info_page": {
     "edit": "تعديل",
-    "logout": "تسجيل الخروج"
+    "logout": "تسجيل الخروج",
+    "save": "حفظ",
+    "cancel": "إلغاء"
   },
 
   "home_page": {
