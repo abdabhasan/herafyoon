@@ -41,6 +41,8 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderRadius: 8,
     borderColor: Colors.primary.p500,
+
+    backgroundColor: Colors.white,
   },
   infoLabel: {
     fontWeight: "bold",
