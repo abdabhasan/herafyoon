@@ -1,4 +1,4 @@
-import { getFirestore, doc, setDoc, serverTimestamp, collection, getDocs, query, where } from "firebase/firestore";
+import { getFirestore, doc, setDoc, serverTimestamp, collection, getDocs, query, where, updateDoc, getDoc } from "firebase/firestore";
 import { SignupPractFormData } from "@/schemas/authSchemas";
 import { firestore as db } from "@/firebase/config";
 
@@ -117,3 +117,19 @@ export const updatePractitionerData = async (updatedPractId: string, updatedData
 
 
 
+export const fetchSinglePractitionerInfo = async (practId: string) => {
+    try {
+        const practDocRef = doc(db, "practitioners", practId);
+        const practDoc = await getDoc(practDocRef);
+
+        if (practDoc.exists()) {
+            return { id: practDoc.id, ...practDoc.data() };
+        } else {
+            console.error("No practitioner document found!");
+            return null;
+        }
+    } catch (error) {
+        console.error("Error fetching updated practitioner info:", error);
+        throw new Error("Failed to fetch updated practitioners information. Please try again later.");
+    }
+};
