@@ -12,9 +12,14 @@ type Props = {
         neighbourhood: string;
       }>
     | undefined;
+  disabledCountry?: boolean;
 };
 
-const LocationInputsContainer: React.FC<Props> = ({ control, errors }) => {
+const LocationInputsContainer: React.FC<Props> = ({
+  control,
+  errors,
+  disabledCountry = false,
+}) => {
   const selectedCountry = useWatch({ control, name: "country" });
   const selectedCity = useWatch({ control, name: "city" });
 
@@ -36,6 +41,7 @@ const LocationInputsContainer: React.FC<Props> = ({ control, errors }) => {
         label="signup_page.form.country"
         elements={locationOptions.map(({ label, value }) => ({ label, value }))}
         error={errors?.country ? errors.country.message : null}
+        disabled={disabledCountry}
       />
       <CustomPicker
         name="city"
