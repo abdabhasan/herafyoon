@@ -78,7 +78,6 @@ const CustomPicker: FC<PickerProps> = ({
         control={control}
         name={name}
         rules={rules}
-        disabled={disabled}
         render={({ field: { value, onChange } }) => (
           <>
             <TouchableOpacity
@@ -87,6 +86,7 @@ const CustomPicker: FC<PickerProps> = ({
                 { flexDirection: isRTL ? "row-reverse" : "row" },
               ]}
               onPress={toggleModal}
+              disabled={disabled}
             >
               <CustomText
                 type="defaultDark"
