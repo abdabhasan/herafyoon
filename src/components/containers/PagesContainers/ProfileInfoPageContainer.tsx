@@ -1,27 +1,70 @@
-import { CustomText } from "@/components/CustomText";
-import { Colors } from "@/constants/Colors";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { View, StyleSheet } from "react-native";
 import { Avatar } from "react-native-paper";
+import { useForm } from "react-hook-form";
+import { useTranslation } from "react-i18next";
+
+import { CustomText } from "@/components/CustomText";
+import { Colors } from "@/constants/Colors";
 import ProfileInfoCardsContainer from "@/components/containers/CardsContainers/ProfileInfoCardsContainer";
 import { LoadingSpinner } from "@/components/LoadingSpinner";
 import { CustomButton } from "@/components/Btns/CustomBtn";
-import { useTranslation } from "react-i18next";
 import { useAuth } from "@/hooks/useAuth";
+import {
+  updatePractitionerData,
+  fetchSinglePractitionerInfo,
+} from "@/firebase/firestoreService";
+import EditProfileInfoInputsContainer from "../InputsContainers/EditProfileInfoInputsContainer";
 
 type Props = {};
 
 const ProfileInfoPageContainer = (props: Props) => {
   const { i18n } = useTranslation();
   const isRTL = i18n.language === "ar";
+  const { loading, userInfo, logout, user } = useAuth();
+  const [isEditing, setIsEditing] = useState(false);
+  const [isSaving, setIsSaving] = useState(false);
+  const [tempPractitionerInfo, setTempPractitionerInfo] = useState(userInfo);
 
-  const { loading, userInfo, logout } = useAuth();
+  const {
+    control,
+    handleSubmit,
+    reset,
+    formState: { errors },
+  } = useForm({
+    defaultValues: userInfo,
+  });
+
+  useEffect(() => {
+    if (userInfo) {
+      reset(userInfo);
+      setTempPractitionerInfo(userInfo);
+    }
+  }, [userInfo, reset]);
 
   if (loading) {
     return <LoadingSpinner />;
   }
 
-  const { firstName, lastName } = userInfo;
+  const handleEditToggle = () => {
+    setIsEditing((prev) => !prev);
+  };
+
+  const handleSaveChanges = async (data: any) => {
+    setIsSaving(true);
+    try {
+      await updatePractitionerData(user.uid, data);
+      const updatedPractInfo = await fetchSinglePractitionerInfo(user.uid);
+      reset(updatedPractInfo); // Update form with new info
+      setTempPractitionerInfo(updatedPractInfo);
+
+      setIsEditing(false);
+    } catch (error) {
+      console.error("Error updating Practitioner data:", error);
+    } finally {
+      setIsSaving(false);
+    }
+  };
 
   const handleLogout = async () => {
     try {
@@ -43,31 +86,58 @@ const ProfileInfoPageContainer = (props: Props) => {
           style={styles.avatar}
         />
         <CustomText
-          text={firstName + " " + lastName}
+          text={`${userInfo.firstName} ${userInfo.lastName}`}
           type="primarySubtitle"
           style={styles.name}
         />
       </View>
       <View style={styles.infoContainer}>
-        {/* TO DO */}
-        <CustomText
-          text="profile_info_page.edit"
-          type="defaultDark"
-          style={[
-            styles.editBtn,
-            {
-              alignSelf: isRTL ? "flex-end" : "flex-start",
-            },
-          ]}
-        />
-        <ProfileInfoCardsContainer info={userInfo} />
+        {!isEditing && (
+          <CustomText
+            text="profile_info_page.edit"
+            type="defaultDark"
+            style={[
+              styles.editBtn,
+              {
+                alignSelf: isRTL ? "flex-end" : "flex-start",
+              },
+            ]}
+            onPress={handleEditToggle}
+          />
+        )}
 
-        <CustomButton
-          title="profile_info_page.logout"
-          width="full"
-          onPress={handleLogout}
-          style={styles.logoutBtn}
-        />
+        {isEditing ? (
+          <>
+            {isSaving && <LoadingSpinner />}
+            <EditProfileInfoInputsContainer control={control} errors={errors} />
+
+            <CustomButton
+              title="profile_info_page.cancel"
+              width="xl"
+              color="light"
+              onPress={handleEditToggle}
+              style={[{ alignSelf: isRTL ? "flex-end" : "flex-start" }]}
+            />
+            <CustomButton
+              title="profile_info_page.save"
+              width="xl"
+              disabled={isSaving}
+              onPress={handleSubmit(handleSaveChanges)}
+              style={[{ alignSelf: isRTL ? "flex-end" : "flex-start" }]}
+            />
+          </>
+        ) : (
+          <>
+            <ProfileInfoCardsContainer info={tempPractitionerInfo} />
+
+            <CustomButton
+              title="profile_info_page.logout"
+              width="full"
+              onPress={handleLogout}
+              style={styles.logoutBtn}
+            />
+          </>
+        )}
       </View>
     </View>
   );
