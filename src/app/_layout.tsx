@@ -3,6 +3,7 @@ import { StyleSheet } from "react-native";
 import { I18nextProvider } from "react-i18next";
 import i18n from "@/i18n";
 import { SafeAreaProvider, SafeAreaView } from "react-native-safe-area-context";
+import Toast from "react-native-toast-message";
 
 export default function RootLayout() {
   return (
@@ -14,6 +15,7 @@ export default function RootLayout() {
               headerShown: false,
             }}
           />
+          <Toast />
         </SafeAreaView>
       </I18nextProvider>
     </SafeAreaProvider>
