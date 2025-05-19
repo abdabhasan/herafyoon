@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { View, StyleSheet } from "react-native";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -8,23 +8,14 @@ import {
   EmailAndPasswordFieldsContainer,
   LocationInputsContainer,
 } from "@/components/containers/InputsContainers";
-import CustomInputController from "@/components/controllers/CustomInputController";
-import CustomPicker from "../inputs/CustomPicker";
+import CustomPicker from "@/components/inputs/CustomPicker";
 import Toast from "react-native-toast-message";
-import { useTranslation } from "react-i18next";
+import { ProgressBarContainer } from "@/components/containers/ProgressBarContainer";
+import { LoadingSpinner } from "@/components/LoadingSpinner";
+import { useSignupPractitionerForm } from "@/hooks/useSignupPractitionerForm";
 import workTypePickerOptions from "@/constants/workTypePickerOptions";
 import { SignupPractFormData, signupPractSchema } from "@/schemas/authSchemas";
-import { LoadingSpinner } from "@/components/LoadingSpinner";
-import { ProgressBarContainer } from "@/components/containers/ProgressBarContainer";
-import { useRouter } from "expo-router";
-import {
-  signupUser,
-  sendVerificationEmail,
-  removeUser,
-  loginUser,
-} from "@/firebase/authService";
-import { savePractitionerDataToFirestore } from "@/firebase/firestoreService";
-import rollbar from "@/utils/rollbar";
+import CustomInputController from "../controllers/CustomInputController";
 
 export default function SignupForm() {
   const {
@@ -36,120 +27,11 @@ export default function SignupForm() {
     resolver: zodResolver(signupPractSchema),
   });
 
-  const router = useRouter();
-  const { t } = useTranslation();
-  const [emailSent, setEmailSent] = useState(false);
-  const [currentStep, setCurrentStep] = useState<
-    "emailSent" | "emailVerified" | "completed"
-  >("emailVerified");
-  const [userCredential, setUserCredential] = useState<any>(null);
-  const [loading, setLoading] = useState(false);
-  const [submittedData, setSubmittedData] =
-    useState<SignupPractFormData | null>(null);
-
-  const onSubmit = async (data: SignupPractFormData) => {
-    setLoading(true);
-    try {
-      const { email, password } = data;
-
-      // Create user in Firebase Auth
-      const credential = await signupUser(email, password);
-
-      setUserCredential(credential); // Store user credential temporarily
-      setSubmittedData(data); // Save form data for later
-
-      // Send verification email
-      await sendVerificationEmail(credential.user);
-
-      setEmailSent(true);
-      Toast.show({
-        type: "success",
-        text1: t("signup_page.verification_email_sent"),
-        text2: t("signup_page.check_your_inbox"),
-      });
-    } catch (error: any) {
-      rollbar.log(error);
-
-      console.error("Error during signup:", error);
-
-      Toast.show({
-        type: "error",
-        text1: t("signup_page.signup_faild"),
-        text2: error.message || t("signup_page.error_occurred"),
-      });
-
-      // Clean up partially created user on error
-      if (userCredential) {
-        await removeUser(userCredential.user);
-      }
-    } finally {
-      setLoading(false);
-    }
-  };
-
-  const onVerifyEmail = async () => {
-    setLoading(true);
-    try {
-      if (!userCredential) {
-        throw new Error("signup_page.user_not_found");
-      }
-
-      // Refresh user to check email verification status
-      await userCredential.user.reload();
-
-      if (userCredential.user.emailVerified) {
-        setCurrentStep("emailVerified");
-
-        if (!submittedData) {
-          throw new Error("No form data available to save.");
-        }
-
-        // Sign in user after email verification
-        const loggedInUser = await loginUser(
-          submittedData.email,
-          submittedData.password
-        );
-
-        // Save user data to Firestore
-        await savePractitionerDataToFirestore(
-          userCredential.user.uid,
-          submittedData
-        );
-        setCurrentStep("completed");
-
-        Toast.show({
-          type: "success",
-          text1: t("signup_page.verification_successfull"),
-          text2: t("signup_page.your_account_now_active"),
-        });
-
-        setTimeout(() => {
-          router.push("/");
-          setEmailSent(false);
-        }, 1500);
-        reset();
-        setUserCredential(null);
-        setSubmittedData(null);
-      } else {
-        throw new Error("Email not verified. Please check your inbox.");
-      }
-    } catch (error: any) {
-      rollbar.log(error);
-
-      console.error("Error during email verification:", error);
-      Toast.show({
-        type: "error",
-        text1: t("signup_page.verification_faild"),
-        text2: error.message || t("signup_page.error_error_occurred"),
-      });
-    } finally {
-      setLoading(false);
-    }
-  };
+  const { state, onSubmit, onVerifyEmail } = useSignupPractitionerForm(reset);
 
   return (
     <View style={styles.container}>
-      {!emailSent ? (
+      {!state.emailSent ? (
         <>
           <FullNameFieldsContainer control={control} errors={errors} />
           <EmailAndPasswordFieldsContainer control={control} errors={errors} />
@@ -159,33 +41,31 @@ export default function SignupForm() {
             control={control}
             label="signup_page.form.workType"
             elements={workTypePickerOptions}
-            error={errors.workType ? errors.workType.message : null}
+            error={errors.workType?.message || null}
           />
+
           <CustomInputController
             name="phoneNumber"
             control={control}
             label="signup_page.form.phone"
             error={errors.phoneNumber ? errors.phoneNumber.message : null}
           />
-
           <CustomButton
             title="signup"
             width="m"
             onPress={handleSubmit(onSubmit)}
-            disabled={loading}
+            disabled={state.loading}
           />
         </>
       ) : (
-        <>
-          <ProgressBarContainer
-            currentStep={currentStep}
-            onVerifyEmail={onVerifyEmail}
-            loading={loading}
-          />
-        </>
+        <ProgressBarContainer
+          currentStep={state.currentStep}
+          onVerifyEmail={onVerifyEmail}
+          loading={state.loading}
+        />
       )}
+      {state.loading && <LoadingSpinner />}
       <Toast />
-      {loading && <LoadingSpinner />}
     </View>
   );
 }
