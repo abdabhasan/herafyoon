@@ -46,6 +46,11 @@
       "workType": "Work Type"
     }
   },
+  "signin_page": {
+    "error": "Error",
+    "incorrect_credentials": "Invalid Credentials",
+    "too_many_requests": "You tried too many times, please wait for minutes and try again!"
+  },
   "signup_normal_user_page": {
     "title": "Sign Up for Normal User"
   },
