@@ -47,6 +47,7 @@
     }
   },
   "signin_page": {
+    "success": "تم تسجيل الدخول بنجاح",
     "error": "خطأ",
     "incorrect_credentials": "معلومات غير صالحة",
     "too_many_requests": "محاولات فاشلة كثيرة، انتظر بضع دقائق ثم حاول مرة أخرى"
