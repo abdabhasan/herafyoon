@@ -75,6 +75,7 @@ export default function SigninForm() {
       <EmailAndPasswordFieldsContainer control={control} errors={errors} />
 
       <CustomButton title="signin" width="m" onPress={handleSubmit(onSubmit)} />
+      <Toast />
     </ScrollView>
   );
 }
