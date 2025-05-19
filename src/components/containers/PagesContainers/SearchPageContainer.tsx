@@ -1,5 +1,5 @@
 import React from "react";
-import { View, FlatList, StyleSheet } from "react-native";
+import { View, StyleSheet } from "react-native";
 import { useFirestore } from "@/hooks/useFirestore";
 import { CustomButton } from "@/components/Btns/CustomBtn";
 import workTypePickerOptions from "@/constants/workTypePickerOptions";
@@ -106,20 +106,17 @@ const SearchPageContainer = () => {
               alignSelf: isRTL ? "flex-end" : "flex-start",
             }}
           />
-          <FlatList
-            data={filteredPractitioners}
-            keyExtractor={(item) => item.id}
-            renderItem={({ item }) => (
-              <PractCard
-                firstName={item.firstName}
-                lastName={item.lastName}
-                workType={item.workType}
-                city={item.city}
-                neighbourhood={item.neighbourhood}
-                phoneNumber={item.phoneNumber}
-              />
-            )}
-          />
+          {filteredPractitioners.map((item) => (
+            <PractCard
+              key={item.id}
+              firstName={item.firstName}
+              lastName={item.lastName}
+              workType={item.workType}
+              city={item.city}
+              neighbourhood={item.neighbourhood}
+              phoneNumber={item.phoneNumber}
+            />
+          ))}
         </View>
       )}
     </View>
