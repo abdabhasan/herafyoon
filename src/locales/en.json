@@ -47,6 +47,7 @@
     }
   },
   "signin_page": {
+    "success": "Sign In Successful!",
     "error": "Error",
     "incorrect_credentials": "Invalid Credentials",
     "too_many_requests": "You tried too many times, please wait for minutes and try again!"
