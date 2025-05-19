@@ -46,6 +46,11 @@
       "workType": "العمل"
     }
   },
+  "signin_page": {
+    "error": "خطأ",
+    "incorrect_credentials": "معلومات غير صالحة",
+    "too_many_requests": "محاولات فاشلة كثيرة، انتظر بضع دقائق ثم حاول مرة أخرى"
+  },
   "signup_normal_user_page": {
     "title": "أنشئ حساب مستخدم عادي"
   },
