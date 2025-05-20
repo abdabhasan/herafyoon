@@ -12,6 +12,7 @@ import { CustomText } from "../CustomText";
 type WidthOption = "sm" | "m" | "l" | "xl" | "full";
 type HeightOption = "normal" | "tiny";
 type ColorOption = "primary" | "secondary" | "light" | "dark";
+type AlignOption = "center" | "flex-start" | "flex-end";
 
 type ButtonProps = {
   title: string;
@@ -19,6 +20,7 @@ type ButtonProps = {
   width?: WidthOption;
   height?: HeightOption;
   color?: ColorOption;
+  alignSelf?: AlignOption;
   onPress?: () => void;
   style?: StyleProp<ViewStyle>;
   disabled?: boolean;
@@ -66,6 +68,7 @@ export const CustomButton: React.FC<ButtonProps> = ({
   width = "l",
   height = "normal",
   color = "primary",
+  alignSelf = "center",
   onPress,
   style,
   disabled = false,
@@ -84,7 +87,7 @@ export const CustomButton: React.FC<ButtonProps> = ({
   };
 
   return (
-    <View style={[styles.container, { width: `${buttonWidth}%` }]}>
+    <View style={[styles.container, { alignSelf, width: `${buttonWidth}%` }]}>
       {label ? <CustomText type="label" text={label} /> : null}
       <TouchableOpacity
         onPress={onPress}
@@ -104,7 +107,6 @@ export const CustomButton: React.FC<ButtonProps> = ({
 
 const styles = StyleSheet.create({
   container: {
-    alignSelf: "center",
     alignItems: "center",
     margin: 10,
   },
