@@ -11,6 +11,7 @@ import { LoadingSpinner } from "@/components/LoadingSpinner";
 import { useSearchPractitioners } from "@/hooks/useSearchPractitioners";
 import SearchBarWithResultsListContainer from "../InputsContainers/SearchBarWithResultsListContainer";
 import FiltersModal from "@/components/modals/FiltersModal";
+import PractitionersCardsList from "@/components/lists/PractitionersCardsList";
 
 const SearchPageContainer = () => {
   const {
@@ -86,26 +87,13 @@ const SearchPageContainer = () => {
         />
       )}
       {filteredPractitioners.length > 0 && (
-        <View style={styles.listContainer}>
-          <CustomText
-            text="search_page.results"
-            type="primarySubtitle"
-            style={{
-              alignSelf: isRTL ? "flex-end" : "flex-start",
-            }}
-          />
-          {filteredPractitioners.map((item) => (
-            <PractCard
-              key={item.id}
-              firstName={item.firstName}
-              lastName={item.lastName}
-              workType={item.workType}
-              city={item.city}
-              neighbourhood={item.neighbourhood}
-              phoneNumber={item.phoneNumber}
+        <>
+          <View style={styles.listContainer}>
+            <PractitionersCardsList
+              practitionersArray={filteredPractitioners}
             />
-          ))}
-        </View>
+          </View>
+        </>
       )}
       <FiltersModal
         visible={isSearchByFilters}
