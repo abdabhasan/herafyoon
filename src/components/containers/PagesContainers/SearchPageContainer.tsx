@@ -45,7 +45,7 @@ const SearchPageContainer = () => {
   });
 
   if (loadingFilteredPractitioners) {
-    <LoadingSpinner />;
+    return <LoadingSpinner />;
   }
 
   return (
