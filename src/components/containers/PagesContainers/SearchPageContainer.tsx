@@ -8,8 +8,8 @@ import { useForm, useWatch } from "react-hook-form";
 import { LocationInputsContainer } from "../InputsContainers";
 import CustomPicker from "@/components/inputs/CustomPicker";
 import { LoadingSpinner } from "@/components/LoadingSpinner";
-import PractCard from "@/components/cards/PractCard";
-import { useTranslation } from "react-i18next";
+import { useSearchPractitioners } from "@/hooks/useSearchPractitioners";
+import SearchBarWithResultsListContainer from "../InputsContainers/SearchBarWithResultsListContainer";
 
 const SearchPageContainer = () => {
   const {
@@ -25,14 +25,15 @@ const SearchPageContainer = () => {
     },
   });
 
-  const {
-    filteredPractitioners,
-    fetchPractitionersByFilters,
-    loadingFilteredPractitioners,
-  } = useFirestore();
+  const { loadingFilteredPractitioners } = useFirestore();
 
-  const { i18n } = useTranslation();
-  const isRTL = i18n.language === "ar";
+  const {
+    searchQuery,
+    autocompleteResults,
+    handleSearchChange,
+    handleSelectAutocomplete,
+    filteredPractitioners,
+  } = useSearchPractitioners();
 
   const country = useWatch({
     control,
@@ -50,35 +51,12 @@ const SearchPageContainer = () => {
 
   return (
     <View style={styles.container}>
-      <>
-        <CustomText
-          text="search_page.filters"
-          type="primarySubtitle"
-          style={[
-            styles.filtersText,
-            {
-              alignSelf: isRTL ? "flex-end" : "flex-start",
-            },
-          ]}
-        />
-
-        <LocationInputsContainer control={control} errors={errors} />
-        <CustomPicker
-          name="workType"
-          control={control}
-          label="signup_page.form.workType"
-          elements={workTypePickerOptions}
-          error={errors.workType ? errors.workType.message : null}
-        />
-      </>
-      <CustomButton
-        title="search_page.search"
-        onPress={handleSubmit(onSubmit)}
-        width="xl"
+      <SearchBarWithResultsListContainer
+        query={searchQuery}
+        onChange={handleSearchChange}
+        autocompleteResults={autocompleteResults}
+        onSelect={handleSelectAutocomplete}
       />
-
-      {loadingFilteredPractitioners && <LoadingSpinner />}
-
       {country === "" && filteredPractitioners.length === 0 && (
         <CustomText
           text="search_page.select_filters"
