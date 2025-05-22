@@ -2,6 +2,7 @@ import { useCallback, useState } from "react";
 import workTypePickerOptions from "@/constants/workTypePickerOptions";
 import { useFirestore } from "@/hooks/useFirestore";
 import { debounce } from "lodash";
+import { useTranslation } from "react-i18next";
 
 
 
@@ -11,12 +12,13 @@ export const useSearchPractitioners = () => {
     const { fetchPractitionersByFilters, filteredPractitioners } = useFirestore();
     const [isSearchByFilters, setIsSearchByFilters] = useState<boolean>(false);
 
+    const { t } = useTranslation();
 
     const debouncedFilterResults = useCallback(
         debounce((query: string) => {
             if (query.length >= 2) {
                 const results = workTypePickerOptions.filter((option) =>
-                    option.label.toLowerCase().includes(query.toLowerCase())
+                    t(option.label).toLowerCase().includes(query.toLowerCase())
                 );
                 setAutocompleteResults(results);
             } else {
