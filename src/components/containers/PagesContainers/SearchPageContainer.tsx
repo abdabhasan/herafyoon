@@ -10,6 +10,7 @@ import CustomPicker from "@/components/inputs/CustomPicker";
 import { LoadingSpinner } from "@/components/LoadingSpinner";
 import { useSearchPractitioners } from "@/hooks/useSearchPractitioners";
 import SearchBarWithResultsListContainer from "../InputsContainers/SearchBarWithResultsListContainer";
+import FiltersModal from "@/components/modals/FiltersModal";
 
 const SearchPageContainer = () => {
   const {
@@ -33,17 +34,15 @@ const SearchPageContainer = () => {
     handleSearchChange,
     handleSelectAutocomplete,
     filteredPractitioners,
+    isSearchByFilters,
+    onSubmitFilters,
+    toggleFiltersModal,
   } = useSearchPractitioners();
 
   const country = useWatch({
     control,
     name: "country",
   });
-
-  const onSubmit = (data: any) => {
-    const { country, city, neighbourhood, workType } = data;
-    fetchPractitionersByFilters(country, city, neighbourhood, workType);
-  };
 
   if (loadingFilteredPractitioners) {
     <LoadingSpinner />;
@@ -57,6 +56,17 @@ const SearchPageContainer = () => {
         autocompleteResults={autocompleteResults}
         onSelect={handleSelectAutocomplete}
       />
+      <View style={styles.resultTextContainer}>
+        <CustomText text="search_page.results" type="primarySubtitle" />
+        <CustomButton
+          title="search_page.filters"
+          onPress={() => toggleFiltersModal()}
+          style={styles.filtersBtn}
+          width="sm"
+          height="tiny"
+          alignSelf="flex-start"
+        />
+      </View>
       {country === "" && filteredPractitioners.length === 0 && (
         <CustomText
           text="search_page.select_filters"
@@ -97,6 +107,13 @@ const SearchPageContainer = () => {
           ))}
         </View>
       )}
+      <FiltersModal
+        visible={isSearchByFilters}
+        onClose={() => toggleFiltersModal()}
+        control={control}
+        errors={errors}
+        onSubmit={handleSubmit(onSubmitFilters)}
+      />
     </View>
   );
 };
@@ -111,9 +128,15 @@ const styles = StyleSheet.create({
     padding: 16,
     marginVertical: 8,
   },
-  filtersText: {
-    marginStart: 16,
-    marginBottom: 20,
+  resultTextContainer: {
+    width: "100%",
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
+  },
+  filtersBtn: {
+    marginRight: -20,
+  },
   },
 });
 
