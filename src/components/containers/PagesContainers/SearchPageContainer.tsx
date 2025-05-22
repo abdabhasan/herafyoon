@@ -10,6 +10,7 @@ import SearchBarWithResultsListContainer from "../InputsContainers/SearchBarWith
 import FiltersModal from "@/components/modals/FiltersModal";
 import PractitionersCardsList from "@/components/lists/PractitionersCardsList";
 import WelcomeSVG from "@/assets/illustrations/search-page-welcome.svg";
+import ResultsNotFoundSVG from "@/assets/illustrations/results-not-found.svg";
 
 const SearchPageContainer = () => {
   const {
@@ -78,13 +79,15 @@ const SearchPageContainer = () => {
         </>
       )}
       {country !== "" && filteredPractitioners.length === 0 && (
-        <CustomText
-          text="search_page.no_founded_practs"
-          type="defaultDark"
-          style={{
-            alignSelf: isRTL ? "flex-end" : "flex-start",
-          }}
-        />
+        <>
+          <ResultsNotFoundSVG />
+
+          <CustomText
+            text="search_page.no_founded_practs"
+            type="defaultDark"
+            style={styles.noResultsText}
+          />
+        </>
       )}
       {filteredPractitioners.length > 0 && (
         <>
