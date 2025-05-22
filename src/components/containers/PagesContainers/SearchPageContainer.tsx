@@ -2,16 +2,14 @@ import React from "react";
 import { View, StyleSheet } from "react-native";
 import { useFirestore } from "@/hooks/useFirestore";
 import { CustomButton } from "@/components/Btns/CustomBtn";
-import workTypePickerOptions from "@/constants/workTypePickerOptions";
 import { CustomText } from "@/components/CustomText";
 import { useForm, useWatch } from "react-hook-form";
-import { LocationInputsContainer } from "../InputsContainers";
-import CustomPicker from "@/components/inputs/CustomPicker";
 import { LoadingSpinner } from "@/components/LoadingSpinner";
 import { useSearchPractitioners } from "@/hooks/useSearchPractitioners";
 import SearchBarWithResultsListContainer from "../InputsContainers/SearchBarWithResultsListContainer";
 import FiltersModal from "@/components/modals/FiltersModal";
 import PractitionersCardsList from "@/components/lists/PractitionersCardsList";
+import WelcomeSVG from "@/assets/illustrations/search-page-welcome.svg";
 
 const SearchPageContainer = () => {
   const {
@@ -69,13 +67,15 @@ const SearchPageContainer = () => {
         />
       </View>
       {country === "" && filteredPractitioners.length === 0 && (
-        <CustomText
-          text="search_page.select_filters"
-          type="defaultDark"
-          style={{
-            alignSelf: isRTL ? "flex-end" : "flex-start",
-          }}
-        />
+        <>
+          <WelcomeSVG />
+
+          <CustomText
+            text="search_page.select_filters"
+            type="defaultDark"
+            style={styles.noResultsText}
+          />
+        </>
       )}
       {country !== "" && filteredPractitioners.length === 0 && (
         <CustomText
@@ -125,6 +125,9 @@ const styles = StyleSheet.create({
   filtersBtn: {
     marginRight: -20,
   },
+  noResultsText: {
+    alignSelf: "flex-start",
+    marginTop: 10,
   },
 });
 
