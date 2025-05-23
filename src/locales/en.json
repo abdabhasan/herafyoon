@@ -177,7 +177,8 @@
     "no_founded_practs": "No results founded, please try another filters...",
     "select_filters": "Start searching by setting your filters !",
     "type_to_search": "Search a profession",
-    "close": "Close"
+    "close": "Close",
+    "clear": "Clear"
   },
 
   "Joiner": "Joiner",
