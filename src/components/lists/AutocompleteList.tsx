@@ -12,6 +12,7 @@ const AutocompleteList: React.FC<AutocompleteListProps> = ({
   onSelect,
 }) => {
   return (
+    <View style={styles.container}>
       {results.map((item) => (
         <TouchableOpacity
           key={item.value}
@@ -21,16 +22,22 @@ const AutocompleteList: React.FC<AutocompleteListProps> = ({
           <CustomText text={item.label} type="defaultDark" />
         </TouchableOpacity>
       ))}
-    />
+    </View>
   );
 };
 
 const styles = StyleSheet.create({
+  container: {
+    borderRadius: 8,
+    backgroundColor: "#f9f9f9",
+  },
   item: {
-    padding: 10,
-    borderBottomColor: Colors.primary.p500,
+    paddingHorizontal: 10,
+    paddingVertical: 5,
+    fontSize: 12,
     borderBottomWidth: 1,
-    backgroundColor: Colors.white,
+    borderBottomEndRadius: 8,
+    borderBottomStartRadius: 8,
   },
 });
 
