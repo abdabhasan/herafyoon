@@ -1,7 +1,6 @@
 import React from "react";
-import { FlatList, TouchableOpacity, StyleSheet } from "react-native";
+import { TouchableOpacity, StyleSheet, View } from "react-native";
 import { CustomText } from "@/components/CustomText";
-import { Colors } from "@/constants/Colors";
 
 interface AutocompleteListProps {
   results: { label: string; value: string }[];
@@ -13,14 +12,15 @@ const AutocompleteList: React.FC<AutocompleteListProps> = ({
   onSelect,
 }) => {
   return (
-    <FlatList
-      data={results}
-      keyExtractor={(item) => item.value}
-      renderItem={({ item }) => (
-        <TouchableOpacity style={styles.item} onPress={() => onSelect(item)}>
+      {results.map((item) => (
+        <TouchableOpacity
+          key={item.value}
+          style={styles.item}
+          onPress={() => onSelect(item)}
+        >
           <CustomText text={item.label} type="defaultDark" />
         </TouchableOpacity>
-      )}
+      ))}
     />
   );
 };
