@@ -11,6 +11,7 @@ import FiltersModal from "@/components/modals/FiltersModal";
 import PractitionersCardsList from "@/components/lists/PractitionersCardsList";
 import WelcomeSVG from "@/assets/illustrations/search-page-welcome.svg";
 import ResultsNotFoundSVG from "@/assets/illustrations/results-not-found.svg";
+import PractitionersSearchHistory from "@/components/lists/PractitionersSearchHistory";
 
 const SearchPageContainer = () => {
   const {
@@ -37,6 +38,10 @@ const SearchPageContainer = () => {
     isSearchByFilters,
     onSubmitFilters,
     toggleFiltersModal,
+    searchHistory,
+    clearSearchHistory,
+    setIsSearchFocused,
+    isSearchFocused,
   } = useSearchPractitioners();
 
   const country = useWatch({
@@ -55,7 +60,16 @@ const SearchPageContainer = () => {
         onChange={handleSearchChange}
         autocompleteResults={autocompleteResults}
         onSelect={handleSelectAutocomplete}
+        onFocus={() => setIsSearchFocused(true)}
+        onBlur={() => setIsSearchFocused(false)}
       />
+      {isSearchFocused && !searchQuery && (
+        <PractitionersSearchHistory
+          history={searchHistory}
+          onSelectHistory={handleSearchChange}
+          onClearHistory={clearSearchHistory}
+        />
+      )}
       <View style={styles.resultTextContainer}>
         <CustomText text="search_page.results" type="primarySubtitle" />
         <CustomButton
