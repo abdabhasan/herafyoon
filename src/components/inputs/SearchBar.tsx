@@ -1,14 +1,30 @@
 import React from "react";
-import { TextInput, StyleSheet } from "react-native";
+import {
+  TextInput,
+  StyleSheet,
+  NativeSyntheticEvent,
+  TextInputFocusEventData,
+} from "react-native";
 import { Colors } from "@/constants/Colors";
 import { useTranslation } from "react-i18next";
 
 interface SearchBarProps {
   query: string;
   onChange: (query: string) => void;
+  onFocus:
+    | ((e: NativeSyntheticEvent<TextInputFocusEventData>) => void)
+    | undefined;
+  onBlur:
+    | ((e: NativeSyntheticEvent<TextInputFocusEventData>) => void)
+    | undefined;
 }
 
-const SearchBar: React.FC<SearchBarProps> = ({ query, onChange }) => {
+const SearchBar: React.FC<SearchBarProps> = ({
+  query,
+  onChange,
+  onBlur,
+  onFocus,
+}) => {
   const { i18n, t } = useTranslation();
   const isRTL = i18n.language === "ar";
 
@@ -23,6 +39,8 @@ const SearchBar: React.FC<SearchBarProps> = ({ query, onChange }) => {
       placeholder={t("search_page.type_to_search")}
       value={t(query)}
       onChangeText={onChange}
+      onFocus={onFocus}
+      onBlur={onBlur}
     />
   );
 };
