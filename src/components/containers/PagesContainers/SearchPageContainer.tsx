@@ -12,6 +12,7 @@ import PractitionersCardsList from "@/components/lists/PractitionersCardsList";
 import WelcomeSVG from "@/assets/illustrations/search-page-welcome.svg";
 import ResultsNotFoundSVG from "@/assets/illustrations/results-not-found.svg";
 import PractitionersSearchHistory from "@/components/lists/PractitionersSearchHistory";
+import { useTranslation } from "react-i18next";
 
 const SearchPageContainer = () => {
   const {
@@ -42,7 +43,12 @@ const SearchPageContainer = () => {
     clearSearchHistory,
     setIsSearchFocused,
     isSearchFocused,
+    fetchPractitionersByFilters,
   } = useSearchPractitioners();
+
+  const [isHistoryVisible, setHistoryVisible] = React.useState(false);
+
+  const { t } = useTranslation();
 
   const country = useWatch({
     control,
@@ -60,13 +66,26 @@ const SearchPageContainer = () => {
         onChange={handleSearchChange}
         autocompleteResults={autocompleteResults}
         onSelect={handleSelectAutocomplete}
-        onFocus={() => setIsSearchFocused(true)}
+        onFocus={() => {
+          setIsSearchFocused(true);
+          setHistoryVisible(true);
+        }}
         onBlur={() => setIsSearchFocused(false)}
+        setHistoryVisible={setHistoryVisible}
       />
-      {isSearchFocused && !searchQuery && (
+      {isHistoryVisible && !searchQuery && (
         <PractitionersSearchHistory
           history={searchHistory}
-          onSelectHistory={handleSearchChange}
+          onSelectHistory={(query) => {
+            handleSearchChange(query);
+            fetchPractitionersByFilters(
+              undefined,
+              undefined,
+              undefined,
+              t(query, { lng: "en" })
+            );
+            setHistoryVisible(false);
+          }}
           onClearHistory={clearSearchHistory}
         />
       )}

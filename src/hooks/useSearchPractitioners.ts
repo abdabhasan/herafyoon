@@ -75,6 +75,8 @@ export const useSearchPractitioners = () => {
         isSearchByFilters,
         toggleFiltersModal,
         isSearchFocused,
-        setIsSearchFocused
+        setIsSearchFocused,
+        fetchPractitionersByFilters
+
     };
 };
