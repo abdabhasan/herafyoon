@@ -16,9 +16,6 @@ interface SearchBarWithResultsListContainerProps {
   onFocus:
     | ((e: NativeSyntheticEvent<TextInputFocusEventData>) => void)
     | undefined;
-  onBlur:
-    | ((e: NativeSyntheticEvent<TextInputFocusEventData>) => void)
-    | undefined;
   setHistoryVisible: (visible: boolean) => void;
 }
 
@@ -29,7 +26,6 @@ const SearchBarWithResultsListContainer: React.FC<
   onChange,
   autocompleteResults,
   onSelect,
-  onBlur,
   onFocus,
   setHistoryVisible,
 }) => {
@@ -48,7 +44,6 @@ const SearchBarWithResultsListContainer: React.FC<
     blurTimeoutRef.current = setTimeout(() => {
       setHistoryVisible(false);
     }, 200); // Delay hiding the history list
-    if (onBlur) onBlur(e);
   };
 
   return (
