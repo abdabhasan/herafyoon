@@ -101,26 +101,26 @@ const SearchPageContainer = () => {
         />
       </View>
       {country === "" && filteredPractitioners.length === 0 && (
-        <>
-          <WelcomeSVG />
+        <View style={styles.emptyStateContainer}>
+          <WelcomeSVG width={200} height={200} />
 
           <CustomText
             text="search_page.select_filters"
             type="defaultDark"
             style={styles.noResultsText}
           />
-        </>
+        </View>
       )}
       {country !== "" && filteredPractitioners.length === 0 && (
-        <>
-          <ResultsNotFoundSVG />
+        <View style={styles.emptyStateContainer}>
+          <ResultsNotFoundSVG width={200} height={200} />
 
           <CustomText
             text="search_page.no_founded_practs"
             type="defaultDark"
             style={styles.noResultsText}
           />
-        </>
+        </View>
       )}
       {filteredPractitioners.length > 0 && (
         <>
@@ -144,8 +144,15 @@ const SearchPageContainer = () => {
 
 const styles = StyleSheet.create({
   container: {
+    flex: 1,
     padding: 16,
     alignItems: "center",
+  },
+  emptyStateContainer: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
+    padding: 16,
   },
   listContainer: {
     width: "100%",
@@ -162,8 +169,9 @@ const styles = StyleSheet.create({
     marginRight: -20,
   },
   noResultsText: {
-    alignSelf: "flex-start",
-    marginTop: 10,
+    alignSelf: "center",
+    marginTop: 16,
+    textAlign: "center",
   },
 });
 
