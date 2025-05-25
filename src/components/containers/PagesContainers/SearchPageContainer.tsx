@@ -55,6 +55,10 @@ const SearchPageContainer = () => {
     name: "country",
   });
 
+  const handleFocus = React.useCallback(() => {
+    setHistoryVisible(true);
+  }, []);
+
   if (loadingFilteredPractitioners) {
     return <LoadingSpinner />;
   }
@@ -66,11 +70,7 @@ const SearchPageContainer = () => {
         onChange={handleSearchChange}
         autocompleteResults={autocompleteResults}
         onSelect={handleSelectAutocomplete}
-        onFocus={() => {
-          setIsSearchFocused(true);
-          setHistoryVisible(true);
-        }}
-        onBlur={() => setIsSearchFocused(false)}
+        onFocus={handleFocus}
         setHistoryVisible={setHistoryVisible}
       />
       {isHistoryVisible && !searchQuery && (
