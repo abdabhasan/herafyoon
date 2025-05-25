@@ -12,7 +12,6 @@ export const useSearchPractitioners = () => {
     const [searchHistory, setSearchHistory] = useState<string[]>([]);
     const { fetchPractitionersByFilters, filteredPractitioners } = useFirestore();
     const [isSearchByFilters, setIsSearchByFilters] = useState<boolean>(false);
-    const [isSearchFocused, setIsSearchFocused] = useState(false);
 
     const { t } = useTranslation();
 
@@ -74,8 +73,6 @@ export const useSearchPractitioners = () => {
         onSubmitFilters,
         isSearchByFilters,
         toggleFiltersModal,
-        isSearchFocused,
-        setIsSearchFocused,
         fetchPractitionersByFilters
 
     };
