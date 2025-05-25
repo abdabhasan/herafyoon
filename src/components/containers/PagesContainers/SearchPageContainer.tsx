@@ -41,8 +41,6 @@ const SearchPageContainer = () => {
     toggleFiltersModal,
     searchHistory,
     clearSearchHistory,
-    setIsSearchFocused,
-    isSearchFocused,
     fetchPractitionersByFilters,
   } = useSearchPractitioners();
 
