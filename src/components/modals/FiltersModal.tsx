@@ -42,7 +42,11 @@ const FiltersModal: React.FC<FiltersModalProps> = ({
           />
 
           <CustomButton title="search_page.search" onPress={onSubmit} />
-          <CustomButton title="Close" onPress={onClose} color="dark" />
+          <CustomButton
+            title="search_page.close"
+            onPress={onClose}
+            color="dark"
+          />
         </View>
       </View>
     </Modal>
