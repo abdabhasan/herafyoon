@@ -24,8 +24,8 @@ const useFavorites = () => {
         if (!user) {
             Toast.show({
                 type: "info",
-                text1: "Not Signed In",
-                text2: "Only signed-in users can add favorites.",
+                text1: "cards.pract_card.favorites.not_signin",
+                text2: "cards.pract_card.favorites.only_signin_users",
             });
             return;
         }
@@ -48,8 +48,8 @@ const useFavorites = () => {
         } catch (error) {
             Toast.show({
                 type: "error",
-                text1: "Error",
-                text2: "Something went wrong while updating favorites.",
+                text1: "cards.pract_card.favorites.error",
+                text2: "cards.pract_card.favorites.error_message",
             });
         }
     };
