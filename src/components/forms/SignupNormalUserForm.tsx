@@ -11,11 +11,13 @@ import {
 import CustomInputController from "@/components/controllers/CustomInputController";
 import { Colors } from "@/constants/Colors";
 import Toast from "react-native-toast-message";
-import { useTranslation } from "react-i18next";
 import {
   SignupNormalUserFormData,
   signupNormalUserSchema,
 } from "@/schemas/authSchemas";
+import { useSignupNormalUserForm } from "@/hooks/useSignupNormalUserForm";
+import { LoadingSpinner } from "@/components/LoadingSpinner";
+import { ProgressBarContainer } from "@/components/containers/ProgressBarContainer";
 
 export default function SignupNormalUserForm() {
   const {
@@ -25,47 +27,39 @@ export default function SignupNormalUserForm() {
     reset,
   } = useForm<SignupNormalUserFormData>({
     resolver: zodResolver(signupNormalUserSchema),
-    defaultValues: {
-      firstName: "",
-      lastName: "",
-      email: "",
-      password: "",
-      country: "",
-      city: "",
-      neighbourhood: "",
-      phoneNumber: "",
-    },
   });
-  const { t } = useTranslation();
 
-  const onSubmit = (data: SignupNormalUserFormData) => {
-    console.log("Form Data:", data);
-
-    setTimeout(() => {
-      reset();
-      Toast.show({
-        type: "success",
-        text1: t("signup_page.success"),
-        text2: t("signup_page.will_be_reviewed"),
-        position: "top",
-      });
-    }, 1000);
-  };
+  const { state, onSubmit, onVerifyEmail } = useSignupNormalUserForm(reset);
 
   return (
     <View style={styles.container}>
-      <FullNameFieldsContainer control={control} errors={errors} />
-      <EmailAndPasswordFieldsContainer control={control} errors={errors} />
-      <LocationInputsContainer control={control} errors={errors} />
+      {!state.emailSent ? (
+        <>
+          <FullNameFieldsContainer control={control} errors={errors} />
+          <EmailAndPasswordFieldsContainer control={control} errors={errors} />
+          <LocationInputsContainer control={control} errors={errors} />
 
-      <CustomInputController
-        name="phoneNumber"
-        control={control}
-        label="signup_page.form.phone"
-        error={errors.phoneNumber ? errors.phoneNumber.message : null}
-      />
+          <CustomInputController
+            name="phoneNumber"
+            control={control}
+            label="signup_page.form.phone"
+            error={errors.phoneNumber ? errors.phoneNumber.message : null}
+          />
 
-      <CustomButton title="signup" width="m" onPress={handleSubmit(onSubmit)} />
+          <CustomButton
+            title="signup"
+            width="m"
+            onPress={handleSubmit(onSubmit)}
+          />
+        </>
+      ) : (
+        <ProgressBarContainer
+          currentStep={state.currentStep}
+          onVerifyEmail={onVerifyEmail}
+          loading={state.loading}
+        />
+      )}
+      {state.loading && <LoadingSpinner />}
       <Toast />
     </View>
   );
