@@ -1,5 +1,5 @@
 import { getFirestore, doc, setDoc, serverTimestamp, collection, getDocs, query, where, updateDoc, getDoc } from "firebase/firestore";
-import { SignupPractFormData } from "@/schemas/authSchemas";
+import { SignupNormalUserFormData, SignupPractFormData } from "@/schemas/authSchemas";
 import { firestore as db } from "@/firebase/config";
 
 
@@ -133,3 +133,30 @@ export const fetchSinglePractitionerInfo = async (practId: string) => {
         throw new Error("Failed to fetch updated practitioners information. Please try again later.");
     }
 };
+
+
+
+export const saveNormalUserDataToFirestore = async (
+    normalUserId: string,
+    formData: SignupNormalUserFormData
+) => {
+    const db = getFirestore();
+
+    try {
+        const practRef = doc(db, "normal-users", normalUserId);
+        await setDoc(practRef, {
+            firstName: formData.firstName,
+            lastName: formData.lastName,
+            email: formData.email,
+            phoneNumber: formData.phoneNumber,
+            country: formData.country,
+            city: formData.city,
+            neighbourhood: formData.neighbourhood,
+            createdAt: serverTimestamp(),
+        });
+    } catch (error: any) {
+        console.error("Error saving Normal User data to Firestore:", error);
+        throw new Error("Failed to save Normal User data. Please try again later.");
+    }
+};
+
