@@ -146,7 +146,13 @@
       "city": "City",
       "neighbourhood": "Neighbourhood",
       "phone": "Phone",
-      "email": "Email"
+      "email": "Email",
+      "favorites": {
+        "not_signin": "Not Signed In",
+        "only_signin_users": "Only signed-in users can add favorites.",
+        "error": "Error",
+        "error_message": "Something went wrong while updating favorites."
+      }
     }
   },
 
