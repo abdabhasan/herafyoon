@@ -4,12 +4,13 @@ import { CustomText } from "@/components/CustomText";
 import { StyleSheet, View } from "react-native";
 import { useFirestore } from "@/hooks/useFirestore";
 import { LoadingSpinner } from "@/components/LoadingSpinner";
-import FeaturedPractCardsContainer from "@/components/containers/CardsContainers/FeaturedPractCardsContainer";
+import PractitionersCardsList from "@/components/lists/PractitionersCardsList";
 
 type Props = {};
 
 const HomePageContainer = (props: Props) => {
-  const { loadingFeaturedPractitioners } = useFirestore();
+  const { loadingFeaturedPractitioners, featuredPractitioners } =
+    useFirestore();
 
   if (loadingFeaturedPractitioners) {
     return <LoadingSpinner />;
@@ -29,7 +30,7 @@ const HomePageContainer = (props: Props) => {
         type="subtitle"
         style={styles.subtitle}
       />
-      <FeaturedPractCardsContainer />
+      <PractitionersCardsList practitionersArray={featuredPractitioners} />
     </View>
   );
 };
