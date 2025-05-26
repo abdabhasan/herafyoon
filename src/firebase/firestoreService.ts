@@ -21,7 +21,8 @@ export const savePractitionerDataToFirestore = async (
             neighbourhood: formData.neighbourhood,
             workType: formData.workType,
             createdAt: serverTimestamp(),
-            featured: false
+            featured: false,
+            favorites: [],
         });
     } catch (error: any) {
         console.error("Error saving practitioner data to Firestore:", error);
@@ -153,6 +154,7 @@ export const saveNormalUserDataToFirestore = async (
             city: formData.city,
             neighbourhood: formData.neighbourhood,
             createdAt: serverTimestamp(),
+            favorites: [],
         });
     } catch (error: any) {
         console.error("Error saving Normal User data to Firestore:", error);
