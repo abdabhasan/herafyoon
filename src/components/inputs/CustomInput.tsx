@@ -1,8 +1,8 @@
 import React from "react";
-import { useTranslation } from "react-i18next";
 import { View, TextInput, StyleSheet, TextInputProps } from "react-native";
 import { CustomText } from "../CustomText";
 import { Colors } from "@/constants/Colors";
+import { useLocalization } from "@/hooks/useLocalization";
 
 interface CustomInputProps extends TextInputProps {
   label: string;
@@ -19,8 +19,7 @@ const CustomInput: React.FC<CustomInputProps> = ({
   secureTextEntry = false,
   ...props
 }) => {
-  const { i18n } = useTranslation();
-  const isRTL = i18n.language === "ar";
+  const { isRTL } = useLocalization();
 
   return (
     <View style={styles.container}>

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { View, StyleSheet } from "react-native";
 import { Avatar } from "react-native-paper";
 import { useForm } from "react-hook-form";
-import { useTranslation } from "react-i18next";
+import { useLocalization } from "@/hooks/useLocalization";
 
 import { CustomText } from "@/components/CustomText";
 import { Colors } from "@/constants/Colors";
@@ -19,8 +19,7 @@ import EditProfileInfoInputsContainer from "../InputsContainers/EditProfileInfoI
 type Props = {};
 
 const ProfileInfoPageContainer = (props: Props) => {
-  const { i18n } = useTranslation();
-  const isRTL = i18n.language === "ar";
+  const { isRTL } = useLocalization();
   const { loading, userInfo, logout, user } = useAuth();
   const [isEditing, setIsEditing] = useState(false);
   const [isSaving, setIsSaving] = useState(false);

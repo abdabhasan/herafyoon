@@ -7,6 +7,7 @@ import {
 } from "react-native";
 import { Colors } from "@/constants/Colors";
 import { useTranslation } from "react-i18next";
+import { useLocalization } from "@/hooks/useLocalization";
 
 interface SearchBarProps {
   query: string;
@@ -25,8 +26,8 @@ const SearchBar: React.FC<SearchBarProps> = ({
   onBlur,
   onFocus,
 }) => {
-  const { i18n, t } = useTranslation();
-  const isRTL = i18n.language === "ar";
+  const { t } = useTranslation();
+  const { isRTL } = useLocalization();
 
   return (
     <TextInput

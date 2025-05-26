@@ -12,6 +12,7 @@ import { Controller } from "react-hook-form";
 import MaterialIcons from "react-native-vector-icons/MaterialIcons";
 import { Colors } from "@/constants/Colors";
 import { CustomButton } from "../Btns/CustomBtn";
+import { useLocalization } from "@/hooks/useLocalization";
 
 interface PickerProps {
   elements: Array<{ label: string; value: string }>;
@@ -33,8 +34,8 @@ const CustomPicker: FC<PickerProps> = ({
   error,
   disabled = false,
 }) => {
-  const { t, i18n } = useTranslation();
-  const isRTL = i18n.language === "ar";
+  const { t } = useTranslation();
+  const { isRTL } = useLocalization();
 
   const [isModalVisible, setModalVisible] = useState(false);
 
