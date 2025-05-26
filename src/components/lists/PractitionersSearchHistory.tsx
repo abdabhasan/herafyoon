@@ -1,7 +1,7 @@
 import React from "react";
 import { View, StyleSheet, TouchableOpacity } from "react-native";
 import { CustomText } from "@/components/CustomText";
-import { useTranslation } from "react-i18next";
+import { useLocalization } from "@/hooks/useLocalization";
 
 interface PractitionersSearchHistoryProps {
   history: string[];
@@ -16,8 +16,7 @@ const PractitionersSearchHistory = ({
 }: PractitionersSearchHistoryProps) => {
   if (history.length === 0) return null;
 
-  const { i18n } = useTranslation();
-  const isRTL = i18n.language === "ar";
+  const { isRTL } = useLocalization();
 
   return (
     <View style={styles.mainContainer}>

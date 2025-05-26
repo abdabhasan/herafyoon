@@ -1,7 +1,7 @@
 import { CustomText } from "@/components/CustomText";
 import { Colors } from "@/constants/Colors";
 import React from "react";
-import { useTranslation } from "react-i18next";
+import { useLocalization } from "@/hooks/useLocalization";
 import { View, StyleSheet } from "react-native";
 
 type ProfileInfoCardProps = {
@@ -10,9 +10,7 @@ type ProfileInfoCardProps = {
 };
 
 const ProfileInfoCard: React.FC<ProfileInfoCardProps> = ({ name, value }) => {
-  const { i18n } = useTranslation();
-
-  const isRTL = i18n.language === "ar";
+  const { isRTL } = useLocalization();
 
   return (
     <>

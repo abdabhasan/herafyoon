@@ -10,7 +10,7 @@ import {
 } from "react-native";
 import { CustomText } from "../CustomText";
 import { Href, Link } from "expo-router";
-import { useTranslation } from "react-i18next";
+import { useLocalization } from "@/hooks/useLocalization";
 
 type WidthOption = "sm" | "m" | "l" | "xl";
 type HeightOption = "normal" | "tiny";
@@ -79,8 +79,7 @@ export const CustomLink: React.FC<CustomLinkProps> = ({
   const buttonWidth = widthMap[width];
   const buttonHeight = heightMap[height];
 
-  const { i18n } = useTranslation();
-  const isRTL = i18n.language === "ar";
+  const { isRTL } = useLocalization();
 
   const { backgroundColor, textColor, borderColor } = colorStyles[color];
 

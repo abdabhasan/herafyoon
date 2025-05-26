@@ -2,10 +2,10 @@ import React from "react";
 import { View, StyleSheet, TouchableOpacity } from "react-native";
 import { Avatar } from "react-native-paper";
 import { CustomText } from "../CustomText";
-import { useTranslation } from "react-i18next";
 import GolderStart from "@/assets/illustrations/golden-star.svg";
 import StarNotFilled from "@/assets/illustrations/star-not-filled.svg";
 import useFavorites from "@/hooks/useFavorites";
+import { useLocalization } from "@/hooks/useLocalization";
 
 interface PractCardProps {
   id: string;
@@ -28,8 +28,7 @@ const PractCard: React.FC<PractCardProps> = ({
   neighbourhood,
   phoneNumber,
 }) => {
-  const { i18n } = useTranslation();
-  const isRTL = i18n.language === "ar";
+  const { isRTL } = useLocalization();
   const { favorites, toggleFavorite } = useFavorites();
   const isFavorite = favorites.includes(id);
 
