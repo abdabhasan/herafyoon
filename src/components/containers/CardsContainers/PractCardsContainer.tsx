@@ -28,6 +28,7 @@ const PractCardsContainer: React.FC = () => {
         practitioners.map((pract) => (
           <PractCard
             key={pract.id}
+            id={pract.id}
             firstName={pract.firstName}
             lastName={pract.lastName}
             workType={pract.workType}
