@@ -18,8 +18,19 @@ export const useAuth = () => {
                     const userDoc = await getDoc(userDocRef);
 
                     if (userDoc.exists()) {
-                        setUserInfo(userDoc.data());
-                    } else {
+
+                        setUserInfo({ ...userDoc.data(), userType: "practitioner" });
+
+                    } else if (!userDoc.exists()) {
+                        const normalUserDocRef = doc(firestore, "normal-users", currentUser.uid);
+                        const normalUserDoc = await getDoc(normalUserDocRef);
+
+                        if (normalUserDoc.exists()) {
+
+                            setUserInfo({ ...normalUserDoc.data(), userType: "normal-user" });
+                        }
+                    }
+                    else {
                         console.error("No user document found!");
                     }
                 } catch (error) {
