@@ -9,10 +9,12 @@ type Props = {
 const ProfileInfoCardsContainer: React.FC<Props> = ({ info }) => {
   return (
     <>
-      <ProfileInfoCard
-        name="cards.pract_card.work_type"
-        value={info?.workType}
-      />
+      {info?.userType === "practitioner" && (
+        <ProfileInfoCard
+          name="cards.pract_card.work_type"
+          value={info?.workType}
+        />
+      )}
       <ProfileInfoCard name="cards.pract_card.country" value={info?.country} />
       <ProfileInfoCard name="cards.pract_card.city" value={info?.city} />
       <ProfileInfoCard
