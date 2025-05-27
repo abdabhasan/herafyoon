@@ -13,6 +13,8 @@ import { useAuth } from "@/hooks/useAuth";
 import {
   updatePractitionerData,
   fetchSinglePractitionerInfo,
+  updateNormalUserData,
+  fetchSingleNormalUserInfo,
 } from "@/firebase/firestoreService";
 import EditProfileInfoInputsContainer from "../InputsContainers/EditProfileInfoInputsContainer";
 
@@ -21,9 +23,10 @@ type Props = {};
 const ProfileInfoPageContainer = (props: Props) => {
   const { isRTL } = useLocalization();
   const { loading, userInfo, logout, user } = useAuth();
-  const [isEditing, setIsEditing] = useState(false);
-  const [isSaving, setIsSaving] = useState(false);
-  const [tempPractitionerInfo, setTempPractitionerInfo] = useState(userInfo);
+  const [isEditing, setIsEditing] = useState<boolean>(false);
+  const [isSaving, setIsSaving] = useState<boolean>(false);
+  const [tempPractitionerInfo, setTempPractitionerInfo] =
+    useState<any>(userInfo);
 
   const {
     control,
@@ -31,7 +34,7 @@ const ProfileInfoPageContainer = (props: Props) => {
     reset,
     formState: { errors },
   } = useForm({
-    defaultValues: userInfo,
+    defaultValues: userInfo!,
   });
 
   useEffect(() => {
@@ -52,12 +55,27 @@ const ProfileInfoPageContainer = (props: Props) => {
   const handleSaveChanges = async (data: any) => {
     setIsSaving(true);
     try {
-      await updatePractitionerData(user.uid, data);
-      const updatedPractInfo = await fetchSinglePractitionerInfo(user.uid);
-      reset(updatedPractInfo); // Update form with new info
-      setTempPractitionerInfo(updatedPractInfo);
+      if (user) {
+        if (userInfo?.userType === "normal-user") {
+          await updateNormalUserData(user.uid, data);
 
-      setIsEditing(false);
+          const updatedPractInfo = await fetchSingleNormalUserInfo(user.uid);
+
+          reset(updatedPractInfo);
+
+          setTempPractitionerInfo(updatedPractInfo);
+        } else if (userInfo?.userType === "practitioner") {
+          await updatePractitionerData(user.uid, data);
+
+          const updatedPractInfo = await fetchSinglePractitionerInfo(user.uid);
+
+          reset(updatedPractInfo); // Update form with new info
+
+          setTempPractitionerInfo(updatedPractInfo);
+        }
+
+        setIsEditing(false);
+      }
     } catch (error) {
       console.error("Error updating Practitioner data:", error);
     } finally {
@@ -85,7 +103,7 @@ const ProfileInfoPageContainer = (props: Props) => {
           style={styles.avatar}
         />
         <CustomText
-          text={`${userInfo.firstName} ${userInfo.lastName}`}
+          text={`${userInfo?.firstName} ${userInfo?.lastName}`}
           type="primarySubtitle"
           style={styles.name}
         />
