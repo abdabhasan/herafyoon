@@ -1,7 +1,7 @@
 import { getFirestore, doc, setDoc, serverTimestamp, collection, getDocs, query, where, updateDoc, getDoc, QueryConstraint } from "firebase/firestore";
 import { SignupNormalUserFormData, SignupPractFormData } from "@/schemas/authSchemas";
 import { firestore as db } from "@/firebase/config";
-import { PractitionerInfoCard} from "@/types";
+import { PractitionerInfoCard, UpdatedPractitionerInfo } from "@/types";
 
 
 export const savePractitionerDataToFirestore = async (
@@ -91,7 +91,7 @@ export const fetchFilteredPractitioners = async (
 };
 
 
-export const updatePractitionerData = async (updatedPractId: string, updatedData: any) => {
+export const updatePractitionerData = async (updatedPractId: string, updatedData: UpdatedPractitionerInfo) => {
     if (!updatedPractId) {
         throw new Error("Practitioner ID is required to update data");
     }
