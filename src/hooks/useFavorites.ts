@@ -13,7 +13,7 @@ const useFavorites = () => {
     useEffect(() => {
         const fetchFavorites = async () => {
             if (user) {
-                setFavorites(userInfo.favorites || []);
+                setFavorites(userInfo?.favorites || []);
             }
         };
         fetchFavorites();

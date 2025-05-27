@@ -1,15 +1,16 @@
 import { useEffect, useState } from "react";
 import { fetchAllPractitioners, fetchFeaturedPractitioners, fetchFilteredPractitioners } from "@/firebase/firestoreService";
+import { PractitionerInfoCard } from "@/types";
 
 export const useFirestore = () => {
     const [practitioners, setPractitioners] = useState<any[]>([]);
-    const [featuredPractitioners, setFeaturedPractitioners] = useState<any[]>([]);
+    const [featuredPractitioners, setFeaturedPractitioners] = useState<PractitionerInfoCard[]>([]);
     const [loadingPractitioners, setLoadingPractitioners] = useState<boolean>(true);
     const [loadingFeaturedPractitioners, setLoadingFeaturedPractitioners] = useState<boolean>(true);
     const [errorPractitioners, setErrorPractitioners] = useState<Error | null>(null);
     const [errorFeaturedPractitioners, setErrorFeaturedPractitioners] = useState<Error | null>(null);
 
-    const [filteredPractitioners, setFilteredPractitioners] = useState<any[]>([]);
+    const [filteredPractitioners, setFilteredPractitioners] = useState<PractitionerInfoCard[]>([]);
     const [loadingFilteredPractitioners, setLoadingFilteredPractitioners] = useState<boolean>(false);
     const [errorFilteredPractitioners, setErrorFilteredPractitioners] = useState<Error | null>(null);
 
