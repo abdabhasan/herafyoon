@@ -3,6 +3,7 @@ import { auth, firestore } from "@/firebase/config";
 import { doc, getDoc } from "firebase/firestore";
 import { logoutUser } from "@/firebase/authService";
 import { User } from "firebase/auth";
+import { PractitionerInfo, UserInfo } from "@/types";
 
 export const useAuth = () => {
     const [user, setUser] = useState<User | null>(null);
@@ -20,7 +21,7 @@ export const useAuth = () => {
 
                     if (userDoc.exists()) {
 
-                        setUserInfo({ ...userDoc.data(), userType: "practitioner" });
+                        setUserInfo({ ...userDoc.data() as PractitionerInfo, userType: "practitioner" });
 
                     } else if (!userDoc.exists()) {
                         const normalUserDocRef = doc(firestore, "normal-users", currentUser.uid);
@@ -28,7 +29,7 @@ export const useAuth = () => {
 
                         if (normalUserDoc.exists()) {
 
-                            setUserInfo({ ...normalUserDoc.data(), userType: "normal-user" });
+                            setUserInfo({ ...normalUserDoc.data() as UserInfo, userType: "normal-user" });
                         }
                     }
                     else {
