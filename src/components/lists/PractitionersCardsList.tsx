@@ -1,10 +1,11 @@
 import PractCard from "@/components/cards/PractCard";
 import { CustomText } from "@/components/CustomText";
+import { PractitionerInfoCard } from "@/types";
 import React from "react";
 import { View, StyleSheet } from "react-native";
 
 type Props = {
-  practitionersArray: any[];
+  practitionersArray: PractitionerInfoCard[];
 };
 
 const PractitionersCardsList: React.FC<Props> = ({ practitionersArray }) => {
