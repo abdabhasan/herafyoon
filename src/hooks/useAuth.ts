@@ -2,9 +2,10 @@ import { useEffect, useState } from "react";
 import { auth, firestore } from "@/firebase/config";
 import { doc, getDoc } from "firebase/firestore";
 import { logoutUser } from "@/firebase/authService";
+import { User } from "firebase/auth";
 
 export const useAuth = () => {
-    const [user, setUser] = useState<any>(null);
+    const [user, setUser] = useState<User | null>(null);
     const [userInfo, setUserInfo] = useState<any>(null);
     const [loading, setLoading] = useState<boolean>(true);
 
