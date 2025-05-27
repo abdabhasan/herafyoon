@@ -1,6 +1,7 @@
 import { getFirestore, doc, setDoc, serverTimestamp, collection, getDocs, query, where, updateDoc, getDoc } from "firebase/firestore";
 import { SignupNormalUserFormData, SignupPractFormData } from "@/schemas/authSchemas";
 import { firestore as db } from "@/firebase/config";
+import { PractitionerInfoCard} from "@/types";
 
 
 export const savePractitionerDataToFirestore = async (
@@ -32,41 +33,23 @@ export const savePractitionerDataToFirestore = async (
 
 
 export const fetchAllPractitioners = async () => {
-    const practs: Array<{
-        id: string;
-        firstName: string;
-        lastName: string;
-        workType: string;
-        country: string;
-        city: string;
-        neighbourhood: string;
-        phoneNumber: string;
-    }> = [];
+    const practs: Array<PractitionerInfoCard> = [];
     const querySnapshot = await getDocs(collection(db, "practitioners"));
     querySnapshot.forEach((doc) => {
-        practs.push({ id: doc.id, ...doc.data() } as any);
+        practs.push({ id: doc.id, ...doc.data() } as PractitionerInfoCard);
     });
     return practs;
 };
 
 
 export const fetchFeaturedPractitioners = async () => {
-    const featuredPracts: Array<{
-        id: string;
-        firstName: string;
-        lastName: string;
-        workType: string;
-        country: string;
-        city: string;
-        neighbourhood: string;
-        phoneNumber: string;
-    }> = [];
+    const featuredPracts: Array<PractitionerInfoCard> = [];
 
     try {
         const practsQuery = query(collection(db, "practitioners"), where("featured", "==", true));
         const querySnapshot = await getDocs(practsQuery);
         querySnapshot.forEach((doc) => {
-            featuredPracts.push({ id: doc.id, ...doc.data() } as any);
+            featuredPracts.push({ id: doc.id, ...doc.data() } as PractitionerInfoCard);
         });
     } catch (error: any) {
         console.error("Error fetching featured practitioners:", error);
@@ -84,7 +67,7 @@ export const fetchFilteredPractitioners = async (
     neighbourhood?: string,
     workType?: string
 ) => {
-    const practitioners: Array<any> = [];
+    const practitioners: Array<PractitionerInfoCard> = [];
     const filters: any[] = [];
 
     if (country) filters.push(where("country", "==", country));
@@ -97,7 +80,7 @@ export const fetchFilteredPractitioners = async (
     try {
         const querySnapshot = await getDocs(q);
         querySnapshot.forEach((doc) => {
-            practitioners.push({ id: doc.id, ...doc.data() });
+            practitioners.push({ id: doc.id, ...doc.data() } as PractitionerInfoCard);
         });
     } catch (error) {
         console.error("Error fetching filtered practitioners:", error);
