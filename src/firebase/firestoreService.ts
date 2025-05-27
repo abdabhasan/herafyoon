@@ -1,4 +1,4 @@
-import { getFirestore, doc, setDoc, serverTimestamp, collection, getDocs, query, where, updateDoc, getDoc } from "firebase/firestore";
+import { getFirestore, doc, setDoc, serverTimestamp, collection, getDocs, query, where, updateDoc, getDoc, QueryConstraint } from "firebase/firestore";
 import { SignupNormalUserFormData, SignupPractFormData } from "@/schemas/authSchemas";
 import { firestore as db } from "@/firebase/config";
 import { PractitionerInfoCard} from "@/types";
@@ -68,7 +68,7 @@ export const fetchFilteredPractitioners = async (
     workType?: string
 ) => {
     const practitioners: Array<PractitionerInfoCard> = [];
-    const filters: any[] = [];
+    const filters: QueryConstraint[] = [];
 
     if (country) filters.push(where("country", "==", country));
     if (city) filters.push(where("city", "==", city));
