@@ -1,7 +1,7 @@
 import { getFirestore, doc, setDoc, serverTimestamp, collection, getDocs, query, where, updateDoc, getDoc, QueryConstraint } from "firebase/firestore";
 import { SignupNormalUserFormData, SignupPractFormData } from "@/schemas/authSchemas";
 import { firestore as db } from "@/firebase/config";
-import { PractitionerInfoCard, UpdatedPractitionerInfo } from "@/types";
+import { PractitionerInfoCard, UpdatedNormalUserInfo, UpdatedPractitionerInfo } from "@/types";
 
 
 export const savePractitionerDataToFirestore = async (
@@ -144,4 +144,17 @@ export const saveNormalUserDataToFirestore = async (
         throw new Error("Failed to save Normal User data. Please try again later.");
     }
 };
+
+
+
+export const updateNormalUserData = async (updatedPractId: string, updatedData: UpdatedNormalUserInfo) => {
+    if (!updatedPractId) {
+        throw new Error("Normal user ID is required to update data");
+    }
+    const practDocRef = doc(db, "normal-users", updatedPractId);
+    await updateDoc(practDocRef, updatedData);
+};
+
+
+
 
