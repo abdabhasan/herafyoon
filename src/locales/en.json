@@ -149,6 +149,7 @@
       "phone": "Phone",
       "email": "Email",
       "favorites": {
+        "favorites": "Favorites",
         "not_signin": "Not Signed In",
         "only_signin_users": "Only signed-in users can add favorites.",
         "error": "Error",

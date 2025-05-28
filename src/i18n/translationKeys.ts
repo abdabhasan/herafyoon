@@ -147,6 +147,7 @@ export const TranslationKeys = {
             phone: "cards.pract_card.phone",
             email: "cards.pract_card.email",
             favorites: {
+                favoritesText: "cards.pract_card.favorites.favorites",
                 notSignin: "cards.pract_card.favorites.not_signin",
                 onlySigninUsers: "cards.pract_card.favorites.only_signin_users",
                 error: "cards.pract_card.favorites.error",
