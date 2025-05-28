@@ -1,5 +1,6 @@
 import { CustomLink } from "@/components/Btns/CustomLink";
 import { CustomText } from "@/components/CustomText";
+import { TranslationKeys } from "@/i18n/translationKeys";
 import { Stack } from "expo-router";
 import { StyleSheet, View } from "react-native";
 
@@ -8,8 +9,8 @@ export default function NotFoundScreen() {
     <>
       <Stack.Screen options={{ title: "Oops!" }} />
       <View style={styles.container}>
-        <CustomText type="title" text="this_page_doesnt_exists" />
-        <CustomLink href="/" title="إذهب للصفحة الرئيسية" width="xl" />
+        <CustomText type="title" text={TranslationKeys.thisPageDoesntExists} />
+        <CustomLink href="/" title={TranslationKeys.goToHomePage} width="xl" />
       </View>
     </>
   );

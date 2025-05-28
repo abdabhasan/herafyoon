@@ -7,6 +7,7 @@ import { IconSymbol } from "@/components/ui/IconSymbol";
 import TabBarBackground from "@/components/ui/TabBarBackground";
 import { Colors } from "@/constants/Colors";
 import { useTranslation } from "react-i18next";
+import { TranslationKeys } from "@/i18n/translationKeys";
 
 export default function TabLayout() {
   const { t } = useTranslation();
@@ -30,7 +31,7 @@ export default function TabLayout() {
       <Tabs.Screen
         name="profile"
         options={{
-          title: t("tabs.profile"),
+          title: t(TranslationKeys.tabs.profile),
           tabBarIcon: ({ color }) => (
             <IconSymbol size={28} name="person.fill" color={color} />
           ),
@@ -39,7 +40,7 @@ export default function TabLayout() {
       <Tabs.Screen
         name="search"
         options={{
-          title: t("tabs.search"),
+          title: t(TranslationKeys.tabs.search),
           tabBarIcon: ({ color }) => (
             <IconSymbol size={28} name="magnifyingglass" color={color} />
           ),
@@ -48,7 +49,7 @@ export default function TabLayout() {
       <Tabs.Screen
         name="index"
         options={{
-          title: t("tabs.home"),
+          title: t(TranslationKeys.tabs.home),
           tabBarIcon: ({ color }) => (
             <IconSymbol size={28} name="house.fill" color={color} />
           ),

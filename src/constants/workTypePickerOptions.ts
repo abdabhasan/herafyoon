@@ -1,10 +1,12 @@
+import { TranslationKeys } from "@/i18n/translationKeys";
+
 const workTypePickerOptions = [
-  { label: "work_type_options.joiner", value: "Joiner" },
-  { label: "work_type_options.blacksmith", value: "Blacksmith" },
-  { label: "work_type_options.painter", value: "Painter" },
-  { label: "work_type_options.tile_worker", value: "Tile Worker" },
+  { label: TranslationKeys.workTypeOptions.joiner, value: "Joiner" },
+  { label: TranslationKeys.workTypeOptions.blacksmith, value: "Blacksmith" },
+  { label: TranslationKeys.workTypeOptions.painter, value: "Painter" },
+  { label: TranslationKeys.workTypeOptions.tileWorker, value: "Tile Worker" },
   {
-    label: "work_type_options.heavy_truck_driver",
+    label: TranslationKeys.workTypeOptions.heavyTruckDriver,
     value: "Heavy Truck Driver",
   },
 ];

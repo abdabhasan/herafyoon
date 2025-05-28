@@ -2,6 +2,7 @@ import React from "react";
 import { View, StyleSheet, TouchableOpacity } from "react-native";
 import { CustomText } from "@/components/CustomText";
 import { useLocalization } from "@/hooks/useLocalization";
+import { TranslationKeys } from "@/i18n/translationKeys";
 
 interface PractitionersSearchHistoryProps {
   history: string[];
@@ -27,7 +28,7 @@ const PractitionersSearchHistory = ({
         }}
       >
         <CustomText
-          text="search_page.clear"
+          text={TranslationKeys.searchPage.clear}
           type="error"
           style={styles.clearButtonTxt}
         />

@@ -2,6 +2,7 @@ import React, { useMemo } from "react";
 import { FieldErrors, useWatch } from "react-hook-form";
 import { locationOptions } from "@/constants/locationPickersOptions";
 import CustomPicker from "@/components/inputs/CustomPicker";
+import { TranslationKeys } from "@/i18n/translationKeys";
 
 type Props = {
   control: any;
@@ -38,7 +39,7 @@ const LocationInputsContainer: React.FC<Props> = ({
       <CustomPicker
         name="country"
         control={control}
-        label="signup_page.form.country"
+        label={TranslationKeys.signupPage.form.country}
         elements={locationOptions.map(({ label, value }) => ({ label, value }))}
         error={errors?.country ? errors.country.message : null}
         disabled={disabledCountry}
@@ -46,7 +47,7 @@ const LocationInputsContainer: React.FC<Props> = ({
       <CustomPicker
         name="city"
         control={control}
-        label="signup_page.form.city"
+        label={TranslationKeys.signupPage.form.city}
         elements={cityOptions.map(({ label, value }) => ({ label, value }))}
         error={errors?.city ? errors.city.message : null}
         disabled={!selectedCountry}
@@ -54,7 +55,7 @@ const LocationInputsContainer: React.FC<Props> = ({
       <CustomPicker
         name="neighbourhood"
         control={control}
-        label="signup_page.form.neighbourhood"
+        label={TranslationKeys.signupPage.form.neighbourhood}
         elements={neighborhoodOptions.map(({ label, value }) => ({
           label,
           value,

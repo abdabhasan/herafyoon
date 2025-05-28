@@ -1,5 +1,6 @@
 import React from "react";
 import { CustomLink } from "@/components/Btns/CustomLink";
+import { TranslationKeys } from "@/i18n/translationKeys";
 
 type Props = {};
 
@@ -10,20 +11,20 @@ const SigningOptionsBtnsContainer = (props: Props) => {
         href="/user/practitioner/signup"
         width="xl"
         color="secondary"
-        label="profile_tab.do_u_wanna_be_pract"
-        title="profile_tab.create_pract_account"
+        label={TranslationKeys.profileTab.doUWannaBePract}
+        title={TranslationKeys.profileTab.createPractAccount}
       />
       <CustomLink
         href="/user/normal/signup"
         width="xl"
-        label="profile_tab.do_u_wanna_be_normal_user"
-        title="profile_tab.create_normal_account"
+        label={TranslationKeys.profileTab.doUWannaBeNormalUser}
+        title={TranslationKeys.profileTab.createNormalAccount}
       />
       <CustomLink
         href="/user/signin"
         width="xl"
-        label="profile_tab.do_u_have_an_account"
-        title="profile_tab.signin"
+        label={TranslationKeys.profileTab.doUHaveAnAccount}
+        title={TranslationKeys.profileTab.signin}
         color="light"
       />
     </>

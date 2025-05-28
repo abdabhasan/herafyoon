@@ -16,6 +16,7 @@ import { useSignupPractitionerForm } from "@/hooks/useSignupPractitionerForm";
 import workTypePickerOptions from "@/constants/workTypePickerOptions";
 import { SignupPractFormData, signupPractSchema } from "@/schemas/authSchemas";
 import CustomInputController from "../controllers/CustomInputController";
+import { TranslationKeys } from "@/i18n/translationKeys";
 
 export default function SignupForm() {
   const {
@@ -39,7 +40,7 @@ export default function SignupForm() {
           <CustomPicker
             name="workType"
             control={control}
-            label="signup_page.form.workType"
+            label={TranslationKeys.signupPage.form.workType}
             elements={workTypePickerOptions}
             error={errors.workType?.message || null}
           />
@@ -47,11 +48,11 @@ export default function SignupForm() {
           <CustomInputController
             name="phoneNumber"
             control={control}
-            label="signup_page.form.phone"
+            label={TranslationKeys.signupPage.form.phone}
             error={errors.phoneNumber ? errors.phoneNumber.message : null}
           />
           <CustomButton
-            title="signup"
+            title={TranslationKeys.signup}
             width="m"
             onPress={handleSubmit(onSubmit)}
             disabled={state.loading}

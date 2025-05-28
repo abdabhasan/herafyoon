@@ -5,6 +5,7 @@ import { StyleSheet, View } from "react-native";
 import { useFirestore } from "@/hooks/useFirestore";
 import { LoadingSpinner } from "@/components/LoadingSpinner";
 import PractitionersCardsList from "@/components/lists/PractitionersCardsList";
+import { TranslationKeys } from "@/i18n/translationKeys";
 
 type Props = {};
 
@@ -21,12 +22,12 @@ const HomePageContainer = (props: Props) => {
       <WelcomeSVG style={styles.logo} />
 
       <CustomText
-        text="home_page.welcome"
+        text={TranslationKeys.homePage.welcome}
         type="title"
         style={{ marginTop: 0, marginBottom: 5 }}
       />
       <CustomText
-        text="home_page.featured_list"
+        text={TranslationKeys.homePage.featuredList}
         type="subtitle"
         style={styles.subtitle}
       />

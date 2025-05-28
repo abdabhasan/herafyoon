@@ -1,5 +1,6 @@
 import ProfileInfoCard from "@/components/cards/ProfileInfoCard";
 import { CustomText } from "@/components/CustomText";
+import { TranslationKeys } from "@/i18n/translationKeys";
 import { UserInfo } from "@/types";
 import React from "react";
 
@@ -14,24 +15,30 @@ const ProfileInfoCardsContainer: React.FC<Props> = ({ info }) => {
         <>
           {info?.workType && info?.userType === "practitioner" && (
             <ProfileInfoCard
-              name="cards.pract_card.work_type"
+              name={TranslationKeys.cards.practCard.workType}
               value={info?.workType ?? ""}
             />
           )}
           <ProfileInfoCard
-            name="cards.pract_card.country"
+            name={TranslationKeys.cards.practCard.country}
             value={info?.country}
           />
-          <ProfileInfoCard name="cards.pract_card.city" value={info?.city} />
           <ProfileInfoCard
-            name="cards.pract_card.neighbourhood"
+            name={TranslationKeys.cards.practCard.city}
+            value={info?.city}
+          />
+          <ProfileInfoCard
+            name={TranslationKeys.cards.practCard.neighbourhood}
             value={info?.neighbourhood}
           />
           <ProfileInfoCard
-            name="cards.pract_card.phone"
+            name={TranslationKeys.cards.practCard.phone}
             value={info?.phoneNumber}
           />
-          <ProfileInfoCard name="cards.pract_card.email" value={info?.email} />
+          <ProfileInfoCard
+            name={TranslationKeys.cards.practCard.email}
+            value={info?.email}
+          />
         </>
       )}
       {!info && <CustomText text="no info available" type="error" />}

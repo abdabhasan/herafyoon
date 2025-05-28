@@ -2,6 +2,7 @@ import React from "react";
 import { CustomText } from "@/components/CustomText";
 import { View, StyleSheet } from "react-native";
 import SignupNormalUserForm from "@/components/forms/SignupNormalUserForm";
+import { TranslationKeys } from "@/i18n/translationKeys";
 
 type Props = {};
 
@@ -9,7 +10,10 @@ const SingupNormalUserPageContainer = (props: Props) => {
   return (
     <>
       <View style={styles.container}>
-        <CustomText text="signup_normal_user_page.title" type="title" />
+        <CustomText
+          text={TranslationKeys.signupNormalUserPage.title}
+          type="title"
+        />
         <SignupNormalUserForm />
       </View>
     </>

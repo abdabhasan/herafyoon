@@ -2,6 +2,7 @@ import React from "react";
 import CustomInputController from "@/components/controllers/CustomInputController";
 import { returnErrorMessage } from "@/helpers/returnInputErrorMessageHelper";
 import { FieldErrors } from "react-hook-form";
+import { TranslationKeys } from "@/i18n/translationKeys";
 
 type Props = {
   control: any;
@@ -23,14 +24,14 @@ const EmailAndPasswordFieldsContainer: React.FC<Props> = ({
         name="email"
         type="email-address"
         control={control}
-        label="signup_page.form.email"
+        label={TranslationKeys.signupPage.form.email}
         error={returnErrorMessage(errors?.email)}
       />
       <CustomInputController
         name="password"
         secureTextEntry={true}
         control={control}
-        label="signup_page.form.password"
+        label={TranslationKeys.signupPage.form.password}
         error={returnErrorMessage(errors?.password)}
       />
     </>
