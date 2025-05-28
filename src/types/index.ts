@@ -50,9 +50,10 @@ export type UserInfo = {
     neighbourhood: string;
     phoneNumber: string;
     userType: "practitioner" | "normal-user";
+    workType?: string;
 }
 
 
 export type PractitionerInfo = UserInfo & {
-    workType: string;
+    workType?: string;
 }
