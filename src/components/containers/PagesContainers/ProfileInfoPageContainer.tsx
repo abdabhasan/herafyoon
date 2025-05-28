@@ -158,6 +158,9 @@ const ProfileInfoPageContainer = (props: Props) => {
                 <CustomText
                   text={TranslationKeys.cards.practCard.favorites.favoritesText}
                   type="primarySubtitle"
+                  style={{
+                    flexDirection: isRTL ? "row-reverse" : "row",
+                  }}
                 />
                 <PractitionersCardsList
                   practitionersArray={favoritePractitioners}
