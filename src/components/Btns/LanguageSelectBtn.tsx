@@ -28,8 +28,6 @@ const styles = StyleSheet.create({
     alignContent: "center",
     justifyContent: "center",
     alignSelf: "flex-start",
-
-    marginTop: 20,
   },
   button: {
     width: 60,
