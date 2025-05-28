@@ -18,6 +18,8 @@ import {
 } from "@/firebase/firestoreService";
 import EditProfileInfoInputsContainer from "../InputsContainers/EditProfileInfoInputsContainer";
 import { TranslationKeys } from "@/i18n/translationKeys";
+import { useFirestore } from "@/hooks/useFirestore";
+import PractitionersCardsList from "@/components/lists/PractitionersCardsList";
 
 type Props = {};
 
@@ -28,6 +30,12 @@ const ProfileInfoPageContainer = (props: Props) => {
   const [isSaving, setIsSaving] = useState<boolean>(false);
   const [tempPractitionerInfo, setTempPractitionerInfo] =
     useState<any>(userInfo);
+
+  const {
+    favoritePractitioners,
+    loadingFavorites,
+    fetchFavoritePractitioners,
+  } = useFirestore();
 
   const {
     control,
@@ -44,6 +52,10 @@ const ProfileInfoPageContainer = (props: Props) => {
       setTempPractitionerInfo(userInfo);
     }
   }, [userInfo, reset]);
+
+  useEffect(() => {
+    fetchFavoritePractitioners(userInfo?.favorites);
+  }, [userInfo?.favorites]);
 
   if (loading) {
     return <LoadingSpinner />;
@@ -139,6 +151,19 @@ const ProfileInfoPageContainer = (props: Props) => {
           <>
             <ProfileInfoCardsContainer info={tempPractitionerInfo} />
 
+            {loadingFavorites ? (
+              <LoadingSpinner />
+            ) : (
+              <View style={styles.favoritesList}>
+                <CustomText
+                  text={TranslationKeys.cards.practCard.favorites.favoritesText}
+                  type="primarySubtitle"
+                />
+                <PractitionersCardsList
+                  practitionersArray={favoritePractitioners}
+                />
+              </View>
+            )}
           </>
         )}
       </View>
@@ -176,4 +201,8 @@ const styles = StyleSheet.create({
     textDecorationLine: "underline",
   },
   infoContainer: {},
+  favoritesList: {
+    flex: 1,
+    marginTop: 20,
+  },
 });
