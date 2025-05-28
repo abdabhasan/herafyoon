@@ -1,16 +1,58 @@
-export type Practitioner = {
+
+
+export type PractitionerInfoCard = {
+    id: string;
     firstName: string;
     lastName: string;
-    email: string;
-    phoneNumber: string;
+    workType: string;
     country: string;
     city: string;
     neighbourhood: string;
-    workType: string;
-    featured?: false,
-    favorites?: string[],
+    phoneNumber: string;
 }
 
-export type PractitionersArray = {
-    practitioners: Practitioner[]
+
+export type UpdatedPractitionerInfo = {
+    id: string;
+    firstName: string;
+    lastName: string;
+    workType: string;
+    country: string;
+    city: string;
+    neighbourhood: string;
+    phoneNumber: string;
+}
+
+export type UpdatedNormalUserInfo = {
+    id: string;
+    firstName: string;
+    lastName: string;
+    country: string;
+    city: string;
+    neighbourhood: string;
+    phoneNumber: string;
+}
+
+
+
+export type UserInfo = {
+    city: string;
+    country: string;
+    createdAt: {
+        seconds: number;
+        nanoseconds: number;
+    };
+    email: string;
+    favorites: string[];
+    featured: boolean;
+    firstName: string;
+    lastName: string;
+    neighbourhood: string;
+    phoneNumber: string;
+    userType: "practitioner" | "normal-user";
+}
+
+
+export type PractitionerInfo = UserInfo & {
+    workType: string;
 }
