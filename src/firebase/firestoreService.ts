@@ -91,6 +91,22 @@ export const fetchFilteredPractitioners = async (
 };
 
 
+export const fetchPractitionersByIdsArray = async (ids: string[]): Promise<PractitionerInfoCard[]> => {
+    if (!ids.length) return [];
+
+    const practitionersCollection = collection(db, "practitioners");
+
+    const promises = ids.map(async (id) => {
+        const practitionerDoc = doc(practitionersCollection, id);
+        const snapshot = await getDoc(practitionerDoc);
+        return snapshot.exists() ? ({ id: snapshot.id, ...snapshot.data() } as PractitionerInfoCard) : null;
+    });
+
+    const results = await Promise.all(promises);
+    return results.filter((item): item is PractitionerInfoCard => item !== null); // Filter out nulls
+};
+
+
 export const updatePractitionerData = async (updatedPractId: string, updatedData: UpdatedPractitionerInfo) => {
     if (!updatedPractId) {
         throw new Error("Practitioner ID is required to update data");

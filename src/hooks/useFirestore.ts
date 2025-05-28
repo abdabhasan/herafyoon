@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { fetchAllPractitioners, fetchFeaturedPractitioners, fetchFilteredPractitioners } from "@/firebase/firestoreService";
+import { fetchAllPractitioners, fetchFeaturedPractitioners, fetchFilteredPractitioners, fetchPractitionersByIdsArray } from "@/firebase/firestoreService";
 import { PractitionerInfoCard } from "@/types";
 
 export const useFirestore = () => {
@@ -14,6 +14,10 @@ export const useFirestore = () => {
     const [loadingFilteredPractitioners, setLoadingFilteredPractitioners] = useState<boolean>(false);
     const [errorFilteredPractitioners, setErrorFilteredPractitioners] = useState<Error | null>(null);
 
+
+    const [favoritePractitioners, setFavoritePractitioners] = useState<PractitionerInfoCard[]>([]);
+    const [loadingFavorites, setLoadingFavorites] = useState<boolean>(false);
+    const [errorFavorites, setErrorFavorites] = useState<Error | null>(null);
 
 
     // Fetch all practitioners
@@ -74,6 +78,26 @@ export const useFirestore = () => {
     };
 
 
+    // Fetch favorite practitioners
+    const fetchFavoritePractitioners = async (favoriteIds: string[]) => {
+        setLoadingFavorites(true);
+        if (favoriteIds) {
+
+            try {
+                const result = await fetchPractitionersByIdsArray(favoriteIds);
+                setFavoritePractitioners(result);
+            } catch (error) {
+
+                setErrorFavorites(error as Error);
+                console.log("Error fetching favorite practitioners:", error);
+
+            } finally {
+                setLoadingFavorites(false);
+            }
+        }
+    };
+
+
     return {
         practitioners,
         featuredPractitioners,
@@ -85,5 +109,8 @@ export const useFirestore = () => {
         loadingFilteredPractitioners,
         errorFilteredPractitioners,
         fetchPractitionersByFilters,
+        loadingFavorites,
+        favoritePractitioners,
+        fetchFavoritePractitioners,
     };
 };
