@@ -158,3 +158,22 @@ export const updateNormalUserData = async (updatedPractId: string, updatedData: 
 
 
 
+
+
+export const fetchSingleNormalUserInfo = async (practId: string) => {
+    try {
+        const practDocRef = doc(db, "normal-users", practId);
+        const practDoc = await getDoc(practDocRef);
+
+        if (practDoc.exists()) {
+            return { id: practDoc.id, ...practDoc.data() };
+        } else {
+            console.error("No normal user document found!");
+            return null;
+        }
+    } catch (error) {
+        console.error("Error fetching updated normal user info:", error);
+        throw new Error("Failed to fetch updated normal users information. Please try again later.");
+    }
+};
+
