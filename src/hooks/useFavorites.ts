@@ -3,12 +3,14 @@ import { getFirestore, doc, updateDoc, arrayUnion, arrayRemove } from "firebase/
 import Toast from "react-native-toast-message";
 import { useAuth } from "./useAuth";
 import { TranslationKeys } from "@/i18n/translationKeys";
+import { useTranslation } from "react-i18next";
 
 const useFavorites = () => {
     const [favorites, setFavorites] = useState<string[]>([]);
 
     const db = getFirestore();
     const { user, userInfo } = useAuth();
+    const { t } = useTranslation();
 
 
     useEffect(() => {
@@ -25,8 +27,8 @@ const useFavorites = () => {
         if (!user) {
             Toast.show({
                 type: "info",
-                text1: TranslationKeys.cards.practCard.favorites.notSignin,
-                text2: TranslationKeys.cards.practCard.favorites.onlySigninUsers,
+                text1: t(TranslationKeys.cards.practCard.favorites.notSignin),
+                text2: t(TranslationKeys.cards.practCard.favorites.onlySigninUsers),
             });
             return;
         }
@@ -49,8 +51,8 @@ const useFavorites = () => {
         } catch (error) {
             Toast.show({
                 type: "error",
-                text1: TranslationKeys.cards.practCard.favorites.error,
-                text2: TranslationKeys.cards.practCard.favorites.errorMessage,
+                text1: t(TranslationKeys.cards.practCard.favorites.error),
+                text2: t(TranslationKeys.cards.practCard.favorites.errorMessage),
             });
         }
     };
