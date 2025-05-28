@@ -23,7 +23,7 @@ type Props = {};
 
 const ProfileInfoPageContainer = (props: Props) => {
   const { isRTL } = useLocalization();
-  const { loading, userInfo, logout, user } = useAuth();
+  const { loading, userInfo, user } = useAuth();
   const [isEditing, setIsEditing] = useState<boolean>(false);
   const [isSaving, setIsSaving] = useState<boolean>(false);
   const [tempPractitionerInfo, setTempPractitionerInfo] =
@@ -84,15 +84,6 @@ const ProfileInfoPageContainer = (props: Props) => {
     }
   };
 
-  const handleLogout = async () => {
-    try {
-      await logout();
-      console.log("Successfully logged out");
-    } catch (error) {
-      console.error("Logout failed:", error);
-    }
-  };
-
   return (
     <View style={styles.container}>
       <View style={styles.avatarContainer}>
@@ -148,12 +139,6 @@ const ProfileInfoPageContainer = (props: Props) => {
           <>
             <ProfileInfoCardsContainer info={tempPractitionerInfo} />
 
-            <CustomButton
-              title={TranslationKeys.profileInfoPage.logout}
-              width="full"
-              onPress={handleLogout}
-              style={styles.logoutBtn}
-            />
           </>
         )}
       </View>
@@ -191,7 +176,4 @@ const styles = StyleSheet.create({
     textDecorationLine: "underline",
   },
   infoContainer: {},
-  logoutBtn: {
-    marginTop: 15,
-  },
 });
