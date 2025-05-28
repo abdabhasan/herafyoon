@@ -12,6 +12,7 @@ import { savePractitionerDataToFirestore } from "@/firebase/firestoreService";
 import { SignupPractFormData } from "@/schemas/authSchemas";
 import { useRouter } from "expo-router";
 import { UserCredential } from "firebase/auth";
+import { TranslationKeys } from "@/i18n/translationKeys";
 
 export function useSignupPractitionerForm(reset: () => void) {
     const { t } = useTranslation();
@@ -51,8 +52,8 @@ export function useSignupPractitionerForm(reset: () => void) {
 
             Toast.show({
                 type: "success",
-                text1: t("signup_page.verification_email_sent"),
-                text2: t("signup_page.check_your_inbox"),
+                text1: t(TranslationKeys.signupPage.verificationEmailSent),
+                text2: t(TranslationKeys.signupPage.checkYourInbox),
             });
         } catch (error: any) {
             rollbar.log(error);
@@ -64,8 +65,8 @@ export function useSignupPractitionerForm(reset: () => void) {
 
             Toast.show({
                 type: "error",
-                text1: t("signup_page.signup_failed"),
-                text2: error.message || t("signup_page.error_occurred"),
+                text1: t(TranslationKeys.signupPage.signupFailed),
+                text2: error.message || t(TranslationKeys.signupPage.errorOccurred),
             });
         } finally {
             setState((prev) => ({ ...prev, loading: false }));
@@ -98,8 +99,8 @@ export function useSignupPractitionerForm(reset: () => void) {
 
                 Toast.show({
                     type: "success",
-                    text1: t("signup_page.verification_successfull"),
-                    text2: t("signup_page.your_account_now_active"),
+                    text1: t(TranslationKeys.signupPage.verificationSuccessful),
+                    text2: t(TranslationKeys.signupPage.yourAccountNowActive),
                 });
 
                 setTimeout(() => router.push("/"), 1500);
@@ -112,8 +113,8 @@ export function useSignupPractitionerForm(reset: () => void) {
             console.error("Email verification error:", error);
             Toast.show({
                 type: "error",
-                text1: t("signup_page.verification_failed"),
-                text2: error.message || t("signup_page.error_occurred"),
+                text1: t(TranslationKeys.signupPage.verificationFailed),
+                text2: error.message || t(TranslationKeys.signupPage.errorOccurred),
             });
         } finally {
             setState((prev) => ({ ...prev, loading: false }));

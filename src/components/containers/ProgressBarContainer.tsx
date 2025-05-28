@@ -5,6 +5,7 @@ import { CustomButton } from "@/components/Btns/CustomBtn";
 import { Colors } from "@/constants/Colors";
 import { CustomText } from "../CustomText";
 import { useTranslation } from "react-i18next";
+import { TranslationKeys } from "@/i18n/translationKeys";
 
 interface ProgressBarContainerProps {
   currentStep: "emailSent" | "emailVerified" | "completed";
@@ -36,27 +37,33 @@ export const ProgressBarContainer: React.FC<ProgressBarContainerProps> = ({
         completedStepIconColor={Colors.primary.p500}
         isComplete={currentStep === "completed"}
       >
-        <ProgressStep label={t("progress_bar.steps.email_sent")} removeBtnRow />
         <ProgressStep
-          label={t("progress_bar.steps.email_verified")}
+          label={t(TranslationKeys.progressBar.steps.emailSent)}
+          removeBtnRow
+        />
+        <ProgressStep
+          label={t(TranslationKeys.progressBar.steps.emailVerified)}
           removeBtnRow
         >
-          <CustomText text={"progress_bar.check_your_inbox"} type="details" />
+          <CustomText
+            text={TranslationKeys.progressBar.checkYourInbox}
+            type="details"
+          />
         </ProgressStep>
         <ProgressStep
-          label={t("progress_bar.steps.signup_completed")}
+          label={t(TranslationKeys.progressBar.steps.signupCompleted)}
           removeBtnRow
         />
       </ProgressSteps>
       {currentStep === "completed" ? (
         <CustomButton
-          title="progress_bar.completed"
+          title={TranslationKeys.progressBar.completed}
           disabled={true}
           style={styles.verifyButton}
         />
       ) : (
         <CustomButton
-          title="progress_bar.next_step"
+          title={TranslationKeys.progressBar.nextStep}
           onPress={onVerifyEmail}
           disabled={loading}
           style={styles.verifyButton}

@@ -1,132 +1,135 @@
+import { TranslationKeys } from "@/i18n/translationKeys";
+
+
 const locationOptions = [
   {
-    label: "country_picker_options.jordan",
+    label: TranslationKeys.countryPickerOptions.jordan,
     value: "Jordan",
     cities: [
       {
-        label: "jordan_city_picker_options.amman",
+        label: TranslationKeys.jordanCityPickerOptions.amman,
         value: "Amman",
         neighbourhoods: [
           {
-            label: "amman_neighbourhood_picker_options.abdoun",
+            label: TranslationKeys.ammanNeighbourhoodPickerOptions.abdoun,
             value: "Abdoun",
           },
           {
-            label: "amman_neighbourhood_picker_options.jabal_amman",
+            label: TranslationKeys.ammanNeighbourhoodPickerOptions.jabalAmman,
             value: "Jabal Amman",
           },
           {
-            label: "amman_neighbourhood_picker_options.jabal_al_weibdeh",
+            label: TranslationKeys.ammanNeighbourhoodPickerOptions.jabalAlWeibdeh,
             value: "Jabal Al-Weibdeh",
           },
           {
-            label: "amman_neighbourhood_picker_options.ras_al_ain",
+            label: TranslationKeys.ammanNeighbourhoodPickerOptions.rasAlAin,
             value: "Ras Al-Ain",
           },
           {
-            label: "amman_neighbourhood_picker_options.khalda",
+            label: TranslationKeys.ammanNeighbourhoodPickerOptions.khalda,
             value: "Khalda",
           },
           {
-            label: "amman_neighbourhood_picker_options.dabouq",
+            label: TranslationKeys.ammanNeighbourhoodPickerOptions.dabouq,
             value: "Dabouq",
           },
           {
-            label: "amman_neighbourhood_picker_options.shmeisani",
+            label: TranslationKeys.ammanNeighbourhoodPickerOptions.shmeisani,
             value: "Shmeisani",
           },
           {
-            label: "amman_neighbourhood_picker_options.marj_al_hamam",
+            label: TranslationKeys.ammanNeighbourhoodPickerOptions.marjAlHamam,
             value: "Marj Al-Hamam",
           },
           {
-            label: "amman_neighbourhood_picker_options.al_yasmin",
+            label: TranslationKeys.ammanNeighbourhoodPickerOptions.alYasmin,
             value: "Al-Yasmin",
           },
           {
-            label: "amman_neighbourhood_picker_options.al_jubayhah",
+            label: TranslationKeys.ammanNeighbourhoodPickerOptions.alJubayhah,
             value: "Al-Jubayhah",
           },
           {
-            label: "amman_neighbourhood_picker_options.al_quwaysimah",
+            label: TranslationKeys.ammanNeighbourhoodPickerOptions.alQuwaysimah,
             value: "Al-Quwaysimah",
           },
           {
-            label: "amman_neighbourhood_picker_options.al_yarmouk",
+            label: TranslationKeys.ammanNeighbourhoodPickerOptions.alYarmouk,
             value: "Al-Yarmouk",
           },
           {
-            label: "amman_neighbourhood_picker_options.basman",
+            label: TranslationKeys.ammanNeighbourhoodPickerOptions.basman,
             value: "Basman",
           },
           {
-            label: "amman_neighbourhood_picker_options.markah",
+            label: TranslationKeys.ammanNeighbourhoodPickerOptions.markah,
             value: "Markah",
           },
           {
-            label: "amman_neighbourhood_picker_options.zahran",
+            label: TranslationKeys.ammanNeighbourhoodPickerOptions.zahran,
             value: "Zahran",
           },
           {
-            label: "amman_neighbourhood_picker_options.badr",
+            label: TranslationKeys.ammanNeighbourhoodPickerOptions.badr,
             value: "Badr",
           },
           {
-            label: "amman_neighbourhood_picker_options.tariq",
+            label: TranslationKeys.ammanNeighbourhoodPickerOptions.tariq,
             value: "Tariq",
           },
           {
-            label: "amman_neighbourhood_picker_options.uhud",
+            label: TranslationKeys.ammanNeighbourhoodPickerOptions.uhud,
             value: "Uhud",
           },
           {
-            label: "amman_neighbourhood_picker_options.shafa_badran",
+            label: TranslationKeys.ammanNeighbourhoodPickerOptions.shafaBadran,
             value: "Shafa Badran",
           },
           {
-            label: "amman_neighbourhood_picker_options.naour",
+            label: TranslationKeys.ammanNeighbourhoodPickerOptions.naour,
             value: "Naour",
           },
           {
-            label: "amman_neighbourhood_picker_options.al_madina",
+            label: TranslationKeys.ammanNeighbourhoodPickerOptions.alMadina,
             value: "Al-Madina",
           },
           {
-            label: "amman_neighbourhood_picker_options.sweileh",
+            label: TranslationKeys.ammanNeighbourhoodPickerOptions.suweileh,
             value: "Sweileh",
           },
         ],
       },
       {
-        label: "jordan_city_picker_options.zarqa",
+        label: TranslationKeys.jordanCityPickerOptions.zarqa,
         value: "Zarqa",
         neighbourhoods: [
           {
-            label: "zarqa_neighbourhood_picker_options.city_center",
+            label: TranslationKeys.zarqaNeighbourhoodPickerOptions.cityCenter,
             value: "City Center",
           },
           {
-            label: "zarqa_neighbourhood_picker_options.althawra_al_arabiya",
+            label: TranslationKeys.zarqaNeighbourhoodPickerOptions.althawraAlArabiya,
             value: "Althawra Al-Arabiya",
           },
           {
-            label: "zarqa_neighbourhood_picker_options.ewajan",
+            label: TranslationKeys.zarqaNeighbourhoodPickerOptions.ewajan,
             value: "Ewajan",
           },
           {
-            label: "zarqa_neighbourhood_picker_options.zawahreh",
+            label: TranslationKeys.zarqaNeighbourhoodPickerOptions.zawahreh,
             value: "Zawahreh",
           },
           {
-            label: "zarqa_neighbourhood_picker_options.new_zarqa",
+            label: TranslationKeys.zarqaNeighbourhoodPickerOptions.newZarqa,
             value: "New Zarqa",
           },
           {
-            label: "zarqa_neighbourhood_picker_options.sports_complex",
+            label: TranslationKeys.zarqaNeighbourhoodPickerOptions.sportsComplex,
             value: "Sports Complex",
           },
           {
-            label: "zarqa_neighbourhood_picker_options.zarqa_city_gardens",
+            label: TranslationKeys.zarqaNeighbourhoodPickerOptions.zarqaCityGardens,
             value: "Zarqa City Gardens",
           },
         ],
@@ -134,51 +137,51 @@ const locationOptions = [
     ],
   },
   {
-    label: "country_picker_options.palestine",
+    label: TranslationKeys.countryPickerOptions.palestine,
     value: "Palestine",
     cities: [
       {
-        label: "palestine_city_picker_options.ramallah",
+        label: TranslationKeys.palestineCityPickerOptions.ramallah,
         value: "Ramallah",
         neighbourhoods: [
           {
-            label: "ramallah_neighbouhood_picker_options.al_masyoun",
+            label: TranslationKeys.ramallahNeighbourhoodPickerOptions.alMasyoun,
             value: "Al-Masyoun",
           },
           {
-            label: "ramallah_neighbouhood_picker_options.al_tireh",
+            label: TranslationKeys.ramallahNeighbourhoodPickerOptions.alTireh,
             value: "Al-Tireh",
           },
           {
-            label: "ramallah_neighbouhood_picker_options.um_al_sharayet",
+            label: TranslationKeys.ramallahNeighbourhoodPickerOptions.umAlSharayet,
             value: "Um Al-Sharayet",
           },
           {
-            label: "ramallah_neighbouhood_picker_options.al_bireh",
+            label: TranslationKeys.ramallahNeighbourhoodPickerOptions.alBireh,
             value: "Al-Bireh",
           },
           {
-            label: "ramallah_neighbouhood_picker_options.beitunia",
+            label: TranslationKeys.ramallahNeighbourhoodPickerOptions.beitunia,
             value: "Beitunia",
           },
           {
-            label: "ramallah_neighbouhood_picker_options.al_jinan",
+            label: TranslationKeys.ramallahNeighbourhoodPickerOptions.alJinan,
             value: "Al-Jinan",
           },
           {
-            label: "ramallah_neighbouhood_picker_options.al_balou",
+            label: TranslationKeys.ramallahNeighbourhoodPickerOptions.alBalou,
             value: "Al-Balou’",
           },
           {
-            label: "ramallah_neighbouhood_picker_options.dahiat_al_barid",
+            label: TranslationKeys.ramallahNeighbourhoodPickerOptions.dahiatAlBarid,
             value: "Dahiat Al-Barid",
           },
           {
-            label: "ramallah_neighbouhood_picker_options.al_irsal",
+            label: TranslationKeys.ramallahNeighbourhoodPickerOptions.alIrsal,
             value: "Al-Irsal",
           },
           {
-            label: "ramallah_neighbouhood_picker_options.ein_misbah",
+            label: TranslationKeys.ramallahNeighbourhoodPickerOptions.einMisbah,
             value: "Ein Misbah",
           },
         ],

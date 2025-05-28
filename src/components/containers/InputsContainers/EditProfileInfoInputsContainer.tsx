@@ -8,6 +8,7 @@ import CustomPicker from "@/components/inputs/CustomPicker";
 import CustomInputController from "@/components/controllers/CustomInputController";
 import workTypePickerOptions from "@/constants/workTypePickerOptions";
 import { returnErrorMessage } from "@/helpers/returnInputErrorMessageHelper";
+import { TranslationKeys } from "@/i18n/translationKeys";
 
 type Props = {
   control: any;
@@ -30,21 +31,21 @@ const EditProfileInfoInputsContainer: React.FC<Props> = ({
         <CustomPicker
           name="workType"
           control={control}
-          label="signup_page.form.workType"
+          label={TranslationKeys.signupPage.form.workType}
           elements={workTypePickerOptions}
           error={errors.workType ? errors.workType.message : null}
         />
         <CustomInputController
           name="phoneNumber"
           control={control}
-          label="signup_page.form.phone"
+          label={TranslationKeys.signupPage.form.phone}
           error={errors.phoneNumber ? errors.phoneNumber.message : null}
         />
         <CustomInputController
           name="email"
           type="email-address"
           control={control}
-          label="signup_page.form.email"
+          label={TranslationKeys.signupPage.form.email}
           error={returnErrorMessage(errors?.email)}
         />
       </View>

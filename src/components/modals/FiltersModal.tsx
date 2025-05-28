@@ -5,6 +5,7 @@ import CustomPicker from "@/components/inputs/CustomPicker";
 import { CustomText } from "@/components/CustomText";
 import { LocationInputsContainer } from "@/components/containers/InputsContainers";
 import workTypePickerOptions from "@/constants/workTypePickerOptions";
+import { TranslationKeys } from "@/i18n/translationKeys";
 
 interface FiltersModalProps {
   visible: boolean;
@@ -36,14 +37,17 @@ const FiltersModal: React.FC<FiltersModalProps> = ({
           <CustomPicker
             name="workType"
             control={control}
-            label="signup_page.form.workType"
+            label={TranslationKeys.signupPage.form.workType}
             elements={workTypePickerOptions}
             error={errors.workType?.message}
           />
 
-          <CustomButton title="search_page.search" onPress={onSubmit} />
           <CustomButton
-            title="search_page.close"
+            title={TranslationKeys.searchPage.search}
+            onPress={onSubmit}
+          />
+          <CustomButton
+            title={TranslationKeys.searchPage.close}
             onPress={onClose}
             color="dark"
           />

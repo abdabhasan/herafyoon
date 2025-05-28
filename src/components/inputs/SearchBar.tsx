@@ -8,6 +8,7 @@ import {
 import { Colors } from "@/constants/Colors";
 import { useTranslation } from "react-i18next";
 import { useLocalization } from "@/hooks/useLocalization";
+import { TranslationKeys } from "@/i18n/translationKeys";
 
 interface SearchBarProps {
   query: string;
@@ -37,7 +38,7 @@ const SearchBar: React.FC<SearchBarProps> = ({
           textAlign: isRTL ? "right" : "left",
         },
       ]}
-      placeholder={t("search_page.type_to_search")}
+      placeholder={t(TranslationKeys.searchPage.typeToSearch)}
       value={t(query)}
       onChangeText={onChange}
       onFocus={onFocus}

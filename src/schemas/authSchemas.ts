@@ -1,13 +1,15 @@
+import { TranslationKeys } from "@/i18n/translationKeys";
 import { z } from "zod";
 
+
 const baseSignupSchema = z.object({
-  firstName: z.string().min(3, { message: "validation.first_name" }),
-  lastName: z.string().min(3, { message: "validation.last_name" }),
-  email: z.string().email({ message: "validation.email" }),
-  password: z.string().min(6, { message: "validation.password" }),
-  country: z.string().min(3, { message: "validation.country" }),
-  city: z.string().min(3, { message: "validation.city" }),
-  neighbourhood: z.string().min(3, { message: "validation.neighbourhood" }),
+  firstName: z.string().min(3, { message: TranslationKeys.validation.firstName }),
+  lastName: z.string().min(3, { message: TranslationKeys.validation.lastName }),
+  email: z.string().email({ message: TranslationKeys.validation.email }),
+  password: z.string().min(6, { message: TranslationKeys.validation.password }),
+  country: z.string().min(3, { message: TranslationKeys.validation.country }),
+  city: z.string().min(3, { message: TranslationKeys.validation.city }),
+  neighbourhood: z.string().min(3, { message: TranslationKeys.validation.neighbourhood }),
   phoneNumber:
     z.string()
       .transform((val) => val.replace(/[^0-9]/g, "")) // Remove non-numeric characters
@@ -15,20 +17,20 @@ const baseSignupSchema = z.object({
         /^(07\d{8})$/.test(val) || // Jordanian numbers starting with 07
         /^(05\d{8})$/.test(val),   // Palestinian numbers starting with 05
         {
-          message: "validation.phone.invalid",
+          message: TranslationKeys.validation.phone.invalid,
         }
       )
 });
 
 export const signupPractSchema = baseSignupSchema.extend({
-  workType: z.string().min(3, { message: "validation.work_type" }),
+  workType: z.string().min(3, { message: TranslationKeys.validation.workType }),
 });
 
 export const signupNormalUserSchema = baseSignupSchema;
 
 export const signinSchema = z.object({
-  email: z.string().email({ message: "validation.email" }),
-  password: z.string().min(6, { message: "validation.password" }),
+  email: z.string().email({ message: TranslationKeys.validation.email }),
+  password: z.string().min(6, { message: TranslationKeys.validation.password }),
 });
 
 export type SignupPractFormData = z.infer<typeof signupPractSchema>;

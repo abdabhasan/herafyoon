@@ -3,6 +3,7 @@ import { CustomText } from "@/components/CustomText";
 import { View, StyleSheet } from "react-native";
 import WelcomeSVG from "@/assets/illustrations/construction-worker-bro.svg";
 import SigningOptionsBtnsContainer from "@/components/containers/BtnsContainers/SigningOptionsBtnsContainer";
+import { TranslationKeys } from "@/i18n/translationKeys";
 
 type Props = {};
 
@@ -11,7 +12,7 @@ const SigningOptionsPageContainer = (props: Props) => {
     <>
       <View style={styles.container}>
         <WelcomeSVG style={styles.logo} />
-        <CustomText type="title" text="welcome" />
+        <CustomText type="title" text={TranslationKeys.welcome} />
         <SigningOptionsBtnsContainer />
       </View>
     </>

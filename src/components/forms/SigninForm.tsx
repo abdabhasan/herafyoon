@@ -10,6 +10,7 @@ import { SiginFormData, signinSchema } from "@/schemas/authSchemas";
 import { loginUser } from "@/firebase/authService";
 import { LoadingSpinner } from "@/components/LoadingSpinner";
 import { useRouter } from "expo-router";
+import { TranslationKeys } from "@/i18n/translationKeys";
 
 export default function SigninForm() {
   const {
@@ -35,7 +36,7 @@ export default function SigninForm() {
 
       Toast.show({
         type: "success",
-        text1: t("signin_page.success"),
+        text1: t(TranslationKeys.signinPage.success),
         position: "top",
       });
 
@@ -48,17 +49,17 @@ export default function SigninForm() {
       if (error?.code === "auth/too-many-requests") {
         Toast.show({
           type: "error",
-          text1: t("signin_page.error"),
-          text2: t("signin_page.too_many_requests"),
+          text1: t(TranslationKeys.signinPage.error),
+          text2: t(TranslationKeys.signinPage.tooManyRequests),
           position: "top",
         });
       } else {
         const isAuthError = error?.code === "auth/invalid-credential";
         Toast.show({
           type: "error",
-          text1: t("signin_page.error"),
+          text1: t(TranslationKeys.signinPage.error),
           text2: isAuthError
-            ? t("signin_page.incorrect_credentials")
+            ? t(TranslationKeys.signinPage.incorrectCredentials)
             : error?.message || "Something went wrong. Please try again.",
           position: "top",
         });
@@ -74,7 +75,11 @@ export default function SigninForm() {
     <ScrollView contentContainerStyle={styles.scrollViewContent}>
       <EmailAndPasswordFieldsContainer control={control} errors={errors} />
 
-      <CustomButton title="signin" width="m" onPress={handleSubmit(onSubmit)} />
+      <CustomButton
+        title={TranslationKeys.signin}
+        width="m"
+        onPress={handleSubmit(onSubmit)}
+      />
       <Toast />
     </ScrollView>
   );

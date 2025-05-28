@@ -17,6 +17,7 @@ import {
   fetchSingleNormalUserInfo,
 } from "@/firebase/firestoreService";
 import EditProfileInfoInputsContainer from "../InputsContainers/EditProfileInfoInputsContainer";
+import { TranslationKeys } from "@/i18n/translationKeys";
 
 type Props = {};
 
@@ -111,7 +112,7 @@ const ProfileInfoPageContainer = (props: Props) => {
       <View style={styles.infoContainer}>
         {!isEditing && (
           <CustomText
-            text="profile_info_page.edit"
+            text={TranslationKeys.profileInfoPage.edit}
             type="defaultDark"
             style={[
               styles.editBtn,
@@ -129,14 +130,14 @@ const ProfileInfoPageContainer = (props: Props) => {
             <EditProfileInfoInputsContainer control={control} errors={errors} />
 
             <CustomButton
-              title="profile_info_page.cancel"
+              title={TranslationKeys.profileInfoPage.cancel}
               width="xl"
               color="light"
               onPress={handleEditToggle}
               style={[{ alignSelf: isRTL ? "flex-end" : "flex-start" }]}
             />
             <CustomButton
-              title="profile_info_page.save"
+              title={TranslationKeys.profileInfoPage.save}
               width="xl"
               disabled={isSaving}
               onPress={handleSubmit(handleSaveChanges)}
@@ -148,7 +149,7 @@ const ProfileInfoPageContainer = (props: Props) => {
             <ProfileInfoCardsContainer info={tempPractitionerInfo} />
 
             <CustomButton
-              title="profile_info_page.logout"
+              title={TranslationKeys.profileInfoPage.logout}
               width="full"
               onPress={handleLogout}
               style={styles.logoutBtn}

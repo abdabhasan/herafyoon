@@ -13,6 +13,7 @@ import WelcomeSVG from "@/assets/illustrations/search-page-welcome.svg";
 import ResultsNotFoundSVG from "@/assets/illustrations/results-not-found.svg";
 import PractitionersSearchHistory from "@/components/lists/PractitionersSearchHistory";
 import { useTranslation } from "react-i18next";
+import { TranslationKeys } from "@/i18n/translationKeys";
 
 const SearchPageContainer = () => {
   const {
@@ -88,9 +89,12 @@ const SearchPageContainer = () => {
         />
       )}
       <View style={styles.resultTextContainer}>
-        <CustomText text="search_page.results" type="primarySubtitle" />
+        <CustomText
+          text={TranslationKeys.searchPage.results}
+          type="primarySubtitle"
+        />
         <CustomButton
-          title="search_page.filters"
+          title={TranslationKeys.searchPage.filters}
           onPress={() => toggleFiltersModal()}
           style={styles.filtersBtn}
           width="sm"
@@ -103,7 +107,7 @@ const SearchPageContainer = () => {
           <WelcomeSVG width={200} height={200} />
 
           <CustomText
-            text="search_page.select_filters"
+            text={TranslationKeys.searchPage.selectFilters}
             type="defaultDark"
             style={styles.noResultsText}
           />
@@ -114,7 +118,7 @@ const SearchPageContainer = () => {
           <ResultsNotFoundSVG width={200} height={200} />
 
           <CustomText
-            text="search_page.no_founded_practs"
+            text={TranslationKeys.searchPage.noFoundedPracts}
             type="defaultDark"
             style={styles.noResultsText}
           />

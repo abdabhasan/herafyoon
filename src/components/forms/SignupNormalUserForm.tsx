@@ -18,6 +18,7 @@ import {
 import { useSignupNormalUserForm } from "@/hooks/useSignupNormalUserForm";
 import { LoadingSpinner } from "@/components/LoadingSpinner";
 import { ProgressBarContainer } from "@/components/containers/ProgressBarContainer";
+import { TranslationKeys } from "@/i18n/translationKeys";
 
 export default function SignupNormalUserForm() {
   const {
@@ -42,12 +43,12 @@ export default function SignupNormalUserForm() {
           <CustomInputController
             name="phoneNumber"
             control={control}
-            label="signup_page.form.phone"
+            label={TranslationKeys.signupPage.form.phone}
             error={errors.phoneNumber ? errors.phoneNumber.message : null}
           />
 
           <CustomButton
-            title="signup"
+            title={TranslationKeys.signup}
             width="m"
             onPress={handleSubmit(onSubmit)}
           />
