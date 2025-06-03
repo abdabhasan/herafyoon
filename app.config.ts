@@ -53,6 +53,13 @@ export default ({ config }: { config: ExpoConfig }) => ({
                 backgroundColor: "#ffffff",
             },
         ],
+        [
+            "react-native-google-mobile-ads",
+            {
+                "androidAppId": "ca-app-pub-6809262854669948~2048664943",
+                "android_app_id": "ca-app-pub-6809262854669948~2048664943"
+            }
+        ]
     ],
     experiments: {
         typedRoutes: true,
