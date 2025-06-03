@@ -67,9 +67,10 @@ export default ({ config }: { config: ExpoConfig }) => ({
     updates: {
         "url": "https://u.expo.dev/aa1078d0-d3e2-4545-bd68-ce7bfbf2209a"
     },
-    runtimeVersion: {
-        "policy": "appVersion"
-    },
+    // runtimeVersion: {
+    //     "policy": "appVersion"
+    // },
+    runtimeVersion: "1.0.0",
     extra: {
         firebaseConfig,
         rollbarConfig,
