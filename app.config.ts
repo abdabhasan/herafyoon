@@ -27,9 +27,11 @@ export default ({ config }: { config: ExpoConfig }) => ({
     userInterfaceStyle: "automatic",
     newArchEnabled: true,
     ios: {
+        bundleIdentifier: "com.iouashgjwlet1245.herafyoon",
         supportsTablet: true,
     },
     android: {
+        package: "com.iouashgjwlet1245.herafyoon",
         adaptiveIcon: {
             foregroundImage: "./src/assets/images/adaptive-icon.png",
             backgroundColor: "#ffffff",
