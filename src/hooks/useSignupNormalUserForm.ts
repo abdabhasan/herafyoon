@@ -1,7 +1,7 @@
 import { useState } from "react";
 import Toast from "react-native-toast-message";
 import { useTranslation } from "react-i18next";
-import rollbar from "@/utils/rollbar";
+// import rollbar from "@/utils/rollbar";
 import {
     signupUser,
     sendVerificationEmail,
@@ -56,7 +56,7 @@ export function useSignupNormalUserForm(reset: () => void) {
                 text2: t(TranslationKeys.signupPage.checkYourInbox),
             });
         } catch (error: any) {
-            rollbar.log(error);
+            // rollbar.log(error);
             console.error("Signup error:", error);
 
             if (state.userCredential) {
@@ -109,7 +109,7 @@ export function useSignupNormalUserForm(reset: () => void) {
                 throw new Error("Email not verified.");
             }
         } catch (error: any) {
-            rollbar.log(error);
+            // rollbar.log(error);
             console.error("Email verification error:", error);
             Toast.show({
                 type: "error",
