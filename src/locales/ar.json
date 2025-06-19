@@ -18,7 +18,9 @@
     "do_u_have_an_account": "هل تملك حساب ؟",
     "create_pract_account": "أنشئ حساب حرفي",
     "create_normal_account": "أنشئ حساب عادي",
-    "signin": "تسجيل الدخول"
+    "signin": "تسجيل الدخول",
+    "please_verify_your_email": "الرجاء اكمال عملية التحقق من بريدك الالكتروني للوصول الى حسابك",
+    "verify": "اكمال التحقق"
   },
   "signup_page": {
     "title": "أنشئ حساب حرفي",

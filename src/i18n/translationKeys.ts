@@ -19,6 +19,8 @@ export const TranslationKeys = {
         createPractAccount: "profile_tab.create_pract_account",
         createNormalAccount: "profile_tab.create_normal_account",
         signin: "profile_tab.signin",
+        pleaseVerifyYourEmail: "profile_tab.please_verify_your_email",
+        verify: "profile_tab.verify"
     },
     signupPage: {
         title: "signup_page.title",
