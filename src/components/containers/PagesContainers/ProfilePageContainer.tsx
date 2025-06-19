@@ -7,12 +7,18 @@ import SigningOptionsPageContainer from "@/components/containers/PagesContainers
 import ProfileInfoPageContainer from "@/components/containers/PagesContainers/ProfileInfoPageContainer";
 import LanguageSelectBtn from "@/components/Btns/LanguageSelectBtn";
 import LogoutSVG from "@/assets/illustrations/logout-svgrepo-com.svg";
+import EmptySVG from "@/assets/illustrations/empty-profile-page.svg";
 import { Colors } from "@/constants/Colors";
+import { CustomButton } from "@/components/Btns/CustomBtn";
+
+import { useRouter } from "expo-router";
+import { TranslationKeys } from "@/i18n/translationKeys";
 
 type Props = {};
 
 const ProfilePageContainer = (props: Props) => {
   const { user, loading, logout } = useAuth();
+  const router = useRouter();
 
   const handleLogout = async () => {
     try {
@@ -37,14 +43,25 @@ const ProfilePageContainer = (props: Props) => {
     );
   }
 
+  const handlePress = () => {
+    setTimeout(() => router.push("/user/practitioner/signup"), 500);
+  };
+
   // TO DO
   if (user && !user.emailVerified) {
     return (
       <ScrollView contentContainerStyle={styles.scrollViewContent}>
-        <CustomText
-          text="Please verify your email before accessing the profile."
-          type="title"
-        />
+        <View style={styles.verifyContainer}>
+          <CustomText
+            text={TranslationKeys.profileTab.pleaseVerifyYourEmail}
+            type="primarySubtitle"
+          />
+          <EmptySVG width={200} height={200} />
+          <CustomButton
+            title={TranslationKeys.profileTab.verify}
+            onPress={handlePress}
+          />
+        </View>
       </ScrollView>
     );
   }
@@ -70,6 +87,10 @@ const styles = StyleSheet.create({
     flex: 1,
 
     marginBottom: 50,
+  },
+  verifyContainer: {
+    padding: 16,
+    alignItems: "center",
   },
   btnsContainer: {
     marginTop: 15,
