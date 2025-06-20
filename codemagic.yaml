@@ -2,9 +2,10 @@ workflows:
   react_native_expo_ios:
     name: React Native Expo iOS Workflow
     environment:
-      # Codemagic's macOS machines
       xcode: latest
       node: 18
+      vars:
+        EXPO_TOKEN: Encrypted("${{ secrets.EXPO_TOKEN }}")
     scripts:
       - name: Set up dependencies
         script: |
