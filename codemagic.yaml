@@ -5,7 +5,7 @@ workflows:
       xcode: latest
       node: 18
       vars:
-        EXPO_TOKEN: Encrypted("${{ secrets.EXPO_TOKEN }}")
+        EXPO_TOKEN: Encrypted("${{ secrets.ExpoTokenGroup.EXPO_TOKEN }}")
     scripts:
       - name: Set up dependencies
         script: |
