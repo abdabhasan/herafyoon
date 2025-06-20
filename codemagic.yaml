@@ -1,0 +1,28 @@
+workflows:
+  react_native_expo_ios:
+    name: React Native Expo iOS Workflow
+    environment:
+      # Codemagic's macOS machines
+      xcode: latest
+      node: 18
+      vars:
+        EXPO_APPLE_ID: Encrypted("${{ secrets.APPLE_ID }}") # Add Apple ID in environment variables
+        EXPO_APPLE_PASSWORD: Encrypted("${{ secrets.APPLE_PASSWORD }}") # Add Apple password in environment variables
+    scripts:
+      - name: Set up dependencies
+        script: |
+          npm install -g expo-cli
+          npm install
+      - name: Prebuild the app
+        script: |
+          expo prebuild --platform ios
+      - name: Build iOS app
+        script: |
+          npx eas-cli build --platform ios --non-interactive --profile production
+    artifacts:
+      - build/ios/*.ipa
+    publishing:
+      scripts:
+        - name: Upload to App Store Connect
+          script: |
+            npx fastlane deliver --ipa ./build/ios/*.ipa --skip_screenshots --skip_metadata --force
