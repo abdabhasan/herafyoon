@@ -18,7 +18,9 @@
     "do_u_have_an_account": "Do you have an Account ?",
     "create_pract_account": "Create Practitioner Account",
     "create_normal_account": "Create normal Account",
-    "signin": "Sign In"
+    "signin": "Sign In",
+    "please_verify_your_email": "Please verify your email before accessing the profile.",
+    "verify": "Verify"
   },
   "signup_page": {
     "title": "Create Practitioner Account",
