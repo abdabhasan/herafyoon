@@ -57,7 +57,9 @@ export default ({ config }: { config: ExpoConfig }) => ({
             "react-native-google-mobile-ads",
             {
                 "androidAppId": "ca-app-pub-6809262854669948~2048664943",
-                "android_app_id": "ca-app-pub-6809262854669948~2048664943"
+                "android_app_id": "ca-app-pub-6809262854669948~2048664943",
+                "iosAppId": "ca-app-pub-6809262854669948~5408000038",
+                "ios_app_id": "ca-app-pub-6809262854669948~5408000038"
             }
         ]
     ],
