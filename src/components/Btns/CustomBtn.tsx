@@ -55,6 +55,11 @@ const colorStyles = {
     textColor: Colors.black,
     borderColor: Colors.black,
   },
+  lightSecondery: {
+    backgroundColor: Colors.primary.p50,
+    textColor: Colors.primary.p900,
+    borderColor: Colors.primary.p900,
+  },
   dark: {
     backgroundColor: Colors.primary.p950,
     textColor: Colors.primary.p50,
