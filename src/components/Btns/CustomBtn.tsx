@@ -11,7 +11,12 @@ import { CustomText } from "../CustomText";
 
 type WidthOption = "sm" | "m" | "l" | "xl" | "full";
 type HeightOption = "normal" | "tiny";
-type ColorOption = "primary" | "secondary" | "light" | "dark";
+type ColorOption =
+  | "primary"
+  | "secondary"
+  | "light"
+  | "lightSecondary"
+  | "dark";
 type AlignOption = "center" | "flex-start" | "flex-end";
 
 type ButtonProps = {
@@ -55,7 +60,7 @@ const colorStyles = {
     textColor: Colors.black,
     borderColor: Colors.black,
   },
-  lightSecondery: {
+  lightSecondary: {
     backgroundColor: Colors.primary.p50,
     textColor: Colors.primary.p900,
     borderColor: Colors.primary.p900,
