@@ -68,7 +68,7 @@ const colorStyles = {
   dark: {
     backgroundColor: Colors.primary.p950,
     textColor: Colors.primary.p50,
-    borderColor: Colors.primary.p50,
+    borderColor: Colors.primary.p950,
   },
 };
 
