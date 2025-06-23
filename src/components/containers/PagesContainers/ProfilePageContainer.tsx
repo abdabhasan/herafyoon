@@ -13,6 +13,7 @@ import { CustomButton } from "@/components/Btns/CustomBtn";
 
 import { useRouter } from "expo-router";
 import { TranslationKeys } from "@/i18n/translationKeys";
+import ThemeToggleButton from "@/components/Btns/ThemeToggleButton";
 
 type Props = {};
 
@@ -37,7 +38,7 @@ const ProfilePageContainer = (props: Props) => {
     return (
       <ScrollView contentContainerStyle={styles.scrollViewContent}>
         <LanguageSelectBtn />
-
+        <ThemeToggleButton />
         <SigningOptionsPageContainer />
       </ScrollView>
     );
@@ -70,6 +71,8 @@ const ProfilePageContainer = (props: Props) => {
     <ScrollView contentContainerStyle={styles.scrollViewContent}>
       <View style={styles.btnsContainer}>
         <LanguageSelectBtn />
+        <ThemeToggleButton />
+
         <TouchableOpacity onPress={handleLogout} style={styles.logoutBtn}>
           <LogoutSVG width={13} height={13} />
         </TouchableOpacity>
