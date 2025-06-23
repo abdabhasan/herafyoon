@@ -12,9 +12,16 @@ import { TranslationKeys } from "@/i18n/translationKeys";
 
 // import mobileAds from "react-native-google-mobile-ads";
 import { CustomText } from "@/components/CustomText";
+import { useTheme } from "@/contexts/ThemeContext";
+import {
+  DarkTheme as NavigationDarkTheme,
+  DefaultTheme as NavigationDefaultTheme,
+  ThemeProvider as NavigationThemeProvider,
+} from "@react-navigation/native";
 
 export default function TabLayout() {
   const { t } = useTranslation();
+  const { theme } = useTheme();
 
   // useEffect(() => {
   //   mobileAds()
@@ -25,7 +32,9 @@ export default function TabLayout() {
   // }, []);
 
   return (
-    <>
+    <NavigationThemeProvider
+      value={theme === "dark" ? NavigationDarkTheme : NavigationDefaultTheme}
+    >
       <Tabs
         screenOptions={{
           tabBarActiveTintColor: Colors.light.tint,
@@ -84,6 +93,6 @@ export default function TabLayout() {
       <View>
         <CustomText text="ads banner here" type="primarySubtitle" />
       </View>
-    </>
+    </NavigationThemeProvider>
   );
 }
