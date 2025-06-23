@@ -5,19 +5,23 @@ import i18n from "@/i18n";
 import { SafeAreaProvider, SafeAreaView } from "react-native-safe-area-context";
 import Toast from "react-native-toast-message";
 
+import { ThemeProvider } from "@/contexts/ThemeContext";
+
 export default function RootLayout() {
   return (
     <SafeAreaProvider>
-      <I18nextProvider i18n={i18n}>
-        <SafeAreaView style={styles.container}>
-          <Stack
-            screenOptions={{
-              headerShown: false,
-            }}
-          />
-          <Toast />
-        </SafeAreaView>
-      </I18nextProvider>
+      <ThemeProvider>
+        <I18nextProvider i18n={i18n}>
+          <SafeAreaView style={styles.container}>
+            <Stack
+              screenOptions={{
+                headerShown: false,
+              }}
+            />
+            <Toast />
+          </SafeAreaView>
+        </I18nextProvider>
+      </ThemeProvider>
     </SafeAreaProvider>
   );
 }
