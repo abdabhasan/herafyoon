@@ -6,6 +6,7 @@ import { CustomText } from "@/components/CustomText";
 import { LocationInputsContainer } from "@/components/containers/InputsContainers";
 import workTypePickerOptions from "@/constants/workTypePickerOptions";
 import { TranslationKeys } from "@/i18n/translationKeys";
+import { ThemedView } from "@/components/ThemedView";
 
 interface FiltersModalProps {
   visible: boolean;
@@ -30,7 +31,7 @@ const FiltersModal: React.FC<FiltersModalProps> = ({
       onRequestClose={onClose}
     >
       <View style={styles.modalContainer}>
-        <View style={styles.modalContent}>
+        <ThemedView style={styles.modalContent}>
           <CustomText text="Filters" type="primarySubtitle" />
           <LocationInputsContainer control={control} errors={errors} />
 
@@ -51,7 +52,7 @@ const FiltersModal: React.FC<FiltersModalProps> = ({
             onPress={onClose}
             color="dark"
           />
-        </View>
+        </ThemedView>
       </View>
     </Modal>
   );
@@ -66,7 +67,6 @@ const styles = StyleSheet.create({
   },
   modalContent: {
     width: "90%",
-    backgroundColor: "#fff",
     padding: 20,
     borderRadius: 10,
     alignItems: "center",
