@@ -1,6 +1,7 @@
 import React from "react";
 import { TouchableOpacity, StyleSheet, View } from "react-native";
 import { CustomText } from "@/components/CustomText";
+import { useThemeColor } from "@/hooks/themesHooks/useThemeColor";
 
 interface AutocompleteListProps {
   results: { label: string; value: string }[];
@@ -11,8 +12,17 @@ const AutocompleteList: React.FC<AutocompleteListProps> = ({
   results,
   onSelect,
 }) => {
+  const inputBackgroundColor = useThemeColor({}, "practCardBacgroundColor");
+
   return (
-    <View style={styles.container}>
+    <View
+      style={[
+        styles.container,
+        {
+          backgroundColor: inputBackgroundColor,
+        },
+      ]}
+    >
       {results.map((item) => (
         <TouchableOpacity
           key={item.value}
@@ -29,7 +39,6 @@ const AutocompleteList: React.FC<AutocompleteListProps> = ({
 const styles = StyleSheet.create({
   container: {
     borderRadius: 8,
-    backgroundColor: "#f9f9f9",
   },
   item: {
     paddingHorizontal: 10,
