@@ -5,10 +5,10 @@ import {
   NativeSyntheticEvent,
   TextInputFocusEventData,
 } from "react-native";
-import { Colors } from "@/constants/Colors";
 import { useTranslation } from "react-i18next";
 import { useLocalization } from "@/hooks/useLocalization";
 import { TranslationKeys } from "@/i18n/translationKeys";
+import { useThemeColor } from "@/hooks/themesHooks/useThemeColor";
 
 interface SearchBarProps {
   query: string;
@@ -29,6 +29,9 @@ const SearchBar: React.FC<SearchBarProps> = ({
 }) => {
   const { t } = useTranslation();
   const { isRTL } = useLocalization();
+  const inputBackgroundColor = useThemeColor({}, "practCardBacgroundColor");
+  const inputBorderColor = useThemeColor({}, "practCardBorderColor");
+  const textColor = useThemeColor({}, "text");
 
   return (
     <TextInput
@@ -36,9 +39,13 @@ const SearchBar: React.FC<SearchBarProps> = ({
         styles.searchBar,
         {
           textAlign: isRTL ? "right" : "left",
+          backgroundColor: inputBackgroundColor,
+          borderColor: inputBorderColor,
+          color: textColor,
         },
       ]}
       placeholder={t(TranslationKeys.searchPage.typeToSearch)}
+      placeholderTextColor={textColor}
       value={t(query)}
       onChangeText={onChange}
       onFocus={onFocus}
@@ -52,9 +59,7 @@ export default SearchBar;
 const styles = StyleSheet.create({
   searchBar: {
     height: 40,
-    backgroundColor: Colors.white,
 
-    borderColor: Colors.primary.p500,
     borderWidth: 1,
     borderRadius: 8,
 
