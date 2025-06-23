@@ -1,6 +1,7 @@
 import { Colors } from "@/constants/Colors";
 import { useTranslation } from "react-i18next";
 import { Text, type TextProps, StyleSheet } from "react-native";
+import { useThemeColor } from "@/hooks/themesHooks/useThemeColor";
 
 export type CustomTextProps = TextProps & {
   text: string;
@@ -24,10 +25,12 @@ export function CustomText({
   ...rest
 }: CustomTextProps) {
   const { t } = useTranslation();
+  const color = useThemeColor({}, "text");
 
   return (
     <Text
       style={[
+        { color },
         type === "default" ? styles.default : undefined,
         type === "defaultDark" ? styles.defaultDark : undefined,
         type === "title" ? styles.title : undefined,
@@ -51,12 +54,10 @@ const styles = StyleSheet.create({
   default: {
     fontSize: 16,
     lineHeight: 24,
-    color: Colors.white,
   },
   defaultDark: {
     fontSize: 16,
     lineHeight: 24,
-    color: Colors.black,
   },
   defaultSemiBold: {
     fontSize: 16,
@@ -88,7 +89,6 @@ const styles = StyleSheet.create({
   label: {
     fontSize: 12,
     fontWeight: "bold",
-    color: "#444",
     marginBottom: 6,
     marginLeft: 4,
   },
@@ -98,7 +98,6 @@ const styles = StyleSheet.create({
   },
   details: {
     fontSize: 14,
-    color: Colors.black,
     marginTop: 4,
   },
 });
