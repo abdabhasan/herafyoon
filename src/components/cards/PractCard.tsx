@@ -6,6 +6,8 @@ import GolderStart from "@/assets/illustrations/golden-star.svg";
 import StarNotFilled from "@/assets/illustrations/star-not-filled.svg";
 import useFavorites from "@/hooks/useFavorites";
 import { useLocalization } from "@/hooks/useLocalization";
+import { useThemeColor } from "@/hooks/themesHooks/useThemeColor";
+import { useTheme } from "@/contexts/ThemeContext";
 
 interface PractCardProps {
   id: string;
@@ -31,10 +33,22 @@ const PractCard: React.FC<PractCardProps> = ({
   const { isRTL } = useLocalization();
   const { favorites, toggleFavorite } = useFavorites();
   const isFavorite = favorites.includes(id);
+  const cardBackgroundColor = useThemeColor({}, "practCardBacgroundColor");
+  const cardBorderColor = useThemeColor({}, "practCardBorderColor");
+
+  const { theme } = useTheme();
+  const isDark = theme === "dark";
 
   return (
     <View
-      style={[styles.card, { flexDirection: isRTL ? "row-reverse" : "row" }]}
+      style={[
+        styles.card,
+        {
+          flexDirection: isRTL ? "row-reverse" : "row",
+          backgroundColor: cardBackgroundColor,
+          borderColor: cardBorderColor,
+        },
+      ]}
     >
       <View
         style={[
@@ -60,7 +74,11 @@ const PractCard: React.FC<PractCardProps> = ({
           {isFavorite ? (
             <GolderStart width={20} height={20} />
           ) : (
-            <StarNotFilled width={20} height={20} />
+            <StarNotFilled
+              width={20}
+              height={20}
+              fill={isDark ? "white" : "black"}
+            />
           )}
         </TouchableOpacity>
         <Avatar.Image
@@ -78,8 +96,6 @@ const PractCard: React.FC<PractCardProps> = ({
 const styles = StyleSheet.create({
   card: {
     flex: 1,
-    backgroundColor: "#f7f7f7",
-    borderColor: "#e0e0e0",
     borderWidth: 1,
     borderRadius: 8,
     padding: 16,
