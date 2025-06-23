@@ -1,8 +1,8 @@
 import React from "react";
 import { View, TextInput, StyleSheet, TextInputProps } from "react-native";
 import { CustomText } from "../CustomText";
-import { Colors } from "@/constants/Colors";
 import { useLocalization } from "@/hooks/useLocalization";
+import { useThemeColor } from "@/hooks/themesHooks/useThemeColor";
 
 interface CustomInputProps extends TextInputProps {
   label: string;
@@ -20,6 +20,9 @@ const CustomInput: React.FC<CustomInputProps> = ({
   ...props
 }) => {
   const { isRTL } = useLocalization();
+  const inputBackgroundColor = useThemeColor({}, "practCardBacgroundColor");
+  const inputBorderColor = useThemeColor({}, "practCardBorderColor");
+  const textColor = useThemeColor({}, "text");
 
   return (
     <View style={styles.container}>
@@ -31,7 +34,15 @@ const CustomInput: React.FC<CustomInputProps> = ({
         }}
       />
       <TextInput
-        style={[styles.input, { textAlign: isRTL ? "right" : "left" }]}
+        style={[
+          styles.input,
+          {
+            textAlign: isRTL ? "right" : "left",
+            backgroundColor: inputBackgroundColor,
+            borderColor: inputBorderColor,
+            color: textColor,
+          },
+        ]}
         keyboardType={type}
         secureTextEntry={secureTextEntry}
         value={value}
@@ -52,10 +63,8 @@ const styles = StyleSheet.create({
     borderWidth: 1,
 
     borderRadius: 5,
-    borderColor: Colors.primary.p500,
     marginBottom: 10,
     padding: 10,
-    backgroundColor: "#fff",
   },
 });
 
