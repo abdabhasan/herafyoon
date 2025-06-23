@@ -3,6 +3,7 @@ import { View, StyleSheet, TouchableOpacity } from "react-native";
 import { CustomText } from "@/components/CustomText";
 import { useLocalization } from "@/hooks/useLocalization";
 import { TranslationKeys } from "@/i18n/translationKeys";
+import { useThemeColor } from "@/hooks/themesHooks/useThemeColor";
 
 interface PractitionersSearchHistoryProps {
   history: string[];
@@ -18,6 +19,7 @@ const PractitionersSearchHistory = ({
   if (history.length === 0) return null;
 
   const { isRTL } = useLocalization();
+  const inputBackgroundColor = useThemeColor({}, "practCardBacgroundColor");
 
   return (
     <View style={styles.mainContainer}>
@@ -33,7 +35,14 @@ const PractitionersSearchHistory = ({
           style={styles.clearButtonTxt}
         />
       </TouchableOpacity>
-      <View style={styles.container}>
+      <View
+        style={[
+          styles.container,
+          {
+            backgroundColor: inputBackgroundColor,
+          },
+        ]}
+      >
         {history.map((item, index) => (
           <TouchableOpacity key={index} onPress={() => onSelectHistory(item)}>
             <CustomText
@@ -54,7 +63,6 @@ const styles = StyleSheet.create({
   },
   container: {
     borderRadius: 8,
-    backgroundColor: "#f9f9f9",
   },
   historyItem: {
     paddingHorizontal: 10,
