@@ -5,6 +5,8 @@
 
 const tintColorLight = "#00bc7d";
 const tintColorDark = "#fff";
+const darkBackground = "#151718"
+const lightBackground = "#fff"
 
 export const Colors = {
   white: "#fff",
@@ -25,18 +27,41 @@ export const Colors = {
   },
   light: {
     text: "#11181C",
-    background: "#fff",
+    background: lightBackground,
     tint: tintColorLight,
     icon: "#687076",
     tabIconDefault: "#687076",
     tabIconSelected: tintColorLight,
+
+    labelTextColor: "#444",
+
+    practCardBacgroundColor: "#f7f7f7",
+    practCardBorderColor: "#e0e0e0",
+
+    inputBacgroundColor: "#f7f7f7",
+    inputBorderColor: "#00bc7d",
+
+    pickerArrowColor: "#000"
+
+
   },
   dark: {
     text: "#ECEDEE",
-    background: "#151718",
+    background: darkBackground,
     tint: tintColorDark,
     icon: "#9BA1A6",
     tabIconDefault: "#9BA1A6",
     tabIconSelected: tintColorDark,
+
+
+    labelTextColor: "#ECEDEE",
+
+    practCardBacgroundColor: "#212329",
+    practCardBorderColor: "#002c22",
+
+    inputBacgroundColor: "#282a30",
+    inputBorderColor: "#002c22",
+
+    pickerArrowColor: "#ECEDEE"
   },
 };
