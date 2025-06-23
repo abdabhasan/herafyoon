@@ -10,9 +10,10 @@ import { CustomText } from "../CustomText";
 import { useTranslation } from "react-i18next";
 import { Controller } from "react-hook-form";
 import MaterialIcons from "react-native-vector-icons/MaterialIcons";
-import { Colors } from "@/constants/Colors";
 import { CustomButton } from "../Btns/CustomBtn";
 import { useLocalization } from "@/hooks/useLocalization";
+import { ThemedView } from "@/components/ThemedView";
+import { useThemeColor } from "@/hooks/themesHooks/useThemeColor";
 
 interface PickerProps {
   elements: Array<{ label: string; value: string }>;
@@ -36,6 +37,9 @@ const CustomPicker: FC<PickerProps> = ({
 }) => {
   const { t } = useTranslation();
   const { isRTL } = useLocalization();
+  const inputBackgroundColor = useThemeColor({}, "practCardBacgroundColor");
+  const inputBorderColor = useThemeColor({}, "practCardBorderColor");
+  const pickerArrowColor = useThemeColor({}, "pickerArrowColor");
 
   const [isModalVisible, setModalVisible] = useState(false);
 
@@ -84,7 +88,11 @@ const CustomPicker: FC<PickerProps> = ({
             <TouchableOpacity
               style={[
                 styles.inputField,
-                { flexDirection: isRTL ? "row-reverse" : "row" },
+                {
+                  flexDirection: isRTL ? "row-reverse" : "row",
+                  backgroundColor: inputBackgroundColor,
+                  borderColor: inputBorderColor,
+                },
               ]}
               onPress={toggleModal}
               disabled={disabled}
@@ -95,7 +103,11 @@ const CustomPicker: FC<PickerProps> = ({
                   elements.find((e) => e.value === value)?.label || "select"
                 }
               />
-              <MaterialIcons name="arrow-drop-down" size={16} color="#000" />
+              <MaterialIcons
+                name="arrow-drop-down"
+                size={16}
+                color={pickerArrowColor}
+              />
             </TouchableOpacity>
 
             {error && (
@@ -112,7 +124,7 @@ const CustomPicker: FC<PickerProps> = ({
               animationType="slide"
             >
               <View style={styles.modalContainer}>
-                <View style={styles.modalContent}>
+                <ThemedView style={styles.modalContent}>
                   <FlatList
                     data={elements}
                     renderItem={({ item }) =>
@@ -126,7 +138,7 @@ const CustomPicker: FC<PickerProps> = ({
                     onPress={toggleModal}
                     style={styles.closeButton}
                   />
-                </View>
+                </ThemedView>
               </View>
             </Modal>
           </>
@@ -146,10 +158,8 @@ const styles = StyleSheet.create({
     borderWidth: 1,
 
     borderRadius: 5,
-    borderColor: Colors.primary.p500,
     marginBottom: 10,
     padding: 10,
-    backgroundColor: "#fff",
 
     alignItems: "center",
     justifyContent: "space-between",
@@ -170,7 +180,6 @@ const styles = StyleSheet.create({
   },
   modalContent: {
     width: "80%",
-    backgroundColor: "#fff",
     borderRadius: 8,
     padding: 20,
     maxHeight: "70%",
@@ -181,7 +190,7 @@ const styles = StyleSheet.create({
   item: {
     padding: 10,
     borderBottomWidth: 1,
-    borderBottomColor: "#eee",
+    borderBottomColor: "#ECEDEE",
   },
   selectedItem: {
     backgroundColor: "#e0f7fa",
