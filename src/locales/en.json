@@ -242,6 +242,18 @@
         "point_one": "The App supports both English and Arabic. Users are responsible for ensuring the accuracy of information they provide in either language."
       }
     },
+    "section_three": {
+      "title": "3. User-Practitioner Relationships",
+      "subsection_one": {
+        "title": "Independent Engagements",
+        "point_one": "The App acts as a platform to connect users with practitioners and does not participate in any agreements made between users and practitioners.",
+        "point_two": "Users and practitioners are solely responsible for resolving any disputes regarding price, job details, deadlines, or other terms of their engagements."
+      },
+      "subsection_two": {
+        "title": "No Liability",
+        "point_one": "We are not responsible for any disputes, misunderstandings, or issues that arise between users and practitioners, including but not limited to financial arrangements, quality of work, or deadlines."
+      }
+    },
   },
 
   "Joiner": "Joiner",
