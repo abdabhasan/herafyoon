@@ -457,6 +457,15 @@ export const TranslationKeys = {
                 pointOne: "privacy_policy.section_eight.subsection_one.point_one",
             },
         },
+        sectionNine: {
+            title: "privacy_policy.section_seven.title",
+            subsectionOne: {
+                pointOne: "privacy_policy.section_seven.subsection_one.point_one",
+                email: "privacy_policy.section_nine.subsection_one.email",
+                phone: "privacy_policy.section_nine.subsection_one.phone",
+                address: "privacy_policy.section_nine.subsection_one.address",
+            },
+        },
     }
 } as const;
 

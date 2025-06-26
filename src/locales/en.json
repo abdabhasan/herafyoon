@@ -424,6 +424,15 @@
         "point_one": "We may update this Privacy Policy from time to time. Any changes will be posted here, and significant updates will be communicated through the App."
       }
     },
+    "section_nine": {
+      "title": "9. Contact Us",
+      "subsection_one": {
+        "point_one": "If you have any questions or concerns about this Privacy Policy, please contact us at:",
+        "email": "Email Address: ",
+        "phone": "Phone Number: ",
+        "address": "Address: "
+      }
+    }
   },
 
   "Joiner": "Joiner",
