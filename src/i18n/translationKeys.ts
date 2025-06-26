@@ -342,6 +342,17 @@ export const TranslationKeys = {
             },
 
         },
+        sectionNine: {
+            title: "terms_and_conditions.section_nine.title",
+            subsectionOne: {
+                pointOne: "terms_and_conditions.section_nine.subsection_one.point_one",
+                email: "terms_and_conditions.section_nine.subsection_one.email",
+                phone: "terms_and_conditions.section_nine.subsection_one.phone",
+                address: "terms_and_conditions.section_nine.subsection_one.address",
+
+            },
+
+        },
     }
 } as const;
 

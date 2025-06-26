@@ -324,6 +324,15 @@
         "point_one": "We may update these Terms at any time. Users will be notified of significant changes, and continued use of the App constitutes acceptance of the updated Terms."
       }
     },
+    "section_nine": {
+      "title": "9. Contact Us",
+      "subsection_one": {
+        "point_one": "If you have any questions or concerns about these Terms, please contact us at:",
+        "email": "Email Address: ",
+        "phone": "Phone Number: ",
+        "address": "Address: "
+      }
+    }
   },
 
   "Joiner": "Joiner",
