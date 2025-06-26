@@ -191,6 +191,169 @@ export const TranslationKeys = {
         iAccept: "terms_checkbox.i_accept",
         termsAndConditions: "terms_checkbox.terms_and_conditions"
     },
+    termsAndConditions: {
+        sectionOne: {
+            title: "terms_and_conditions.section_one.title",
+            subsectionOne: {
+                title: "terms_and_conditions.section_one.subsection_one.title",
+                pointOne: "terms_and_conditions.section_one.subsection_one.point_one",
+                pointTwo: "terms_and_conditions.section_one.subsection_one.point_two",
+
+            },
+            subsectionTwo: {
+                title: "terms_and_conditions.section_one.subsection_two.title",
+                pointOne: "terms_and_conditions.section_one.subsection_two.point_one",
+                pointTwo: "terms_and_conditions.section_one.subsection_two.point_two",
+
+            },
+            subsectionThree: {
+                title: "terms_and_conditions.section_one.subsection_three.title",
+                pointOne: "terms_and_conditions.section_one.subsection_three.point_one",
+                pointTwo: "terms_and_conditions.section_one.subsection_three.point_two",
+
+            },
+            subsectionFour: {
+                title: "terms_and_conditions.section_one.subsection_four.title",
+                pointOne: "terms_and_conditions.section_one.subsection_four.point_one",
+                pointTwo: "terms_and_conditions.section_one.subsection_four.point_two",
+
+            },
+            subsectionFive: {
+                title: "terms_and_conditions.section_one.subsection_five.title",
+                pointOne: "terms_and_conditions.section_one.subsection_five.point_one",
+
+            },
+        },
+        sectionTwo: {
+            title: "terms_and_conditions.section_two.title",
+            subsectionOne: {
+                title: "terms_and_conditions.section_two.subsection_one.title",
+                pointOne: "terms_and_conditions.section_two.subsection_one.point_one",
+                pointTwo: "terms_and_conditions.section_two.subsection_one.point_two",
+
+            },
+            subsectionTwo: {
+                title: "terms_and_conditions.section_two.subsection_two.title",
+                pointOne: "terms_and_conditions.section_two.subsection_two.point_one",
+                pointTwo: "terms_and_conditions.section_two.subsection_two.point_two",
+                pointThree: "terms_and_conditions.section_two.subsection_two.point_three",
+
+            },
+            subsectionThree: {
+                title: "terms_and_conditions.section_two.subsection_three.title",
+                pointOne: "terms_and_conditions.section_two.subsection_three.point_one",
+
+            },
+        },
+        sectionThree: {
+            title: "terms_and_conditions.section_three.title",
+            subsectionOne: {
+                title: "terms_and_conditions.section_three.subsection_one.title",
+                pointOne: "terms_and_conditions.section_three.subsection_one.point_one",
+                pointTwo: "terms_and_conditions.section_three.subsection_one.point_two",
+
+            },
+            subsectionTwo: {
+                title: "terms_and_conditions.section_three.subsection_two.title",
+                pointOne: "terms_and_conditions.section_three.subsection_two.point_one",
+            },
+        },
+        sectionFour: {
+            title: "terms_and_conditions.section_four.title",
+            subsectionOne: {
+                title: "terms_and_conditions.section_four.subsection_one.title",
+                pointOne: "terms_and_conditions.section_four.subsection_one.point_one",
+                pointTwo: "terms_and_conditions.section_four.subsection_one.point_two",
+
+            },
+            subsectionTwo: {
+                title: "terms_and_conditions.section_four.subsection_two.title",
+                pointOne: "terms_and_conditions.section_four.subsection_two.point_one",
+                pointTwo: "terms_and_conditions.section_four.subsection_two.point_two",
+
+            },
+            subsectionThree: {
+                title: "terms_and_conditions.section_four.subsection_three.title",
+                pointOne: "terms_and_conditions.section_four.subsection_three.point_one",
+
+            },
+        },
+        sectionFive: {
+            title: "terms_and_conditions.section_five.title",
+            subsectionOne: {
+                title: "terms_and_conditions.section_five.subsection_one.title",
+                link: "terms_and_conditions.section_five.subsection_one.link",
+                pointOne: "terms_and_conditions.section_five.subsection_one.point_one",
+                pointTwo: "terms_and_conditions.section_five.subsection_one.point_two",
+
+            },
+            subsectionTwo: {
+                title: "terms_and_conditions.section_five.subsection_two.title",
+                pointOne: "terms_and_conditions.section_five.subsection_two.point_one",
+
+            },
+            subsectionThree: {
+                title: "terms_and_conditions.section_five.subsection_three.title",
+                pointOne: "terms_and_conditions.section_five.subsection_three.point_one",
+
+            },
+        },
+        sectionSix: {
+            title: "terms_and_conditions.section_six.title",
+            subsectionOne: {
+                title: "terms_and_conditions.section_six.subsection_one.title",
+                pointOne: "terms_and_conditions.section_six.subsection_one.point_one",
+
+            },
+            subsectionTwo: {
+                title: "terms_and_conditions.section_six.subsection_two.title",
+                pointOne: "terms_and_conditions.section_six.subsection_two.point_one",
+
+            },
+            subsectionThree: {
+                title: "terms_and_conditions.section_six.subsection_three.title",
+                pointOne: "terms_and_conditions.section_six.subsection_three.point_one",
+
+            },
+        },
+        sectionSeven: {
+            title: "terms_and_conditions.section_seven.title",
+            subsectionOne: {
+                title: "terms_and_conditions.section_seven.subsection_one.title",
+                pointOne: "terms_and_conditions.section_seven.subsection_one.point_one",
+
+            },
+            subsectionTwo: {
+                title: "terms_and_conditions.section_seven.subsection_two.title",
+                pointOne: "terms_and_conditions.section_seven.subsection_two.point_one",
+
+            },
+            subsectionThree: {
+                title: "terms_and_conditions.section_seven.subsection_three.title",
+                pointOne: "terms_and_conditions.section_seven.subsection_three.point_one",
+
+            },
+        },
+        sectionEight: {
+            title: "terms_and_conditions.section_eight.title",
+            subsectionOne: {
+                pointOne: "terms_and_conditions.section_eight.subsection_one.point_one",
+
+            },
+
+        },
+        sectionNine: {
+            title: "terms_and_conditions.section_nine.title",
+            subsectionOne: {
+                pointOne: "terms_and_conditions.section_nine.subsection_one.point_one",
+                email: "terms_and_conditions.section_nine.subsection_one.email",
+                phone: "terms_and_conditions.section_nine.subsection_one.phone",
+                address: "terms_and_conditions.section_nine.subsection_one.address",
+
+            },
+
+        },
+    }
 } as const;
 
 export type TranslationKey =

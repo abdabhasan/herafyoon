@@ -196,6 +196,144 @@
     "terms_and_conditions": "terms & conditions"
   },
 
+  "terms_and_conditions": {
+    "section_one": {
+      "title": "1. Account Registration",
+      "subsection_one": {
+        "title": "Eligibility",
+        "point_one": "You must be at least 18 years old to register an account.",
+        "point_two": "If you are under 18, you may use the App under the supervision of a parent or guardian who agrees to these Terms."
+      },
+      "subsection_two": {
+        "title": "Account Types",
+        "point_one": "Practitioner Account: For professionals to share contact information and services.",
+        "point_two": "User Account: For individuals to explore and save practitioner profiles as favorites."
+      },
+      "subsection_three": {
+        "title": "Account-Free Browsing",
+        "point_one": "Users can browse the App and view practitioner profiles without creating a user account.",
+        "point_two": "To add practitioners to favorites, a user account must be created."
+      },
+      "subsection_four": {
+        "title": "Account Information",
+        "point_one": "All information provided during registration must be accurate, complete, and updated as necessary.",
+        "point_two": "You are responsible for maintaining the confidentiality of your account credentials."
+      },
+      "subsection_five": {
+        "title": "Account Termination",
+        "point_one": "We reserve the right to suspend or terminate accounts for violation of these Terms or any misuse of the App."
+      }
+    },
+    "section_two": {
+      "title": "2. Use of the App",
+      "subsection_one": {
+        "title": "Permitted Use",
+        "point_one": "Practitioners can list accurate and lawful contact details.",
+        "point_two": "Users can browse, search, and save practitioner profiles to favorites."
+      },
+      "subsection_two": {
+        "title": "Prohibited Use",
+        "point_one": "Impersonating others or providing false information.",
+        "point_two": "Engaging in activities that violate local laws or infringe on the rights of others.",
+        "point_three": "Using the App to send spam, malicious software, or inappropriate content."
+      },
+      "subsection_three": {
+        "title": "Language Support",
+        "point_one": "The App supports both English and Arabic. Users are responsible for ensuring the accuracy of information they provide in either language."
+      }
+    },
+    "section_three": {
+      "title": "3. User-Practitioner Relationships",
+      "subsection_one": {
+        "title": "Independent Engagements",
+        "point_one": "The App acts as a platform to connect users with practitioners and does not participate in any agreements made between users and practitioners.",
+        "point_two": "Users and practitioners are solely responsible for resolving any disputes regarding price, job details, deadlines, or other terms of their engagements."
+      },
+      "subsection_two": {
+        "title": "No Liability",
+        "point_one": "We are not responsible for any disputes, misunderstandings, or issues that arise between users and practitioners, including but not limited to financial arrangements, quality of work, or deadlines."
+      }
+    },
+    "section_four": {
+      "title": "4. Content Ownership",
+      "subsection_one": {
+        "title": "User-Generated Content",
+        "point_one": "Practitioners are responsible for the accuracy of the information they provide.",
+        "point_two": "Users may not post or upload copyrighted material unless they own the rights or have permission."
+      },
+      "subsection_two": {
+        "title": "Our Rights",
+        "point_one": "We reserve the right to remove any content that violates these Terms or is otherwise deemed inappropriate.",
+        "point_two": "We may use non-personalized user content for promotional purposes."
+      },
+      "subsection_three": {
+        "title": "Intellectual Property",
+        "point_one": "The App and its content, including logos, designs, and trademarks, are owned by us and protected under applicable intellectual property laws."
+      }
+    },
+    "section_five": {
+      "title": "5. Privacy and Data Collection",
+      "subsection_one": {
+        "title": "Personal Data",
+        "link": "privacy policy",
+        "point_one": "We collect and store personal data as described in our ",
+        "point_two": "By using the App, you consent to the collection, use, and sharing of your data as outlined in the Privacy Policy."
+      },
+      "subsection_two": {
+        "title": "Data Storage",
+        "point_one": "Data is stored securely in compliance with local and international regulations."
+      },
+      "subsection_three": {
+        "title": "Google Ads",
+        "point_one": "The App uses Google Ads. By using the App, you agree to Google’s advertising terms."
+      }
+    },
+    "section_six": {
+      "title": "6. Liabilities",
+      "subsection_one": {
+        "title": "Disclaimer of Warranties",
+        "point_one": "The App is provided and as available. We make no guarantees about its reliability, accuracy, or functionality."
+      },
+      "subsection_two": {
+        "title": "Limitation of Liability",
+        "point_one": "We are not liable for any direct, indirect, or incidental damages arising from your use of the App, including loss of data, revenue, or business opportunities."
+      },
+      "subsection_three": {
+        "title": "Third-Party Links",
+        "point_one": "The App may contain links to third-party websites. We are not responsible for the content or practices of those websites."
+      }
+    },
+    "section_seven": {
+      "title": "7. Compliance and Local Laws",
+      "subsection_one": {
+        "title": "Legal Compliance",
+        "point_one": "Practitioners and users must comply with all applicable laws, including those of Jordan."
+      },
+      "subsection_two": {
+        "title": "Disputes",
+        "point_one": "Any disputes arising from the use of the App will be resolved under the laws of Jordan."
+      },
+      "subsection_three": {
+        "title": "Prohibited Content",
+        "point_one": "Any content violating local cultural or legal standards, including offensive or discriminatory material, is strictly forbidden."
+      }
+    },
+    "section_eight": {
+      "title": "8. Modifications",
+      "subsection_one": {
+        "point_one": "We may update these Terms at any time. Users will be notified of significant changes, and continued use of the App constitutes acceptance of the updated Terms."
+      }
+    },
+    "section_nine": {
+      "title": "9. Contact Us",
+      "subsection_one": {
+        "point_one": "If you have any questions or concerns about these Terms, please contact us at:",
+        "email": "Email Address: ",
+        "phone": "Phone Number: ",
+        "address": "Address: "
+      }
+    }
+  },
 
   "Joiner": "Joiner",
   "Blacksmith": "Blacksmith",
