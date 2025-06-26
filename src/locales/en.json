@@ -418,6 +418,12 @@
         "point_one": "Our App is not intended for children under the age of 13. If we become aware that a child’s personal information has been collected without parental consent, we will delete it promptly."
       }
     },
+    "section_eight": {
+      "title": "8. Changes to This Privacy Policy",
+      "subsection_one": {
+        "point_one": "We may update this Privacy Policy from time to time. Any changes will be posted here, and significant updates will be communicated through the App."
+      }
+    },
   },
 
   "Joiner": "Joiner",
