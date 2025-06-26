@@ -445,6 +445,12 @@ export const TranslationKeys = {
                 pointOne: "privacy_policy.section_six.subsection_one.point_one",
             },
         },
+        sectionSeven: {
+            title: "privacy_policy.section_seven.title",
+            subsectionOne: {
+                pointOne: "privacy_policy.section_seven.subsection_one.point_one",
+            },
+        },
     }
 } as const;
 

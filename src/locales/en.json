@@ -412,6 +412,12 @@
         "point_one": "We take reasonable precautions to protect your personal data, including encryption and access controls. However, no system can be completely secure, and we cannot guarantee absolute data security."
       }
     },
+    "section_seven": {
+      "title": "7. Children’s Privacy",
+      "subsection_one": {
+        "point_one": "Our App is not intended for children under the age of 13. If we become aware that a child’s personal information has been collected without parental consent, we will delete it promptly."
+      }
+    },
   },
 
   "Joiner": "Joiner",
