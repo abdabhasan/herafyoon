@@ -334,6 +334,14 @@ export const TranslationKeys = {
 
             },
         },
+        sectionEight: {
+            title: "terms_and_conditions.section_eight.title",
+            subsectionOne: {
+                pointOne: "terms_and_conditions.section_eight.subsection_one.point_one",
+
+            },
+
+        },
     }
 } as const;
 
