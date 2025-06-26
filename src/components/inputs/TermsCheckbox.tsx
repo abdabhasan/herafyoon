@@ -7,6 +7,7 @@ import { useLocalization } from "@/hooks/useLocalization";
 import { CustomText } from "../CustomText";
 import { useTranslation } from "react-i18next";
 import { TranslationKeys } from "@/i18n/translationKeys";
+import { useThemeColor } from "@/hooks/themesHooks/useThemeColor";
 
 interface TermsCheckboxProps {
   name: string;
@@ -17,6 +18,7 @@ interface TermsCheckboxProps {
 const TermsCheckbox: React.FC<TermsCheckboxProps> = ({ name, control }) => {
   const { isRTL } = useLocalization();
   const { t } = useTranslation();
+  const textColor = useThemeColor({}, "text");
 
   return (
     <Controller
@@ -37,7 +39,7 @@ const TermsCheckbox: React.FC<TermsCheckboxProps> = ({ name, control }) => {
               size={24}
               color={value ? "#4CAF50" : "#999"}
             />
-            <Text style={styles.label}>
+            <Text style={[{ color: textColor }, styles.label]}>
               {t(TranslationKeys.termsCheckbox.iAccept)}
               <Link href={"/terms"} style={styles.link}>
                 {t(TranslationKeys.termsCheckbox.termsAndConditions)}
@@ -61,7 +63,6 @@ const styles = StyleSheet.create({
   label: {
     marginHorizontal: 8,
     fontSize: 14,
-    color: "#333",
   },
   link: {
     color: "#007BFF",
