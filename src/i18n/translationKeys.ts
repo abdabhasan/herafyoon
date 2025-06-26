@@ -191,6 +191,40 @@ export const TranslationKeys = {
         iAccept: "terms_checkbox.i_accept",
         termsAndConditions: "terms_checkbox.terms_and_conditions"
     },
+    termsAndConditions: {
+        sectionOne: {
+            title: "terms_and_conditions.section_one.title",
+            subsectionOne: {
+                title: "terms_and_conditions.section_one.subsection_one.title",
+                pointOne: "terms_and_conditions.section_one.subsection_one.point_one",
+                pointTwo: "terms_and_conditions.section_one.subsection_one.point_two",
+
+            },
+            subsectionTwo: {
+                title: "terms_and_conditions.section_one.subsection_two.title",
+                pointOne: "terms_and_conditions.section_one.subsection_two.point_one",
+                pointTwo: "terms_and_conditions.section_one.subsection_two.point_two",
+
+            },
+            subsectionThree: {
+                title: "terms_and_conditions.section_one.subsection_three.title",
+                pointOne: "terms_and_conditions.section_one.subsection_three.point_one",
+                pointTwo: "terms_and_conditions.section_one.subsection_three.point_two",
+
+            },
+            subsectionFour: {
+                title: "terms_and_conditions.section_one.subsection_four.title",
+                pointOne: "terms_and_conditions.section_one.subsection_four.point_one",
+                pointTwo: "terms_and_conditions.section_one.subsection_four.point_two",
+
+            },
+            subsectionFive: {
+                title: "terms_and_conditions.section_one.subsection_five.title",
+                pointOne: "terms_and_conditions.section_one.subsection_five.point_one",
+
+            },
+        },
+    }
 } as const;
 
 export type TranslationKey =
