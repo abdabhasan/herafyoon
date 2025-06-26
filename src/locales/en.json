@@ -344,6 +344,95 @@
     "date": "Effective Date: 25/06/2025",
     "welcome": "Our App is committed to protecting your privacy. This Privacy Policy explains how we collect, use, store, and protect your personal information. By using the App, you agree to the practices described in this Privacy Policy.",
     "footer": "By using the App, you agree to the terms of this Privacy Policy.",
+    "section_one": {
+      "title": "1. Information We Collect",
+      "subsection_one": {
+        "title": "Provided by You",
+        "point_one": "All personal information we collect is provided directly by you when you fill out the signup form in the App. The signup form includes the following inputs:",
+        "point_two": "For Practitioners: Full Name, Email Address, Phone Number, Address, and Work Type.",
+        "point_three": "For Users: Full Name, Email Address, Phone Number, and Address."
+      },
+      "subsection_two": {
+        "title": "Automatic Data",
+        "point_one": "We may collect non-personalized data, such as device type, language preferences, and app usage statistics, for improving app performance."
+      }
+    },
+    "section_two": {
+      "title": "2. How We Use Your Information",
+      "subsection_one": {
+        "title": "Purpose of Collection",
+        "point_one": "Practitioners: Your information is collected solely to display your contact details and work type in the App for users seeking your services.",
+        "point_two": "Users: Your information is used to manage your account and enable you to save practitioners to favorites."
+      },
+      "subsection_two": {
+        "title": "No Additional Use",
+        "point_one": "We do not use, sell, or share your personal information for advertising, marketing, or other unrelated purposes."
+      }
+    },
+    "section_three": {
+      "title": "3. Data Sharing",
+      "subsection_one": {
+        "title": "Who We Share Data With",
+        "point_one": "No third parties have access to your data unless required by law."
+      },
+      "subsection_two": {
+        "title": "Visibility in the App",
+        "point_one": "Practitioners’ contact information and work type are visible to all users of the App."
+      }
+    },
+    "section_four": {
+      "title": "4. Data Storage",
+      "subsection_one": {
+        "title": "Where Data Is Stored",
+        "point_one": "Personal data is securely stored in our database and protected against unauthorized access."
+      },
+      "subsection_two": {
+        "title": "Retention Period",
+        "point_one": "We retain your information as long as your account is active. If you delete your account, your data will be permanently removed."
+      }
+    },
+    "section_five": {
+      "title": "5. Your Rights",
+      "subsection_one": {
+        "title": "Access and Updates",
+        "point_one": "You may access and update your personal information by logging into your account."
+      },
+      "subsection_two": {
+        "title": "Account Deletion",
+        "point_one": "You may request to delete your account at any time, and all associated data will be permanently removed."
+      },
+      "subsection_three": {
+        "title": "Privacy Inquiries",
+        "point_one": "If you have questions about your data, contact us at contact@herafyoon.com"
+      }
+    },
+    "section_six": {
+      "title": "6. Security Measures",
+      "subsection_one": {
+        "point_one": "We take reasonable precautions to protect your personal data, including encryption and access controls. However, no system can be completely secure, and we cannot guarantee absolute data security."
+      }
+    },
+    "section_seven": {
+      "title": "7. Children’s Privacy",
+      "subsection_one": {
+        "point_one": "Our App is not intended for children under the age of 13. If we become aware that a child’s personal information has been collected without parental consent, we will delete it promptly."
+      }
+    },
+    "section_eight": {
+      "title": "8. Changes to This Privacy Policy",
+      "subsection_one": {
+        "point_one": "We may update this Privacy Policy from time to time. Any changes will be posted here, and significant updates will be communicated through the App."
+      }
+    },
+    "section_nine": {
+      "title": "9. Contact Us",
+      "subsection_one": {
+        "point_one": "If you have any questions or concerns about this Privacy Policy, please contact us at:",
+        "email": "Email Address: ",
+        "phone": "Phone Number: ",
+        "address": "Address: "
+      }
+    }
   },
 
   "Joiner": "Joiner",

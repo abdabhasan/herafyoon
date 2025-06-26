@@ -1,0 +1,9 @@
+export { default as PrivacySectionOneText } from "./PrivacySectionOneText";
+export { default as PrivacySectionTwoText } from "./PrivacySectionTwoText";
+export { default as PrivacySectionThreeText } from "./PrivacySectionThreeText";
+export { default as PrivacySectionFourText } from "./PrivacySectionFourText";
+export { default as PrivacySectionFiveText } from "./PrivacySectionFiveText";
+export { default as PrivacySectionSixText } from "./PrivacySectionSixText";
+export { default as PrivacySectionSevenText } from "./PrivacySectionSevenText";
+export { default as PrivacySectionEightText } from "./PrivacySectionEightText";
+export { default as PrivacySectionNineText } from "./PrivacySectionNineText";

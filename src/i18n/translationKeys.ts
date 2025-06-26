@@ -366,6 +366,105 @@ export const TranslationKeys = {
         welcomeOne: "privacy_policy.welcome",
         footer: "privacy_policy.footer",
 
+        sectionOne: {
+            title: "privacy_policy.section_one.title",
+            subsectionOne: {
+                title: "privacy_policy.section_one.subsection_one.title",
+                pointOne: "privacy_policy.section_one.subsection_one.point_one",
+                pointTwo: "privacy_policy.section_one.subsection_one.point_two",
+                pointThree: "privacy_policy.section_one.subsection_one.point_three",
+
+            },
+            subsectionTwo: {
+                title: "privacy_policy.section_one.subsection_two.title",
+                pointOne: "privacy_policy.section_one.subsection_two.point_one",
+
+            },
+        },
+        sectionTwo: {
+            title: "privacy_policy.section_one.title",
+            subsectionOne: {
+                title: "privacy_policy.section_two.subsection_one.title",
+                pointOne: "privacy_policy.section_two.subsection_one.point_one",
+                pointTwo: "privacy_policy.section_two.subsection_one.point_two",
+
+            },
+            subsectionTwo: {
+                title: "privacy_policy.section_two.subsection_two.title",
+                pointOne: "privacy_policy.section_two.subsection_two.point_one",
+
+            },
+        },
+        sectionThree: {
+            title: "privacy_policy.section_three.title",
+            subsectionOne: {
+                title: "privacy_policy.section_three.subsection_one.title",
+                pointOne: "privacy_policy.section_three.subsection_one.point_one",
+
+            },
+            subsectionTwo: {
+                title: "privacy_policy.section_three.subsection_two.title",
+                pointOne: "privacy_policy.section_three.subsection_two.point_one",
+
+            },
+        },
+        sectionFour: {
+            title: "privacy_policy.section_four.title",
+            subsectionOne: {
+                title: "privacy_policy.section_four.subsection_one.title",
+                pointOne: "privacy_policy.section_four.subsection_one.point_one",
+
+            },
+            subsectionTwo: {
+                title: "privacy_policy.section_four.subsection_two.title",
+                pointOne: "privacy_policy.section_four.subsection_two.point_one",
+
+            },
+        },
+        sectionFive: {
+            title: "privacy_policy.section_five.title",
+            subsectionOne: {
+                title: "privacy_policy.section_five.subsection_one.title",
+                pointOne: "privacy_policy.section_five.subsection_one.point_one",
+
+            },
+            subsectionTwo: {
+                title: "privacy_policy.section_five.subsection_two.title",
+                pointOne: "privacy_policy.section_five.subsection_two.point_one",
+
+            },
+            subsectionThree: {
+                title: "privacy_policy.section_five.subsection_two.title",
+                pointOne: "privacy_policy.section_five.subsection_two.point_one",
+
+            },
+        },
+        sectionSix: {
+            title: "privacy_policy.section_six.title",
+            subsectionOne: {
+                pointOne: "privacy_policy.section_six.subsection_one.point_one",
+            },
+        },
+        sectionSeven: {
+            title: "privacy_policy.section_seven.title",
+            subsectionOne: {
+                pointOne: "privacy_policy.section_seven.subsection_one.point_one",
+            },
+        },
+        sectionEight: {
+            title: "privacy_policy.section_eight.title",
+            subsectionOne: {
+                pointOne: "privacy_policy.section_eight.subsection_one.point_one",
+            },
+        },
+        sectionNine: {
+            title: "privacy_policy.section_seven.title",
+            subsectionOne: {
+                pointOne: "privacy_policy.section_seven.subsection_one.point_one",
+                email: "privacy_policy.section_nine.subsection_one.email",
+                phone: "privacy_policy.section_nine.subsection_one.phone",
+                address: "privacy_policy.section_nine.subsection_one.address",
+            },
         },
     }
 } as const;
