@@ -271,6 +271,23 @@
         "point_one": "The App and its content, including logos, designs, and trademarks, are owned by us and protected under applicable intellectual property laws."
       }
     },
+    "section_five": {
+      "title": "5. Privacy and Data Collection",
+      "subsection_one": {
+        "title": "Personal Data",
+        "link": "privacy policy",
+        "point_one": "We collect and store personal data as described in our ",
+        "point_two": "By using the App, you consent to the collection, use, and sharing of your data as outlined in the Privacy Policy."
+      },
+      "subsection_two": {
+        "title": "Data Storage",
+        "point_one": "Data is stored securely in compliance with local and international regulations."
+      },
+      "subsection_three": {
+        "title": "Google Ads",
+        "point_one": "The App uses Google Ads. By using the App, you agree to Google’s advertising terms."
+      }
+    },
   },
 
   "Joiner": "Joiner",
