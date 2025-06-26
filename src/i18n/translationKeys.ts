@@ -360,6 +360,14 @@ export const TranslationKeys = {
 
         },
     }
+    , privacyPolicy: {
+        title: "privacy_policy.title",
+        date: "privacy_policy.date",
+        welcomeOne: "privacy_policy.welcome",
+        footer: "privacy_policy.footer",
+
+        },
+    }
 } as const;
 
 export type TranslationKey =

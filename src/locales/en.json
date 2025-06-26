@@ -339,6 +339,12 @@
       }
     }
   },
+  "privacy_policy": {
+    "title": "Privacy Policy",
+    "date": "Effective Date: 25/06/2025",
+    "welcome": "Our App is committed to protecting your privacy. This Privacy Policy explains how we collect, use, store, and protect your personal information. By using the App, you agree to the practices described in this Privacy Policy.",
+    "footer": "By using the App, you agree to the terms of this Privacy Policy.",
+  },
 
   "Joiner": "Joiner",
   "Blacksmith": "Blacksmith",
