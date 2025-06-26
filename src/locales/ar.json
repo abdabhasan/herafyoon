@@ -193,6 +193,12 @@
     "clear": "حذف التاريخ"
   },
 
+  "terms_checkbox": {
+    "i_accept": "أنا أوافق على  ",
+    "terms_and_conditions": "شروط الإستخدام"
+  },
+
+
   "Joiner": "نجار",
   "Blacksmith": "حداد",
   "Painter": "عامل طلاء",
