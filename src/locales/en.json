@@ -380,6 +380,17 @@
         "point_one": "Practitioners’ contact information and work type are visible to all users of the App."
       }
     },
+    "section_four": {
+      "title": "4. Data Storage",
+      "subsection_one": {
+        "title": "Where Data Is Stored",
+        "point_one": "Personal data is securely stored in our database and protected against unauthorized access."
+      },
+      "subsection_two": {
+        "title": "Retention Period",
+        "point_one": "We retain your information as long as your account is active. If you delete your account, your data will be permanently removed."
+      }
+    },
   },
 
   "Joiner": "Joiner",
