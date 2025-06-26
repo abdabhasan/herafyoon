@@ -406,6 +406,12 @@
         "point_one": "If you have questions about your data, contact us at contact@herafyoon.com"
       }
     },
+    "section_six": {
+      "title": "6. Security Measures",
+      "subsection_one": {
+        "point_one": "We take reasonable precautions to protect your personal data, including encryption and access controls. However, no system can be completely secure, and we cannot guarantee absolute data security."
+      }
+    },
   },
 
   "Joiner": "Joiner",
