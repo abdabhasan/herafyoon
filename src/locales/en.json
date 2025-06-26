@@ -254,6 +254,23 @@
         "point_one": "We are not responsible for any disputes, misunderstandings, or issues that arise between users and practitioners, including but not limited to financial arrangements, quality of work, or deadlines."
       }
     },
+    "section_four": {
+      "title": "4. Content Ownership",
+      "subsection_one": {
+        "title": "User-Generated Content",
+        "point_one": "Practitioners are responsible for the accuracy of the information they provide.",
+        "point_two": "Users may not post or upload copyrighted material unless they own the rights or have permission."
+      },
+      "subsection_two": {
+        "title": "Our Rights",
+        "point_one": "We reserve the right to remove any content that violates these Terms or is otherwise deemed inappropriate.",
+        "point_two": "We may use non-personalized user content for promotional purposes."
+      },
+      "subsection_three": {
+        "title": "Intellectual Property",
+        "point_one": "The App and its content, including logos, designs, and trademarks, are owned by us and protected under applicable intellectual property laws."
+      }
+    },
   },
 
   "Joiner": "Joiner",
