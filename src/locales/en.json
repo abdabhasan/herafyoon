@@ -391,6 +391,21 @@
         "point_one": "We retain your information as long as your account is active. If you delete your account, your data will be permanently removed."
       }
     },
+    "section_five": {
+      "title": "5. Your Rights",
+      "subsection_one": {
+        "title": "Access and Updates",
+        "point_one": "You may access and update your personal information by logging into your account."
+      },
+      "subsection_two": {
+        "title": "Account Deletion",
+        "point_one": "You may request to delete your account at any time, and all associated data will be permanently removed."
+      },
+      "subsection_three": {
+        "title": "Privacy Inquiries",
+        "point_one": "If you have questions about your data, contact us at contact@herafyoon.com"
+      }
+    },
   },
 
   "Joiner": "Joiner",
