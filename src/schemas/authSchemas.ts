@@ -19,7 +19,11 @@ const baseSignupSchema = z.object({
         {
           message: TranslationKeys.validation.phone.invalid,
         }
-      )
+      ),
+
+  acceptTerms: z.literal(true, {
+    errorMap: () => ({ message: "You must accept the terms and conditions" }),
+  }),
 });
 
 export const signupPractSchema = baseSignupSchema.extend({
