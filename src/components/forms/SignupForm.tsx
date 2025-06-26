@@ -1,6 +1,6 @@
 import React from "react";
 import { View, StyleSheet } from "react-native";
-import { useForm } from "react-hook-form";
+import { useForm, useWatch } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { CustomButton } from "@/components/Btns/CustomBtn";
 import {
@@ -17,6 +17,7 @@ import workTypePickerOptions from "@/constants/workTypePickerOptions";
 import { SignupPractFormData, signupPractSchema } from "@/schemas/authSchemas";
 import CustomInputController from "../controllers/CustomInputController";
 import { TranslationKeys } from "@/i18n/translationKeys";
+import TermsCheckbox from "@/components/inputs/TermsCheckbox";
 
 export default function SignupForm() {
   const {
@@ -29,6 +30,8 @@ export default function SignupForm() {
   });
 
   const { state, onSubmit, onVerifyEmail } = useSignupPractitionerForm(reset);
+
+  const isTermsAccepted = useWatch({ control, name: "acceptTerms" });
 
   return (
     <View style={styles.container}>
@@ -51,11 +54,12 @@ export default function SignupForm() {
             label={TranslationKeys.signupPage.form.phone}
             error={errors.phoneNumber ? errors.phoneNumber.message : null}
           />
+          <TermsCheckbox name="acceptTerms" control={control} />
           <CustomButton
             title={TranslationKeys.signup}
             width="m"
             onPress={handleSubmit(onSubmit)}
-            disabled={state.loading}
+            disabled={state.loading || !isTermsAccepted}
           />
         </>
       ) : (
