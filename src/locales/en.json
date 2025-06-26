@@ -224,6 +224,24 @@
         "point_one": "We reserve the right to suspend or terminate accounts for violation of these Terms or any misuse of the App."
       }
     },
+    "section_two": {
+      "title": "2. Use of the App",
+      "subsection_one": {
+        "title": "Permitted Use",
+        "point_one": "Practitioners can list accurate and lawful contact details.",
+        "point_two": "Users can browse, search, and save practitioner profiles to favorites."
+      },
+      "subsection_two": {
+        "title": "Prohibited Use",
+        "point_one": "Impersonating others or providing false information.",
+        "point_two": "Engaging in activities that violate local laws or infringe on the rights of others.",
+        "point_three": "Using the App to send spam, malicious software, or inappropriate content."
+      },
+      "subsection_three": {
+        "title": "Language Support",
+        "point_one": "The App supports both English and Arabic. Users are responsible for ensuring the accuracy of information they provide in either language."
+      }
+    },
   },
 
   "Joiner": "Joiner",
