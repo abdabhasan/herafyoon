@@ -303,6 +303,21 @@
         "point_one": "The App may contain links to third-party websites. We are not responsible for the content or practices of those websites."
       }
     },
+    "section_seven": {
+      "title": "7. Compliance and Local Laws",
+      "subsection_one": {
+        "title": "Legal Compliance",
+        "point_one": "Practitioners and users must comply with all applicable laws, including those of Jordan."
+      },
+      "subsection_two": {
+        "title": "Disputes",
+        "point_one": "Any disputes arising from the use of the App will be resolved under the laws of Jordan."
+      },
+      "subsection_three": {
+        "title": "Prohibited Content",
+        "point_one": "Any content violating local cultural or legal standards, including offensive or discriminatory material, is strictly forbidden."
+      }
+    },
   },
 
   "Joiner": "Joiner",

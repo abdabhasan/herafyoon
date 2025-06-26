@@ -316,6 +316,24 @@ export const TranslationKeys = {
 
             },
         },
+        sectionSeven: {
+            title: "terms_and_conditions.section_seven.title",
+            subsectionOne: {
+                title: "terms_and_conditions.section_seven.subsection_one.title",
+                pointOne: "terms_and_conditions.section_seven.subsection_one.point_one",
+
+            },
+            subsectionTwo: {
+                title: "terms_and_conditions.section_seven.subsection_two.title",
+                pointOne: "terms_and_conditions.section_seven.subsection_two.point_one",
+
+            },
+            subsectionThree: {
+                title: "terms_and_conditions.section_seven.subsection_three.title",
+                pointOne: "terms_and_conditions.section_seven.subsection_three.point_one",
+
+            },
+        },
     }
 } as const;
 
