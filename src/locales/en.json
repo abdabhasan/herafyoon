@@ -191,6 +191,12 @@
     "clear": "Clear"
   },
 
+  "terms_checkbox": {
+    "i_accept": "I accept the ",
+    "terms_and_conditions": "terms & conditions"
+  },
+
+
   "Joiner": "Joiner",
   "Blacksmith": "Blacksmith",
   "Painter": "Painter",

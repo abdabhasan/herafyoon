@@ -187,6 +187,10 @@ export const TranslationKeys = {
         close: "search_page.close",
         clear: "search_page.clear",
     },
+    termsCheckbox: {
+        iAccept: "terms_checkbox.i_accept",
+        termsAndConditions: "terms_checkbox.terms_and_conditions"
+    },
 } as const;
 
 export type TranslationKey =
