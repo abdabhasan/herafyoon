@@ -369,6 +369,17 @@
         "point_one": "We do not use, sell, or share your personal information for advertising, marketing, or other unrelated purposes."
       }
     },
+    "section_three": {
+      "title": "3. Data Sharing",
+      "subsection_one": {
+        "title": "Who We Share Data With",
+        "point_one": "No third parties have access to your data unless required by law."
+      },
+      "subsection_two": {
+        "title": "Visibility in the App",
+        "point_one": "Practitioners’ contact information and work type are visible to all users of the App."
+      }
+    },
   },
 
   "Joiner": "Joiner",
