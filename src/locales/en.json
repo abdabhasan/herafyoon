@@ -197,6 +197,11 @@
   },
 
   "terms_and_conditions": {
+    "title": "Terms and Conditions",
+    "date": "Effective Date: 25/06/2025",
+    "welcome_one": "Welcome to the App. These Terms and Conditions govern your use of the App, operated by us.",
+    "welcome_two": "By accessing or using the App, you agree to comply with and be bound by these Terms. If you do not agree, please do not use the App.",
+    "footer": "By using the App, you acknowledge that you have read, understood, and agree to these Terms and Conditions.",
     "section_one": {
       "title": "1. Account Registration",
       "subsection_one": {

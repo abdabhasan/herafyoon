@@ -192,6 +192,12 @@ export const TranslationKeys = {
         termsAndConditions: "terms_checkbox.terms_and_conditions"
     },
     termsAndConditions: {
+        title: "terms_and_conditions.title",
+        date: "terms_and_conditions.date",
+        welcomeOne: "terms_and_conditions.welcome_one",
+        welcomeTwo: "terms_and_conditions.welcome_two",
+        footer: "terms_and_conditions.footer",
+
         sectionOne: {
             title: "terms_and_conditions.section_one.title",
             subsectionOne: {
