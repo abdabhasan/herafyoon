@@ -31,6 +31,15 @@ const PrivacyPageContainer = () => {
         text={TranslationKeys.privacyPolicy.welcomeOne}
       />
 
+      <PrivacySectionOneText />
+      <PrivacySectionTwoText />
+      <PrivacySectionThreeText />
+      <PrivacySectionFourText />
+      <PrivacySectionFiveText />
+      <PrivacySectionSixText />
+      <PrivacySectionSevenText />
+      <PrivacySectionEightText />
+      <PrivacySectionNineText />
 
       <CustomText
         type="defaultSemiBold"
