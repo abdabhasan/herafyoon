@@ -381,6 +381,20 @@ export const TranslationKeys = {
 
             },
         },
+        sectionTwo: {
+            title: "privacy_policy.section_one.title",
+            subsectionOne: {
+                title: "privacy_policy.section_two.subsection_one.title",
+                pointOne: "privacy_policy.section_two.subsection_one.point_one",
+                pointTwo: "privacy_policy.section_two.subsection_one.point_two",
+
+            },
+            subsectionTwo: {
+                title: "privacy_policy.section_two.subsection_two.title",
+                pointOne: "privacy_policy.section_two.subsection_two.point_one",
+
+            },
+        },
     }
 } as const;
 

@@ -357,6 +357,18 @@
         "point_one": "We may collect non-personalized data, such as device type, language preferences, and app usage statistics, for improving app performance."
       }
     },
+    "section_two": {
+      "title": "2. How We Use Your Information",
+      "subsection_one": {
+        "title": "Purpose of Collection",
+        "point_one": "Practitioners: Your information is collected solely to display your contact details and work type in the App for users seeking your services.",
+        "point_two": "Users: Your information is used to manage your account and enable you to save practitioners to favorites."
+      },
+      "subsection_two": {
+        "title": "No Additional Use",
+        "point_one": "We do not use, sell, or share your personal information for advertising, marketing, or other unrelated purposes."
+      }
+    },
   },
 
   "Joiner": "Joiner",
