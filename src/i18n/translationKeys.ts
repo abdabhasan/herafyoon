@@ -298,6 +298,24 @@ export const TranslationKeys = {
 
             },
         },
+        sectionSix: {
+            title: "terms_and_conditions.section_six.title",
+            subsectionOne: {
+                title: "terms_and_conditions.section_six.subsection_one.title",
+                pointOne: "terms_and_conditions.section_six.subsection_one.point_one",
+
+            },
+            subsectionTwo: {
+                title: "terms_and_conditions.section_six.subsection_two.title",
+                pointOne: "terms_and_conditions.section_six.subsection_two.point_one",
+
+            },
+            subsectionThree: {
+                title: "terms_and_conditions.section_six.subsection_three.title",
+                pointOne: "terms_and_conditions.section_six.subsection_three.point_one",
+
+            },
+        },
     }
 } as const;
 

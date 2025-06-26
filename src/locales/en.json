@@ -288,6 +288,21 @@
         "point_one": "The App uses Google Ads. By using the App, you agree to Google’s advertising terms."
       }
     },
+    "section_six": {
+      "title": "6. Liabilities",
+      "subsection_one": {
+        "title": "Disclaimer of Warranties",
+        "point_one": "The App is provided and as available. We make no guarantees about its reliability, accuracy, or functionality."
+      },
+      "subsection_two": {
+        "title": "Limitation of Liability",
+        "point_one": "We are not liable for any direct, indirect, or incidental damages arising from your use of the App, including loss of data, revenue, or business opportunities."
+      },
+      "subsection_three": {
+        "title": "Third-Party Links",
+        "point_one": "The App may contain links to third-party websites. We are not responsible for the content or practices of those websites."
+      }
+    },
   },
 
   "Joiner": "Joiner",
