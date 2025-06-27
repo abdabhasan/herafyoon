@@ -2,6 +2,7 @@ import React from "react";
 import { StyleSheet } from "react-native";
 import { CustomText } from "@/components/CustomText";
 import ContactInfoText from "@/components/texts/ContactInfoText";
+import { TranslationKeys } from "@/i18n/translationKeys";
 
 type Props = {};
 
@@ -9,17 +10,26 @@ const PrivacySectionNineText = (props: Props) => {
   return (
     <>
       <CustomText
-        text="9. Contact Us"
+        text={TranslationKeys.privacyPolicy.sectionNine.title}
         type="primarySubtitle"
         style={styles.sectionTitle}
       />
       <CustomText
         style={styles.text}
-        text="If you have any questions or concerns about this Privacy Policy, please contact us at:"
+        text={TranslationKeys.privacyPolicy.sectionNine.subsectionOne.pointOne}
       />
-      <ContactInfoText type="email" text="contact@herafyoon.com" />
-      <ContactInfoText type="phone" text="+96212345678" />
-      <ContactInfoText type="address" text="Amman" />
+      <ContactInfoText
+        type={TranslationKeys.privacyPolicy.sectionNine.subsectionOne.email}
+        text="contact@herafyoon.com"
+      />
+      <ContactInfoText
+        type={TranslationKeys.privacyPolicy.sectionNine.subsectionOne.phone}
+        text="+96212345678"
+      />
+      <ContactInfoText
+        type={TranslationKeys.privacyPolicy.sectionNine.subsectionOne.address}
+        text="Amman"
+      />
     </>
   );
 };
