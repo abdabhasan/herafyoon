@@ -2,6 +2,7 @@ import React from "react";
 import BulletItemText from "@/components/texts/BulletItemText";
 import { StyleSheet } from "react-native";
 import { CustomText } from "@/components/CustomText";
+import { TranslationKeys } from "@/i18n/translationKeys";
 
 type Props = {};
 
@@ -9,28 +10,36 @@ const PrivacySectionFiveText = (props: Props) => {
   return (
     <>
       <CustomText
-        text="5. Your Rights"
+        text={TranslationKeys.privacyPolicy.sectionFive.title}
         type="primarySubtitle"
         style={styles.sectionTitle}
       />
       <CustomText
-        text="Access and Updates"
+        text={TranslationKeys.privacyPolicy.sectionFive.subsectionOne.title}
         type="defaultSemiBold"
         style={styles.subsectionTitle}
       />
-      <BulletItemText text="You may access and update your personal information by logging into your account." />
+      <BulletItemText
+        text={TranslationKeys.privacyPolicy.sectionFive.subsectionOne.pointOne}
+      />
       <CustomText
-        text="Account Deletion"
+        text={TranslationKeys.privacyPolicy.sectionFive.subsectionTwo.title}
         type="defaultSemiBold"
         style={styles.subsectionTitle}
       />
-      <BulletItemText text="You may request to delete your account at any time, and all associated data will be permanently removed." />
+      <BulletItemText
+        text={TranslationKeys.privacyPolicy.sectionFive.subsectionTwo.pointOne}
+      />
       <CustomText
-        text="Privacy Inquiries"
+        text={TranslationKeys.privacyPolicy.sectionFive.subsectionThree.title}
         type="defaultSemiBold"
         style={styles.subsectionTitle}
       />
-      <BulletItemText text="If you have questions about your data, contact us at contact@herafyoon.com" />
+      <BulletItemText
+        text={
+          TranslationKeys.privacyPolicy.sectionFive.subsectionThree.pointOne
+        }
+      />
     </>
   );
 };
