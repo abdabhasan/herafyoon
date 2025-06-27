@@ -5,11 +5,15 @@ import { CustomText } from "@/components/CustomText";
 import { Link } from "expo-router";
 import { TranslationKeys } from "@/i18n/translationKeys";
 import { useTranslation } from "react-i18next";
+import { useThemeColor } from "@/hooks/themesHooks/useThemeColor";
+import { useLocalization } from "@/hooks/useLocalization";
 
 type Props = {};
 
 const TermsSectionFiveText = (props: Props) => {
   const { t } = useTranslation();
+  const textColor = useThemeColor({}, "text");
+  const { isRTL } = useLocalization();
 
   return (
     <>
@@ -25,9 +29,25 @@ const TermsSectionFiveText = (props: Props) => {
         type="defaultSemiBold"
         style={styles.subsectionTitle}
       />
-      <View style={styles.bulletItem}>
-        <Text style={styles.bulletPoint}>•</Text>
-        <Text style={styles.text}>
+      <View
+        style={[
+          styles.bulletItem,
+          {
+            flexDirection: isRTL ? "row-reverse" : "row",
+          },
+        ]}
+      >
+        <Text
+          style={[
+            {
+              color: textColor,
+            },
+            styles.bulletPoint,
+          ]}
+        >
+          •
+        </Text>
+        <Text style={[{ color: textColor }, styles.text]}>
           {t(
             TranslationKeys.termsAndConditions.sectionFive.subsectionOne
               .pointOne
@@ -88,7 +108,7 @@ const styles = StyleSheet.create({
     marginBottom: 5,
   },
   bulletPoint: {
-    marginRight: 10,
+    marginHorizontal: 10,
   },
   text: {
     fontSize: 16,
