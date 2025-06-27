@@ -2,6 +2,7 @@ import React from "react";
 import BulletItemText from "@/components/texts/BulletItemText";
 import { StyleSheet } from "react-native";
 import { CustomText } from "@/components/CustomText";
+import { TranslationKeys } from "@/i18n/translationKeys";
 
 type Props = {};
 
@@ -9,12 +10,14 @@ const PrivacySectionSixText = (props: Props) => {
   return (
     <>
       <CustomText
-        text="6. Security Measures"
+        text={TranslationKeys.privacyPolicy.sectionSix.title}
         type="primarySubtitle"
         style={styles.sectionTitle}
       />
 
-      <BulletItemText text="We take reasonable precautions to protect your personal data, including encryption and access controls. However, no system can be completely secure, and we cannot guarantee absolute data security." />
+      <BulletItemText
+        text={TranslationKeys.privacyPolicy.sectionSix.subsectionOne.pointOne}
+      />
     </>
   );
 };

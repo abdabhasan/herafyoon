@@ -2,6 +2,7 @@ import React from "react";
 import BulletItemText from "@/components/texts/BulletItemText";
 import { StyleSheet } from "react-native";
 import { CustomText } from "@/components/CustomText";
+import { TranslationKeys } from "@/i18n/translationKeys";
 
 type Props = {};
 
@@ -9,22 +10,26 @@ const PrivacySectionFourText = (props: Props) => {
   return (
     <>
       <CustomText
-        text="4. Data Storage"
+        text={TranslationKeys.privacyPolicy.sectionFour.title}
         type="primarySubtitle"
         style={styles.sectionTitle}
       />
       <CustomText
-        text="Where Data Is Stored"
+        text={TranslationKeys.privacyPolicy.sectionFour.subsectionOne.title}
         type="defaultSemiBold"
         style={styles.subsectionTitle}
       />
-      <BulletItemText text="Personal data is securely stored in our database and protected against unauthorized access." />
+      <BulletItemText
+        text={TranslationKeys.privacyPolicy.sectionFour.subsectionOne.pointOne}
+      />
       <CustomText
-        text="Retention Period"
+        text={TranslationKeys.privacyPolicy.sectionFour.subsectionTwo.title}
         type="defaultSemiBold"
         style={styles.subsectionTitle}
       />
-      <BulletItemText text="We retain your information as long as your account is active. If you delete your account, your data will be permanently removed." />
+      <BulletItemText
+        text={TranslationKeys.privacyPolicy.sectionFour.subsectionTwo.pointOne}
+      />
     </>
   );
 };

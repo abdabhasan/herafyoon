@@ -2,6 +2,7 @@ import React from "react";
 import BulletItemText from "@/components/texts/BulletItemText";
 import { StyleSheet } from "react-native";
 import { CustomText } from "@/components/CustomText";
+import { TranslationKeys } from "@/i18n/translationKeys";
 
 type Props = {};
 
@@ -9,23 +10,29 @@ const PrivacySectionTwoText = (props: Props) => {
   return (
     <>
       <CustomText
-        text="2. How We Use Your Information"
+        text={TranslationKeys.privacyPolicy.sectionTwo.title}
         type="primarySubtitle"
         style={styles.sectionTitle}
       />
       <CustomText
-        text="Purpose of Collection"
+        text={TranslationKeys.privacyPolicy.sectionTwo.subsectionOne.title}
         type="defaultSemiBold"
         style={styles.subsectionTitle}
       />
-      <BulletItemText text="Practitioners: Your information is collected solely to display your contact details and work type in the App for users seeking your services." />
-      <BulletItemText text="Users: Your information is used to manage your account and enable you to save practitioners to favorites." />
+      <BulletItemText
+        text={TranslationKeys.privacyPolicy.sectionTwo.subsectionOne.pointOne}
+      />
+      <BulletItemText
+        text={TranslationKeys.privacyPolicy.sectionTwo.subsectionOne.pointTwo}
+      />
       <CustomText
-        text="No Additional Use"
+        text={TranslationKeys.privacyPolicy.sectionTwo.subsectionTwo.title}
         type="defaultSemiBold"
         style={styles.subsectionTitle}
       />
-      <BulletItemText text="We do not use, sell, or share your personal information for advertising, marketing, or other unrelated purposes." />
+      <BulletItemText
+        text={TranslationKeys.privacyPolicy.sectionTwo.subsectionTwo.pointOne}
+      />
     </>
   );
 };

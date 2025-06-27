@@ -2,6 +2,7 @@ import React from "react";
 import BulletItemText from "@/components/texts/BulletItemText";
 import { StyleSheet } from "react-native";
 import { CustomText } from "@/components/CustomText";
+import { TranslationKeys } from "@/i18n/translationKeys";
 
 type Props = {};
 
@@ -9,22 +10,26 @@ const PrivacySectionThreeText = (props: Props) => {
   return (
     <>
       <CustomText
-        text="3. Data Sharing"
+        text={TranslationKeys.privacyPolicy.sectionThree.title}
         type="primarySubtitle"
         style={styles.sectionTitle}
       />
       <CustomText
-        text="Who We Share Data With"
+        text={TranslationKeys.privacyPolicy.sectionThree.subsectionOne.title}
         type="defaultSemiBold"
         style={styles.subsectionTitle}
       />
-      <BulletItemText text="No third parties have access to your data unless required by law." />
+      <BulletItemText
+        text={TranslationKeys.privacyPolicy.sectionThree.subsectionOne.pointOne}
+      />
       <CustomText
-        text="Visibility in the App"
+        text={TranslationKeys.privacyPolicy.sectionThree.subsectionTwo.title}
         type="defaultSemiBold"
         style={styles.subsectionTitle}
       />
-      <BulletItemText text="Practitioners’ contact information and work type are visible to all users of the App." />
+      <BulletItemText
+        text={TranslationKeys.privacyPolicy.sectionThree.subsectionTwo.pointOne}
+      />
     </>
   );
 };
