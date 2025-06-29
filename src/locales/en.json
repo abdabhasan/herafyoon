@@ -434,6 +434,17 @@
       }
     }
   },
+  "report_a_practitioner": {
+    "are_you_sure": "Are you sure you want to report this practitioner?",
+    "yes_report": "Yes, Report",
+    "close": "Close",
+    "signin_to_report": "You must to sign in to report.",
+    "just_users_can_report_one": "Just users can report a practitioner",
+    "just_users_can_report_two": "You are practitioner, and can't report another practitioner",
+    "already_reported": "You have already reported this practitioner.",
+    "report_submitted": "Your report has been submitted.",
+    "report_faild": "Failed to report practitioner. Please try again."
+  },
 
   "Joiner": "Joiner",
   "Blacksmith": "Blacksmith",
