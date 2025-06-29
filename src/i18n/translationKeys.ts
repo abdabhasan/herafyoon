@@ -466,7 +466,20 @@ export const TranslationKeys = {
                 address: "privacy_policy.section_nine.subsection_one.address",
             },
         },
+    },
+    reportPractitioner: {
+        areYouSure: "report_a_practitioner.are_you_sure",
+        yesReport: "report_a_practitioner.yes_report",
+        close: "report_a_practitioner.close",
+        signinToReport: "report_a_practitioner.signin_to_report",
+        justUsersCanReportOne: "report_a_practitioner.just_users_can_report_one",
+        justUsersCanReportTwo: "report_a_practitioner.just_users_can_report_two",
+        alreadyReported: "report_a_practitioner.already_reported",
+        reportSubmitted: "report_a_practitioner.report_submitted",
+        reportFaild: "report_a_practitioner.report_faild",
+
     }
+
 } as const;
 
 export type TranslationKey =

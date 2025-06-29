@@ -436,6 +436,17 @@
       }
     }
   },
+  "report_a_practitioner": {
+    "are_you_sure": "هل أنت متأكد أنك تريد الإبلاغ عن هذا الحرفي؟",
+    "yes_report": "نعم، إبلاغ",
+    "close": "إغلاق",
+    "signin_to_report": "يجب تسجيل الدخول حتى تتمكن من الإبلاغ عن حرفي",
+    "just_users_can_report_one": "فقط المستخدمين يمكنهم الإبلاغ عن حرفي",
+    "just_users_can_report_two": "أنت حرفي، ولا يمكنك الإبلاغ عن حرفي آخر!",
+    "already_reported": "لقد قمت بالإبلاغ عن هذا الحرفي بالفعل",
+    "report_submitted": "بلاغك تم تقديمه",
+    "report_faild": "فشل الإبلاغ، الرجاء المحاولة مرة أخرى"
+  },
 
   "Joiner": "نجار",
   "Blacksmith": "حداد",
