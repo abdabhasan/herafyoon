@@ -35,7 +35,11 @@ export const savePractitionerDataToFirestore = async (
 
 export const fetchAllPractitioners = async () => {
     const practs: Array<PractitionerInfoCard> = [];
-    const querySnapshot = await getDocs(collection(db, "practitioners"));
+    const practsQuery =
+        query(collection(db, "practitioners"),
+            where("status", "==", "active"));
+
+    const querySnapshot = await getDocs(practsQuery);
     querySnapshot.forEach((doc) => {
         practs.push({ id: doc.id, ...doc.data() } as PractitionerInfoCard);
     });
@@ -47,7 +51,10 @@ export const fetchFeaturedPractitioners = async () => {
     const featuredPracts: Array<PractitionerInfoCard> = [];
 
     try {
-        const practsQuery = query(collection(db, "practitioners"), where("featured", "==", true));
+        const practsQuery =
+            query(collection(db, "practitioners"),
+                where("featured", "==", true),
+                where("status", "==", "active"));
         const querySnapshot = await getDocs(practsQuery);
         querySnapshot.forEach((doc) => {
             featuredPracts.push({ id: doc.id, ...doc.data() } as PractitionerInfoCard);
@@ -76,7 +83,7 @@ export const fetchFilteredPractitioners = async (
     if (neighbourhood) filters.push(where("neighbourhood", "==", neighbourhood));
     if (workType) filters.push(where("workType", "==", workType));
 
-    const q = query(collection(db, "practitioners"), ...filters);
+    const q = query(collection(db, "practitioners"), ...filters, where("status", "==", "active"));
 
     try {
         const querySnapshot = await getDocs(q);
@@ -104,7 +111,7 @@ export const fetchPractitionersByIdsArray = async (ids: string[]): Promise<Pract
     });
 
     const results = await Promise.all(promises);
-    return results.filter((item): item is PractitionerInfoCard => item !== null); // Filter out nulls
+    return results.filter((item): item is PractitionerInfoCard => item !== null && item.status === "active"); // Filter out nulls
 };
 
 
@@ -123,7 +130,7 @@ export const fetchSinglePractitionerInfo = async (practId: string) => {
         const practDocRef = doc(db, "practitioners", practId);
         const practDoc = await getDoc(practDocRef);
 
-        if (practDoc.exists()) {
+        if (practDoc.exists() && practDoc.data().status === "active") {
             return { id: practDoc.id, ...practDoc.data() };
         } else {
             console.error("No practitioner document found!");
