@@ -2,7 +2,9 @@ import { CustomText } from "@/components/CustomText";
 import { Colors } from "@/constants/Colors";
 import React from "react";
 import { useLocalization } from "@/hooks/useLocalization";
-import { View, StyleSheet } from "react-native";
+import { StyleSheet } from "react-native";
+import { ThemedView } from "../ThemedView";
+import { useThemeColor } from "@/hooks/themesHooks/useThemeColor";
 
 type ProfileInfoCardProps = {
   name: string;
@@ -11,19 +13,21 @@ type ProfileInfoCardProps = {
 
 const ProfileInfoCard: React.FC<ProfileInfoCardProps> = ({ name, value }) => {
   const { isRTL } = useLocalization();
+  const borderColor = useThemeColor({}, "inputBorderColor");
 
   return (
     <>
-      <View
+      <ThemedView
         style={[
           styles.infoContainer,
           { flexDirection: isRTL ? "row-reverse" : "row" },
+          { borderColor },
         ]}
       >
         <CustomText text={name} type="details" style={styles.infoLabel} />
         <CustomText text={" : "} type="details" style={styles.infoLabel} />
         <CustomText text={value} type="details" />
-      </View>
+      </ThemedView>
     </>
   );
 };
@@ -38,9 +42,6 @@ const styles = StyleSheet.create({
 
     borderWidth: 1,
     borderRadius: 8,
-    borderColor: Colors.primary.p500,
-
-    backgroundColor: Colors.white,
   },
   infoLabel: {
     fontWeight: "bold",
