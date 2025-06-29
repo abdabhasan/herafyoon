@@ -70,8 +70,10 @@ const ProfilePageContainer = (props: Props) => {
   return (
     <ScrollView contentContainerStyle={styles.scrollViewContent}>
       <View style={styles.btnsContainer}>
-        <LanguageSelectBtn />
-        <ThemeToggleButton />
+        <View>
+          <LanguageSelectBtn />
+          <ThemeToggleButton />
+        </View>
 
         <TouchableOpacity onPress={handleLogout} style={styles.logoutBtn}>
           <LogoutSVG width={13} height={13} />
