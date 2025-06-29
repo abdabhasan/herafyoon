@@ -9,6 +9,7 @@ export type PractitionerInfoCard = {
     city: string;
     neighbourhood: string;
     phoneNumber: string;
+    status?: string;
 }
 
 
