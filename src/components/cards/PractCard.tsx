@@ -8,6 +8,7 @@ import useFavorites from "@/hooks/useFavorites";
 import { useLocalization } from "@/hooks/useLocalization";
 import { useThemeColor } from "@/hooks/themesHooks/useThemeColor";
 import { useTheme } from "@/contexts/ThemeContext";
+import ReportPractitionerButton from "../Btns/ReportPractitionerBtn";
 
 interface PractCardProps {
   id: string;
@@ -81,13 +82,14 @@ const PractCard: React.FC<PractCardProps> = ({
             />
           )}
         </TouchableOpacity>
-        <Avatar.Image
+        <ReportPractitionerButton practitionerId={id} />
+        {/* <Avatar.Image
           size={50}
           source={{
             uri: "https://cdn-icons-png.flaticon.com/512/2815/2815428.png",
           }}
           style={styles.avatar}
-        />
+        /> */}
       </View>
     </View>
   );
