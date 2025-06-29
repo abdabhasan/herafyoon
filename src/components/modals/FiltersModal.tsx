@@ -1,12 +1,12 @@
 import React from "react";
-import { View, Modal, StyleSheet } from "react-native";
+import { StyleSheet } from "react-native";
 import { CustomButton } from "@/components/Btns/CustomBtn";
 import CustomPicker from "@/components/inputs/CustomPicker";
 import { CustomText } from "@/components/CustomText";
 import { LocationInputsContainer } from "@/components/containers/InputsContainers";
 import workTypePickerOptions from "@/constants/workTypePickerOptions";
 import { TranslationKeys } from "@/i18n/translationKeys";
-import { ThemedView } from "@/components/ThemedView";
+import CustomModal from "./CustomModal";
 
 interface FiltersModalProps {
   visible: boolean;
@@ -24,37 +24,28 @@ const FiltersModal: React.FC<FiltersModalProps> = ({
   onClose,
 }) => {
   return (
-    <Modal
-      visible={visible}
-      animationType="slide"
-      transparent
-      onRequestClose={onClose}
-    >
-      <View style={styles.modalContainer}>
-        <ThemedView style={styles.modalContent}>
-          <CustomText text="Filters" type="primarySubtitle" />
-          <LocationInputsContainer control={control} errors={errors} />
+    <CustomModal visible={visible} onClose={onClose}>
+      <CustomText text="Filters" type="primarySubtitle" />
+      <LocationInputsContainer control={control} errors={errors} />
 
-          <CustomPicker
-            name="workType"
-            control={control}
-            label={TranslationKeys.signupPage.form.workType}
-            elements={workTypePickerOptions}
-            error={errors.workType?.message}
-          />
+      <CustomPicker
+        name="workType"
+        control={control}
+        label={TranslationKeys.signupPage.form.workType}
+        elements={workTypePickerOptions}
+        error={errors.workType?.message}
+      />
 
-          <CustomButton
-            title={TranslationKeys.searchPage.search}
-            onPress={onSubmit}
-          />
-          <CustomButton
-            title={TranslationKeys.searchPage.close}
-            onPress={onClose}
-            color="dark"
-          />
-        </ThemedView>
-      </View>
-    </Modal>
+      <CustomButton
+        title={TranslationKeys.searchPage.search}
+        onPress={onSubmit}
+      />
+      <CustomButton
+        title={TranslationKeys.searchPage.close}
+        onPress={onClose}
+        color="dark"
+      />
+    </CustomModal>
   );
 };
 
