@@ -1,12 +1,36 @@
 import { Colors } from "@/constants/Colors";
 import React from "react";
-import { ActivityIndicator, StyleSheet, View } from "react-native";
+import {
+  ActivityIndicator,
+  StyleProp,
+  StyleSheet,
+  View,
+  ViewStyle,
+} from "react-native";
 
-export const LoadingSpinner = () => (
-  <View style={styles.container}>
-    <ActivityIndicator size={75} color={Colors.primary.p500} />
-  </View>
-);
+type SizeOption = "l" | "m" | "sm" | "xs";
+
+type Props = {
+  style?: StyleProp<ViewStyle>;
+  size?: SizeOption;
+};
+
+const sizeMap: Record<SizeOption, number> = {
+  xs: 25,
+  sm: 35,
+  m: 45,
+  l: 70,
+};
+
+export const LoadingSpinner: React.FC<Props> = ({ style, size = "l" }) => {
+  const spinnerSize = sizeMap[size];
+
+  return (
+    <View style={[style, styles.container]}>
+      <ActivityIndicator size={spinnerSize} color={Colors.primary.p500} />
+    </View>
+  );
+};
 
 const styles = StyleSheet.create({
   container: {
