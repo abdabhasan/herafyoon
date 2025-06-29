@@ -24,6 +24,7 @@ export const savePractitionerDataToFirestore = async (
             createdAt: serverTimestamp(),
             featured: false,
             favorites: [],
+            status: "active"
         });
     } catch (error: any) {
         console.error("Error saving practitioner data to Firestore:", error);
